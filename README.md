@@ -4,8 +4,6 @@
 
 ## Glossary of Common Terms
 
-- [Types of Data Classification](#types-of-data-classification)
-
 GIS: A geographic information system (GIS) is a framework for gathering, managing, and analyzing data. Rooted in the science of geography, GIS integrates many types of data. It analyzes spatial location and organizes layers of information into visualizations using maps and 3D scenes. ​With this unique capability, GIS reveals deeper insights into data, such as patterns, relationships, and situations—helping users make smarter decisions. 
 
 ArcGIS: A platform for organizations to create, manage, share, and analyze spatial data. It consists of server components, mobile and desktop applications, and developer tools. This platform can be deployed on-premises or in the cloud (Amazon, Azure) with ArcGIS Enterprise, or used via ArcGIS Online which is hosted and managed by Esri.
