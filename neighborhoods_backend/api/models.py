@@ -1,14 +1,9 @@
-# This is an auto-generated Django model module.
-# You'll have to do the following manually to clean this up:
-#   * Rearrange models' order
-#   * Make sure each model has one field with primary_key=True
-#   * Make sure each ForeignKey has `on_delete` set to the desired behavior.
-#   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
-# Feel free to rename the models, but don't rename db_table values or field names.
-from django.db import models
+
+from django.contrib.gis.db import models
 
 
 class AffordableHousing(models.Model):
+    id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=50)
     total_unit = models.IntegerField()
     affordable = models.IntegerField()
@@ -29,7 +24,7 @@ class AffordableHousing(models.Model):
     veterans = models.IntegerField()
     lat = models.FloatField()
     long = models.FloatField()
-    geom = models.TextField()  # This field type is a guess.
+    geom = models.MultiPointField()
 
     class Meta:
         managed = False
@@ -37,6 +32,7 @@ class AffordableHousing(models.Model):
 
 
 class BlockgroupsEl(models.Model):
+    id = models.IntegerField(primary_key=True)
     geoid = models.CharField(max_length=50)
     west = models.FloatField()
     south = models.FloatField()
@@ -418,7 +414,7 @@ class BlockgroupsEl(models.Model):
     efr_16 = models.FloatField()
     imputed_16 = models.FloatField()
     subbed_16 = models.FloatField()
-    geom = models.TextField()  # This field type is a guess.
+    geom = models.GeometryField()
 
     class Meta:
         managed = False
@@ -442,7 +438,7 @@ class BusStops(models.Model):
     stop_seq = models.IntegerField()
     type = models.CharField(max_length=50)
     frequent = models.CharField(max_length=50)
-    geom = models.TextField()  # This field type is a guess.
+    geom = models.MultiPointField()
 
     class Meta:
         managed = False
@@ -450,6 +446,7 @@ class BusStops(models.Model):
 
 
 class CampCleanups(models.Model):
+    id = models.IntegerField(primary_key=True)
     reportdate = models.CharField(max_length=50)
     location = models.CharField(max_length=150)
     maintenanceproject = models.CharField(max_length=50)
@@ -460,7 +457,7 @@ class CampCleanups(models.Model):
     lat = models.FloatField()
     long = models.FloatField()
     notes = models.CharField(max_length=200)
-    geom = models.TextField()  # This field type is a guess.
+    geom = models.PointField()
 
     class Meta:
         managed = False
@@ -468,6 +465,8 @@ class CampCleanups(models.Model):
 
 
 class Census2000(models.Model):
+    # TODO: Move census data into its own app
+    id = models.IntegerField(primary_key=True)
     trbg = models.CharField(max_length=50)
     fips = models.CharField(max_length=50)
     bg = models.CharField(max_length=50)
@@ -501,7 +500,7 @@ class Census2000(models.Model):
     pop08 = models.IntegerField()
     hh08 = models.IntegerField()
     du08 = models.IntegerField()
-    geom = models.TextField()  # This field type is a guess.
+    geom = models.MultiPolygonField()
 
     class Meta:
         managed = False
@@ -509,6 +508,8 @@ class Census2000(models.Model):
 
 
 class Census2010(models.Model):
+    # TODO: Move census data into its own app
+    id = models.IntegerField(primary_key=True)
     state = models.CharField(max_length=50)
     county = models.CharField(max_length=50)
     tract = models.CharField(max_length=50)
@@ -527,7 +528,7 @@ class Census2010(models.Model):
     other_race = models.IntegerField()
     pop_2_race = models.IntegerField()
     hispanic = models.IntegerField()
-    geom = models.TextField()  # This field type is a guess.
+    geom = models.PolygonField()
 
     class Meta:
         managed = False
@@ -535,6 +536,8 @@ class Census2010(models.Model):
 
 
 class Crime(models.Model):
+    # TODO: convert to using case_number as the PK?
+    id = models.IntegerField(primary_key=True)
     address = models.CharField(max_length=200)
     case_number = models.CharField(max_length=50)
     crime_against = models.CharField(max_length=50)
@@ -547,7 +550,7 @@ class Crime(models.Model):
     lat = models.FloatField()
     lon = models.FloatField()
     report_date = models.DateTimeField()
-    geom = models.TextField()  # This field type is a guess.
+    geom = models.PointField()
 
     class Meta:
         managed = False
@@ -555,7 +558,7 @@ class Crime(models.Model):
 
 
 class DatCrimeNeigh(models.Model):
-    id = models.IntegerField(blank=True, null=True)
+    id = models.IntegerField(primary_key=True)
     reportdate = models.CharField(max_length=50, blank=True, null=True)
     location = models.CharField(max_length=150, blank=True, null=True)
     maintenanceproject = models.CharField(max_length=50, blank=True, null=True)
@@ -566,7 +569,7 @@ class DatCrimeNeigh(models.Model):
     lat = models.FloatField(blank=True, null=True)
     long = models.FloatField(blank=True, null=True)
     notes = models.CharField(max_length=200, blank=True, null=True)
-    geom = models.TextField(blank=True, null=True)  # This field type is a guess.
+    geom = models.PointField(null=True)
     gridid = models.IntegerField(blank=True, null=True)
 
     class Meta:
@@ -616,7 +619,7 @@ class Demolitions(models.Model):
     totalsqft = models.CharField(max_length=50)
     numbstorie = models.CharField(max_length=50)
     customer = models.CharField(max_length=50)
-    geom = models.TextField()  # This field type is a guess.
+    geom = models.MultiPointField()
     description = models.CharField(max_length=300)
 
     class Meta:
@@ -626,9 +629,9 @@ class Demolitions(models.Model):
 
 
 class HousingAreas(models.Model):
-    name = models.CharField(max_length=50)
     id = models.IntegerField(primary_key=True)
-    geom = models.TextField()  # This field type is a guess.
+    name = models.CharField(max_length=50)
+    geom = models.MultiPolygonField()
 
     class Meta:
         managed = False
@@ -636,11 +639,12 @@ class HousingAreas(models.Model):
 
 
 class Neighborhoods(models.Model):
+    # TODO: Double check this one once the table is recreated
     fid = models.IntegerField()
     name = models.CharField(max_length=60)
     area = models.FloatField()
     sqmiles = models.FloatField()
-    geom = models.TextField()  # This field type is a guess.
+    geom = models.MultiPolygonField()
 
     class Meta:
         managed = False
@@ -648,6 +652,7 @@ class Neighborhoods(models.Model):
 
 
 class ParksTrails(models.Model):
+    id = models.IntegerField(primary_key=True)
     objectid = models.IntegerField()
     propertyid = models.CharField(max_length=50)
     local_name = models.CharField(max_length=50)
@@ -672,7 +677,7 @@ class ParksTrails(models.Model):
     miles = models.FloatField()
     shape_leng = models.FloatField()
     fire_acces = models.CharField(max_length=50)
-    geom = models.TextField()  # This field type is a guess.
+    geom = models.GeometryField()
 
     class Meta:
         managed = False
@@ -685,7 +690,7 @@ class SchoolDistricts(models.Model):
     distinstid = models.IntegerField()
     ncesdistid = models.IntegerField()
     area = models.FloatField()
-    geom = models.TextField()  # This field type is a guess.
+    geom = models.GeometryField()
 
     class Meta:
         managed = False
@@ -695,13 +700,14 @@ class SchoolDistricts(models.Model):
 
 
 class TransitCenters(models.Model):
+    id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=50)
     address = models.CharField(max_length=75)
     city = models.CharField(max_length=50)
     zipcode = models.CharField(max_length=50)
     county = models.CharField(max_length=50)
     status = models.CharField(max_length=50)
-    geom = models.TextField()  # This field type is a guess.
+    geom = models.MultiPointField()
 
     class Meta:
         managed = False
@@ -712,7 +718,7 @@ class VoterPrecincts(models.Model):
     county = models.CharField(max_length=50)
     precinct = models.FloatField(primary_key=True)
     area = models.FloatField()
-    geom = models.TextField()  # This field type is a guess.
+    geom = models.GeometryField()
 
     class Meta:
         managed = False
@@ -727,7 +733,7 @@ class ZipCodes(models.Model):
     state = models.CharField(max_length=50)
     shape_length = models.FloatField()
     shape_area = models.FloatField()
-    geom = models.TextField()  # This field type is a guess.
+    geom = models.GeometryField()
 
     class Meta:
         managed = False
@@ -735,6 +741,7 @@ class ZipCodes(models.Model):
 
 
 class Zoning(models.Model):
+    id = models.IntegerField(primary_key=True)
     city_no = models.IntegerField()
     zone = models.CharField(max_length=50)
     zone_class = models.CharField(max_length=50)
@@ -742,7 +749,7 @@ class Zoning(models.Model):
     city = models.CharField(max_length=50)
     area = models.FloatField()
     sqmiles = models.FloatField()
-    geom = models.TextField()  # This field type is a guess.
+    geom = models.PolygonField()
 
     class Meta:
         managed = False
