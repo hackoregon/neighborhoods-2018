@@ -33,7 +33,7 @@ ALLOWED_HOSTS = ['*']
 if DEBUG == True:
 
     INSTALLED_APPS = [
-         'test_without_migrations',
+        'test_without_migrations',
         'django.contrib.admin',
         'django.contrib.auth',
         'django.contrib.contenttypes',
@@ -44,12 +44,13 @@ if DEBUG == True:
         'corsheaders',
         'django_filters',
         'rest_framework',
+        'rest_framework_gis',
         'rest_framework_swagger',
         ]
 
 else:
     INSTALLED_APPS = [
-         'test_without_migrations',
+        'test_without_migrations',
         'django.contrib.admin',
         'django.contrib.auth',
         'django.contrib.contenttypes',
@@ -60,6 +61,7 @@ else:
         'corsheaders',
         'django_filters',
         'rest_framework',
+        'rest_framework_gis',
         'rest_framework_swagger',
         ]
 
@@ -101,7 +103,7 @@ WSGI_APPLICATION = 'neighborhoods_backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.contrib.gis.db.backends.postgis',
         'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
         'NAME': os.environ.get('POSTGRES_NAME'),
         'USER': os.environ.get('POSTGRES_USER'),
@@ -114,7 +116,7 @@ if DEBUG == False:
 
     DATABASES = {
         'default': {
-            'ENGINE': 'django_db_geventpool.backends.postgresql_psycopg2',
+            'ENGINE': 'django_db_geventpool.backends.postgis',
             'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
             'NAME': os.environ.get('POSTGRES_NAME'),
             'USER': os.environ.get('POSTGRES_USER'),
