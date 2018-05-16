@@ -7,3 +7,9 @@ class CrimeSerializer(GeoFeatureModelSerializer):
         model = models.Crime
         geo_field = 'geom'
         exclude = ('lat', 'lon',)
+
+class AffordableHousingSerializer(GeoFeatureModelSerializer):
+    class Meta:
+        model = models.AffordableHousing
+        geo_field = "geom"
+        exclude = ('lat', 'long',)
