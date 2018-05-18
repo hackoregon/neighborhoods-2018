@@ -13,3 +13,15 @@ class AffordableHousingSerializer(GeoFeatureModelSerializer):
         model = models.AffordableHousing
         geo_field = "geom"
         exclude = ('lat', 'long',)
+
+class CampCleanupsSerializer(GeoFeatureModelSerializer):
+    class Meta:
+        model = models.CampCleanups
+        geo_field = "geom"
+        exclude = ('lat', 'long',)
+
+class DatCrimeNeighSerializer(GeoFeatureModelSerializer):
+    class Meta:
+        model = models.DatCrimeNeigh
+        geo_field = "geom"
+        exclude = ('lat', 'long',)
