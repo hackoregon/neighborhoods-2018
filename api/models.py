@@ -557,26 +557,6 @@ class Crime(models.Model):
         db_table = 'crime'
 
 
-class DatCrimeNeigh(models.Model):
-    id = models.IntegerField(primary_key=True)
-    reportdate = models.CharField(max_length=50, blank=True, null=True)
-    location = models.CharField(max_length=150, blank=True, null=True)
-    maintenanceproject = models.CharField(max_length=50, blank=True, null=True)
-    greenspace = models.CharField(max_length=50, blank=True, null=True)
-    excessiveheatcold = models.CharField(max_length=50, blank=True, null=True)
-    estimatedgeocode = models.CharField(max_length=50, blank=True, null=True)
-    polygonaspoint = models.CharField(max_length=50, blank=True, null=True)
-    lat = models.FloatField(blank=True, null=True)
-    long = models.FloatField(blank=True, null=True)
-    notes = models.CharField(max_length=200, blank=True, null=True)
-    geom = models.PointField(null=True)
-    gridid = models.IntegerField(blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'dat_crime_neigh'
-
-
 class Demolitions(models.Model):
     objectid = models.IntegerField(primary_key=True)
     folderkey = models.IntegerField()
