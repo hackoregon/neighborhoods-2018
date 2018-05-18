@@ -445,7 +445,7 @@ class BusStops(models.Model):
         db_table = 'bus_stops'
 
 
-class CampCleanups(models.Model):
+class CampSweeps(models.Model):
     id = models.IntegerField(primary_key=True)
     reportdate = models.CharField(max_length=50)
     location = models.CharField(max_length=150)
@@ -461,7 +461,7 @@ class CampCleanups(models.Model):
 
     class Meta:
         managed = False
-        db_table = 'camp_cleanups'
+        db_table = 'camp_sweeps'
 
 
 class Census2000(models.Model):
