@@ -10,10 +10,58 @@ class AffordableHousingList(ListAPIView):
     queryset = models.AffordableHousing.objects.all()
     serializer_class = serializers.AffordableHousingSerializer
 
-class CampCleanupsList(ListAPIView):
-    queryset = models.CampCleanups.objects.all()
-    serializer_class = serializers.CampCleanupsSerializer
+class CampSweepsList(ListAPIView):
+    queryset = models.CampSweeps.objects.all()
+    serializer_class = serializers.CampSweepsSerializer
 
-class DatCrimeNeighList(ListAPIView):
-    queryset = models.DatCrimeNeigh.objects.all()
-    serializer_class = serializers.DatCrimeNeighSerializer
+class BusStopsList(ListAPIView):
+    queryset = models.BusStops.objects.all()
+    serializer_class = serializers.BusStopsSerializer
+
+class Census2000List(ListAPIView):
+    queryset = models.Census2000.objects.all()
+    serializer_class = serializers.Census2000Serializer
+
+class Census2010List(ListAPIView):
+    queryset = models.Census2010.objects.all()
+    serializer_class = serializers.Census2010Serializer
+
+class DemolitionsList(ListAPIView):
+    queryset = models.Demolitions.objects.all()
+    serializer_class = serializers.DemolitionsSerializer
+
+class HousingAreasList(ListAPIView):
+    queryset = models.HousingAreas.objects.all()
+    serializer_class = serializers.HousingAreasSerializer
+
+class NeighborhoodsList(ListAPIView):
+    queryset = models.Neighborhoods.objects.all()
+    serializer_class = serializers.NeighborhoodsSerializer
+
+class ParksTrailsList(ListAPIView):
+    queryset = models.ParksTrails.objects.all()
+    serializer_class = serializers.ParksTrailsSerializer
+
+class SchoolDistrictsList(ListAPIView):
+    queryset = models.SchoolDistricts.objects.all()
+    serializer_class = serializers.SchoolDistrictsSerializer
+
+class TransitCentersList(ListAPIView):
+    queryset = models.TransitCenters.objects.all()
+    serializer_class = serializers.TransitCentersSerializer
+
+class VoterPrecinctsList(ListAPIView):
+    queryset = models.VoterPrecincts.objects.all()
+    serializer_class = serializers.VoterPrecinctsSerializer
+
+class ZipCodesList(ListAPIView):
+    queryset = models.ZipCodes.objects.all()
+    serializer_class = serializers.ZipCodesSerializer
+
+class ZoningList(ListAPIView):
+    queryset = models.Zoning.objects.all()
+    serializer_class = serializers.ZoningSerializer
+
+class BlockgroupsElList(ListAPIView):
+    queryset = models.BlockgroupsEl.objects.all()
+    serializer_class = serializers.BlockgroupsElSerializer
