@@ -1,5 +1,5 @@
 from django.test import TestCase, SimpleTestCase, TransactionTestCase
-from api.models import preexisting_models
+# from api.models import preexisting_models <-- this needs to be configured for our repo.
 
 
 # Django, Writing and Running Unit Tests: https://docs.djangoproject.com/en/2.0/topics/testing/overview/
