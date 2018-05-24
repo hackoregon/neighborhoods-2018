@@ -5,7 +5,7 @@ import crash_data_api
 
 @pytest.fixture(scope='session')
 def django_db_setup():
-    crash_data_api.settings.DATABASES['default'] = {
+    neighborhoods_backend.settings.DATABASES['default'] = {
         'ENGINE': 'django_db_geventpool.backends.postgresql_psycopg2',
         'PASSWORD': os.environ.get('POSTGRES_PASSWORD'),
         'NAME': os.environ.get('POSTGRES_NAME'),
