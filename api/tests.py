@@ -28,6 +28,6 @@ class ExampleSimpleTestCase(SimpleTestCase):
 # https://docs.djangoproject.com/en/2.0/topics/testing/tools/#transactiontestcase
 class ExampleTransactionTestCase(TransactionTestCase):
     def test_transaction_example(self):
-        self.assertTrue(True)from django.test import TestCase
+        self.assertTrue(True)
 
 # Create your tests here.
