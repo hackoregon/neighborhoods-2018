@@ -4,7 +4,7 @@ services:
     build:
       context: .
       dockerfile: DOCKERFILE.api.production
-    image: api_production
+    image: $DOCKER_IMAGE
     command: ./bin/production-docker-entrypoint.sh
     volumes:
       - .:/code
