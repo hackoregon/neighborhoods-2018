@@ -1,6 +1,11 @@
 from django.shortcuts import render
+from django.db import connection
 from rest_framework.generics import ListAPIView
-from . import models, serializers
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
+from rest_framework import status, exceptions
+
+from . import models, serializers, utils
 
 class CrimesList(ListAPIView):
     queryset = models.Crime.objects.all()
@@ -55,13 +60,46 @@ class VoterPrecinctsList(ListAPIView):
     serializer_class = serializers.VoterPrecinctsSerializer
 
 class ZipCodesList(ListAPIView):
+    # another slow class
     queryset = models.ZipCodes.objects.all()
     serializer_class = serializers.ZipCodesSerializer
 
 class ZoningList(ListAPIView):
+    #empty
     queryset = models.Zoning.objects.all()
     serializer_class = serializers.ZoningSerializer
 
 class BlockgroupsElList(ListAPIView):
+    # no longer existsCommonMiddleware
     queryset = models.BlockgroupsEl.objects.all()
     serializer_class = serializers.BlockgroupsElSerializer
+
+
+@api_view(http_method_names=['GET'])
+def camp_sweeps_by_time(request):
+    """
+    Number of camp sweeps by time.  Optional query parameters are:
+    Query params: timeframe
+    options: 'month', 'week'
+    default: 'week'
+    """
+
+    timeframe = request.query_params.get('timeframe', 'week').lower()
+
+    if timeframe not in ('week', 'month'):
+        msg = 'Invalid query parameter "%s": must be either "week", or "month"' % timeframe
+        return Response({'error': msg}, status=status.HTTP_422_UNPROCESSABLE_ENTITY)
+
+
+    raw_sql_query = """SELECT count(*),
+        date_trunc(%s, reportdate) as report_time
+        FROM camp_sweeps
+        GROUP BY report_time
+        ORDER BY report_time ASC;"""
+
+    with connection.cursor() as cursor:
+        cursor.execute(raw_sql_query, [timeframe])
+        result = utils.dictfetchall(cursor)
+
+
+    return Response(data=result)
