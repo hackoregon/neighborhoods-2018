@@ -207,3 +207,15 @@ LOGGING = {
 
 #add CORS support for all domains
 CORS_ORIGIN_ALLOW_ALL = True
+
+
+# HEROKU PART
+# see: https://github.com/heroku/django-heroku/blob/master/django_heroku/core.py
+import dj_database_url
+import django_heroku
+DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=False)
+
+django_heroku.settings(locals(), databases=False)
+
+GDAL_LIBRARY_PATH = os.getenv('GDAL_LIBRARY_PATH')
+GEOS_LIBRARY_PATH = os.getenv('GEOS_LIBRARY_PATH')

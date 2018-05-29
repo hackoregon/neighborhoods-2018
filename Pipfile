@@ -1,0 +1,45 @@
+[[source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+djangorestframework = "==3.7.7"
+djangorestframework-gis = "*"
+pyproj = "*"
+pytest-django = "*"
+itypes = "==1.1.0"
+django-cors-headers = "==1.2.0"
+pyparsing = "==2.2.0"
+requests = "==2.18.4"
+simplejson = "==3.13.2"
+six = "==1.11.0"
+uritemplate = "==3.0.0"
+responses = "==0.8.1"
+whitenoise = "==4.0b4"
+django-filter = "==1.1.0"
+"psycopg2" = "==2.7.3.2"
+coreapi = "==2.3.3"
+openapi-codec = "==1.3.2"
+django-rest-swagger = "*"
+coverage = "==4.4.2"
+django-nose = "==1.4.5"
+nose = "==1.3.7"
+tblib = "==1.3.2"
+gunicorn = "==19.7"
+gevent = "==1.3a1"
+psycogreen = "==1.0"
+django-db-geventpool = "*"
+awscli = "*"
+Django = "==2.0.1"
+django-heroku = "*"
+
+[dev-packages]
+pandas = "*"
+lxml = "*"
+"bs4" = "*"
+jupyter = "*"
+django-extensions = "==1.9.9"
+
+[requires]
+python_version = "3.6"
