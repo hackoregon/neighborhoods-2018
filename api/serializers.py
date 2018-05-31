@@ -20,21 +20,9 @@ class CampSweepsSerializer(GeoFeatureModelSerializer):
         geo_field = "geom"
         exclude = ('lat', 'long',)
 
-class Census2000Serializer(GeoFeatureModelSerializer):
-    class Meta:
-        model = models.Census2000
-        geo_field = "geom"
-        fields = "__all__"
-
 class BusStopsSerializer(GeoFeatureModelSerializer):
     class Meta:
         model = models.BusStops
-        geo_field = "geom"
-        fields = "__all__"
-
-class Census2010Serializer(GeoFeatureModelSerializer):
-    class Meta:
-        model = models.Census2010
         geo_field = "geom"
         fields = "__all__"
 
