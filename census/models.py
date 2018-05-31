@@ -65,3 +65,7 @@ class Census2010(models.Model):
     pop_2_race = models.IntegerField()
     hispanic = models.IntegerField()
     geom = models.PolygonField()
+
+    class Meta:
+        managed = False
+        db_table = 'census_2010'
