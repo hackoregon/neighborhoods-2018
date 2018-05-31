@@ -2,7 +2,6 @@ from django.contrib.gis.db import models
 
 
 class Census2000(models.Model):
-    # TODO: Move census data into its own app
     id = models.IntegerField(primary_key=True)
     trbg = models.CharField(max_length=50)
     fips = models.CharField(max_length=50)
@@ -44,7 +43,6 @@ class Census2000(models.Model):
         db_table = 'census_2000'
 
 class Census2010(models.Model):
-    # TODO: Move census data into its own app
     id = models.IntegerField(primary_key=True)
     state = models.CharField(max_length=50)
     county = models.CharField(max_length=50)
