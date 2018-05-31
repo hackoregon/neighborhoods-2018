@@ -18,14 +18,6 @@ class BusStopsList(ListAPIView):
     queryset = models.BusStops.objects.all()
     serializer_class = serializers.BusStopsSerializer
 
-class Census2000List(ListAPIView):
-    queryset = models.Census2000.objects.all()
-    serializer_class = serializers.Census2000Serializer
-
-class Census2010List(ListAPIView):
-    queryset = models.Census2010.objects.all()
-    serializer_class = serializers.Census2010Serializer
-
 class DemolitionsList(ListAPIView):
     queryset = models.Demolitions.objects.all()
     serializer_class = serializers.DemolitionsSerializer
