@@ -9,6 +9,7 @@ urlpatterns = [
     path('affordable_housing', views.AffordableHousingList.as_view()),
     path('camp_sweeps', views.CampSweepsList.as_view()),
     path('camp_sweeps/bytime', views.camp_sweeps_by_time),
+    path('camp_sweeps/by_neighborhood', views.camp_sweeps_by_neighborhood),
     path('bus_stops', views.BusStopsList.as_view()),
     path('census_2000', views.Census2000List.as_view()),
     path('census_2010', views.Census2010List.as_view()),
