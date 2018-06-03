@@ -42,14 +42,6 @@ class CampSweepsList(ListAPIView):
     queryset = models.CampSweeps.objects.all()
     serializer_class = serializers.CampSweepsSerializer
 
-class Census2000List(ListAPIView):
-    queryset = models.Census2000.objects.all()
-    serializer_class = serializers.Census2000Serializer
-
-class Census2010List(ListAPIView):
-    queryset = models.Census2010.objects.all()
-    serializer_class = serializers.Census2010Serializer
-
 class CommunityGardensList(ListAPIView):
     queryset = models.CommunityGardens.objects.all()
     serializer_class = serializers.CommunityGardensSerializer
@@ -62,25 +54,13 @@ class DemolitionsList(ListAPIView):
     queryset = models.Demolitions.objects.all()
     serializer_class = serializers.DemolitionsSerializer
 
-class ElBlockgroupsList(ListAPIView):
-    queryset = models.ElBlockgroups.objects.all()
-    serializer_class = serializers.ElBlockgroupsSerializer
-
 class HousingAreasList(ListAPIView):
     queryset = models.HousingAreas.objects.all()
     serializer_class = serializers.HousingAreasSerializer
 
-class ImsNbrhdDemographicsList(ListAPIView):
-    queryset = models.ImsNbrhdDemographics.objects.all()
-    serializer_class = serializers.ImsNbrhdDemographicsSerializer
-
 class MetroLimitList(ListAPIView):
     queryset = models.MetroLimit.objects.all()
     serializer_class = serializers.MetroLimitSerializer
-
-class NeighborhoodsList(ListAPIView):
-    queryset = models.Neighborhoods.objects.all()
-    serializer_class = serializers.NeighborhoodsSerializer
 
 class ParkRideLotsList(ListAPIView):
     queryset = models.ParkRideLots.objects.all()
@@ -145,7 +125,3 @@ class ZipCodesList(ListAPIView):
 class ZoningList(ListAPIView):
     queryset = models.Zoning.objects.all()
     serializer_class = serializers.ZoningSerializer
-
-class BlockgroupsElList(ListAPIView):
-    queryset = models.ElBlockgroups.objects.all()
-    serializer_class = serializers.ElBlockgroupsSerializer

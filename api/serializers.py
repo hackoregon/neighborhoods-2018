@@ -60,18 +60,6 @@ class CampSweepsSerializer(GeoFeatureModelSerializer):
         geo_field = "geom"
         exclude = ('lat', 'long',)
 
-class Census2000Serializer(GeoFeatureModelSerializer):
-    class Meta:
-        model = models.Census2000
-        geo_field = "geom"
-        fields = "__all__"
-
-class Census2010Serializer(GeoFeatureModelSerializer):
-    class Meta:
-        model = models.Census2010
-        geo_field = "geom"
-        fields = "__all__"
-
 class CommunityGardensSerializer(GeoFeatureModelSerializer):
     class Meta:
         model = models.CommunityGardens
@@ -90,12 +78,6 @@ class DemolitionsSerializer(GeoFeatureModelSerializer):
         geo_field = "geom"
         fields = "__all__"
 
-class ElBlockgroupsSerializer(GeoFeatureModelSerializer):
-    class Meta:
-        model = models.ElBlockgroups
-        geo_field = "geom"
-        fields = "__all__"
-
 class HousingAreasSerializer(GeoFeatureModelSerializer):
     class Meta:
         model = models.HousingAreas
@@ -106,22 +88,11 @@ class HousingAreasSerializer(GeoFeatureModelSerializer):
     class Meta:
         model = models.HousingAreas
         geo_field = "geom"
-        fields = "__all__"
-
-class ImsNbrhdDemographicsSerializer(GeoFeatureModelSerializer):
-    class Meta:
-        model = models.ImsNbrhdDemographics
         fields = "__all__"
 
 class MetroLimitSerializer(GeoFeatureModelSerializer):
     class Meta:
         model = models.MetroLimit
-        geo_field = "geom"
-        fields = "__all__"
-
-class NeighborhoodsSerializer(GeoFeatureModelSerializer):
-    class Meta:
-        model = models.Neighborhoods
         geo_field = "geom"
         fields = "__all__"
 
