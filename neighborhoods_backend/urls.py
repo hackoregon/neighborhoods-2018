@@ -1,3 +1,5 @@
+from rest_framework_swagger.views import get_swagger_view
+
 """neighborhoods_backend URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
