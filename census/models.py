@@ -90,39 +90,30 @@ class Census2010(models.Model):
 
 
 class EvictionsBlockgroups(models.Model):
-   geoid = models.DecimalField(db_column="GEOID", max_digits=65535, decimal_places=65535)
-   year = models.DecimalField(max_digits=65535, decimal_places=65535)
+   geoid = models.CharField(db_column="GEOID", max_length=15)
+   year = models.IntegerField()
    name = models.CharField(max_length=10)
    parent_location = models.CharField(max_length=25)
-   population = models.DecimalField(max_digits=65535, decimal_places=65535)
-   poverty_rate = models.DecimalField(max_digits=65535, decimal_places=65535)
-   pctrenter_occupied = models.DecimalField(
-       max_digits=65535, decimal_places=65535)
-   median_gross_rent = models.DecimalField(db_column="Median_gross_rent", max_digits=65535, decimal_places=65535, blank=True, null=True)
-   median_household_income = models.DecimalField(
-       max_digits=65535, decimal_places=65535, blank=True, null=True)
-   median_property_value = models.DecimalField(
-       max_digits=65535, decimal_places=65535, blank=True, null=True)
-   rent_burden = models.DecimalField(
-       max_digits=65535, decimal_places=65535, blank=True, null=True)
-   pct_white = models.DecimalField(max_digits=65535, decimal_places=65535)
-   pct_af_am = models.DecimalField(max_digits=65535, decimal_places=65535)
-   pct_hispanic = models.DecimalField(max_digits=65535, decimal_places=65535)
-   pct_am_ind = models.DecimalField(max_digits=65535, decimal_places=65535)
-   pct_asian = models.DecimalField(max_digits=65535, decimal_places=65535)
-   pct_nh_pi = models.DecimalField(max_digits=65535, decimal_places=65535)
-   pct_multiple = models.DecimalField(max_digits=65535, decimal_places=65535)
-   pct_other = models.DecimalField(max_digits=65535, decimal_places=65535)
-   renter_occupied_households = models.DecimalField(
-       max_digits=65535, decimal_places=65535)
-   eviction_filings = models.DecimalField(
-       max_digits=65535, decimal_places=65535, blank=True, null=True)
-   evictions = models.DecimalField(
-       max_digits=65535, decimal_places=65535, blank=True, null=True)
-   eviction_rate = models.DecimalField(
-       max_digits=65535, decimal_places=65535, blank=True, null=True)
-   eviction_filing_rate = models.DecimalField(
-       max_digits=65535, decimal_places=65535, blank=True, null=True)
+   population = models.IntegerField()
+   poverty_rate = models.FloatField()
+   pctrenter_occupied = models.FloatField()
+   median_gross_rent = models.IntegerField(db_column="Median_gross_rent", blank=True, null=True)
+   median_household_income = models.IntegerField(blank=True, null=True)
+   median_property_value = models.IntegerField(blank=True, null=True)
+   rent_burden = models.FloatField(blank=True, null=True)
+   pct_white = models.FloatField()
+   pct_af_am = models.FloatField()
+   pct_hispanic = models.FloatField()
+   pct_am_ind = models.FloatField()
+   pct_asian = models.FloatField()
+   pct_nh_pi = models.FloatField()
+   pct_multiple = models.FloatField()
+   pct_other = models.FloatField()
+   renter_occupied_households = models.IntegerField()
+   eviction_filings = models.IntegerField(blank=True, null=True)
+   evictions = models.IntegerField(blank=True, null=True)
+   eviction_rate = models.FloatField(blank=True, null=True)
+   eviction_filing_rate = models.FloatField(blank=True, null=True)
    imputed = models.BooleanField()
    subbed = models.BooleanField()
 
