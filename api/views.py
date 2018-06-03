@@ -53,7 +53,3 @@ class ZipCodesList(ListAPIView):
 class ZoningList(ListAPIView):
     queryset = models.Zoning.objects.all()
     serializer_class = serializers.ZoningSerializer
-
-class BlockgroupsElList(ListAPIView):
-    queryset = models.BlockgroupsEl.objects.all()
-    serializer_class = serializers.BlockgroupsElSerializer

@@ -79,9 +79,3 @@ class ZoningSerializer(GeoFeatureModelSerializer):
         model = models.Zoning
         geo_field = "geom"
         fields = "__all__"
-
-class BlockgroupsElSerializer(GeoFeatureModelSerializer):
-    class Meta:
-        model = models.BlockgroupsEl
-        geo_field = "geom"
-        fields = "__all__"

@@ -18,7 +18,6 @@ urlpatterns = [
     path('voter_precincts', views.VoterPrecinctsList.as_view()),
     path('zip_codes', views.ZipCodesList.as_view()),
     path('zoning', views.ZoningList.as_view()),
-    path('blockgroups_el', views.BlockgroupsElList.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
