@@ -66,100 +66,100 @@ class BikeCountLocations(models.Model):
 
 
 class BikeCounts(models.Model):
-    id = models.DecimalField(
-        primary_key=True, max_digits=65535, decimal_places=65535)
-    sector = models.CharField(db_column='Sector', max_length=15)
-    location = models.CharField(db_column='Location', max_length=50)
-    count_time = models.CharField(max_length=5)
-    number_2017 = models.DecimalField(
-        db_column='2017', max_digits=65535, decimal_places=65535, blank=True, null=True)
-    number_2016 = models.DecimalField(
-        db_column='2016', max_digits=65535, decimal_places=65535, blank=True, null=True)
-    number_2015 = models.DecimalField(
-        db_column='2015', max_digits=65535, decimal_places=65535, blank=True, null=True)
-    number_2014 = models.DecimalField(
-        db_column='2014', max_digits=65535, decimal_places=65535, blank=True, null=True)
-    number_2013 = models.DecimalField(
-        db_column='2013', max_digits=65535, decimal_places=65535, blank=True, null=True)
-    number_2012 = models.DecimalField(
-        db_column='2012', max_digits=65535, decimal_places=65535, blank=True, null=True)
-    number_2011 = models.DecimalField(
-        db_column='2011', max_digits=65535, decimal_places=65535, blank=True, null=True)
-    number_2010 = models.DecimalField(
-        db_column='2010', max_digits=65535, decimal_places=65535, blank=True, null=True)
-    number_2009 = models.DecimalField(
-        db_column='2009', max_digits=65535, decimal_places=65535, blank=True, null=True)
-    number_2008 = models.DecimalField(
-        db_column='2008', max_digits=65535, decimal_places=65535, blank=True, null=True)
-    number_2007 = models.DecimalField(
-        db_column='2007', max_digits=65535, decimal_places=65535, blank=True, null=True)
-    number_2006 = models.DecimalField(
-        db_column='2006', max_digits=65535, decimal_places=65535, blank=True, null=True)
-    number_2005 = models.DecimalField(
-        db_column='2005', max_digits=65535, decimal_places=65535, blank=True, null=True)
-    number_2004 = models.DecimalField(
-        db_column='2004', max_digits=65535, decimal_places=65535, blank=True, null=True)
-    number_2003 = models.DecimalField(
-        db_column='2003', max_digits=65535, decimal_places=65535, blank=True, null=True)
-    number_2002 = models.DecimalField(
-        db_column='2002', max_digits=65535, decimal_places=65535, blank=True, null=True)
-    number_2001 = models.DecimalField(
-        db_column='2001', max_digits=65535, decimal_places=65535, blank=True, null=True)
-    number_2000 = models.DecimalField(
-        db_column='2000', max_digits=65535, decimal_places=65535, blank=True, null=True)
-    prior_to_2000 = models.DecimalField(
-        max_digits=65535, decimal_places=65535, blank=True, null=True)
+   id = models.IntegerField(primary_key=True)
+   # Field name made lowercase.
+   sector = models.CharField(db_column="Sector", max_length=15)
+   # Field name made lowercase.
+   location = models.CharField(db_column="Location", max_length=50)
+   count_time = models.CharField(max_length=5)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2017 = models.IntegerField(db_column="2017", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2016 = models.IntegerField(db_column="2016", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2015 = models.IntegerField(db_column="2015", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2014 = models.IntegerField(db_column="2014", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2013 = models.IntegerField(db_column="2013", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2012 = models.IntegerField(db_column="2012", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2011 = models.IntegerField(db_column="2011", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2010 = models.IntegerField(db_column="2010", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2009 = models.IntegerField(db_column="2009", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2008 = models.IntegerField(db_column="2008", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2007 = models.IntegerField(db_column="2007", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2006 = models.IntegerField(db_column="2006", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2005 = models.IntegerField(db_column="2005", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2004 = models.IntegerField(db_column="2004", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2003 = models.IntegerField(db_column="2003", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2002 = models.IntegerField(db_column="2002", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2001 = models.IntegerField(db_column="2001", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2000 = models.IntegerField(db_column="2000", blank=True, null=True)
+   prior_to_2000 = models.IntegerField(blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'bike_counts'
+   class Meta:
+       managed = False
+       db_table = "bike_counts"
 
 
 class BikeDailyEstimates(models.Model):
-    sector = models.CharField(db_column='Sector', max_length=15)
-    id = models.DecimalField(
-        primary_key=True, max_digits=65535, decimal_places=65535)
-    location = models.CharField(db_column='Location', max_length=50)
-    number_2016 = models.DecimalField(
-        db_column='2016', max_digits=65535, decimal_places=65535, blank=True, null=True)
-    number_2015 = models.DecimalField(
-        db_column='2015', max_digits=65535, decimal_places=65535, blank=True, null=True)
-    number_2014 = models.DecimalField(
-        db_column='2014', max_digits=65535, decimal_places=65535, blank=True, null=True)
-    number_2013_re = models.DecimalField(
-        db_column='2013_re', max_digits=65535, decimal_places=65535, blank=True, null=True)
-    number_2012_re = models.DecimalField(
-        db_column='2012_re', max_digits=65535, decimal_places=65535, blank=True, null=True)
-    number_2011_re = models.DecimalField(
-        db_column='2011_re', max_digits=65535, decimal_places=65535, blank=True, null=True)
-    number_2010_re = models.DecimalField(
-        db_column='2010_re', max_digits=65535, decimal_places=65535, blank=True, null=True)
-    number_2009_re = models.DecimalField(
-        db_column='2009_re', max_digits=65535, decimal_places=65535, blank=True, null=True)
-    number_2008_re = models.DecimalField(
-        db_column='2008_re', max_digits=65535, decimal_places=65535, blank=True, null=True)
-    number_2007_re = models.DecimalField(
-        db_column='2007_re', max_digits=65535, decimal_places=65535, blank=True, null=True)
-    number_2006_re = models.DecimalField(
-        db_column='2006_re', max_digits=65535, decimal_places=65535, blank=True, null=True)
-    number_2005_re = models.DecimalField(
-        db_column='2005_re', max_digits=65535, decimal_places=65535, blank=True, null=True)
-    number_2004_re = models.DecimalField(
-        db_column='2004_re', max_digits=65535, decimal_places=65535, blank=True, null=True)
-    number_2003_re = models.DecimalField(
-        db_column='2003_re', max_digits=65535, decimal_places=65535, blank=True, null=True)
-    number_2002_re = models.DecimalField(
-        db_column='2002_re', max_digits=65535, decimal_places=65535, blank=True, null=True)
-    number_2001_re = models.DecimalField(
-        db_column='2001_re', max_digits=65535, decimal_places=65535, blank=True, null=True)
-    number_2000_re = models.DecimalField(
-        db_column='2000_re', max_digits=65535, decimal_places=65535, blank=True, null=True)
-    prior_to_2000_re = models.DecimalField(
-        max_digits=65535, decimal_places=65535, blank=True, null=True)
+   # Field name made lowercase.
+   sector = models.CharField(db_column="Sector", max_length=15)
+   id = models.IntegerField(primary_key=True)
+   # Field name made lowercase.
+   location = models.CharField(db_column="Location", max_length=50)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2016 = models.IntegerField(db_column="2016", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2015 = models.IntegerField(db_column="2015", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2014 = models.IntegerField(db_column="2014", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2013 = models.IntegerField(db_column="2013", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2012 = models.IntegerField(db_column="2012", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2011 = models.IntegerField(db_column="2011", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2010 = models.IntegerField(db_column="2010", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2009 = models.IntegerField(db_column="2009", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2008 = models.IntegerField(db_column="2008", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2007 = models.IntegerField(db_column="2007", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2006 = models.IntegerField(db_column="2006", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2005 = models.IntegerField(db_column="2005", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2004 = models.IntegerField(db_column="2004", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2003 = models.IntegerField(db_column="2003", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2002 = models.IntegerField(db_column="2002", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2001 = models.IntegerField(db_column="2001", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2000 = models.IntegerField(db_column="2000", blank=True, null=True)
+   prior_to_2000 = models.IntegerField(blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'bike_daily_estimates'
+   class Meta:
+       managed = False
+       db_table = "bike_daily_estimates"
 
 
 class BikeGreenways(models.Model):
