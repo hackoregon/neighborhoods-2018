@@ -1,5 +1,7 @@
 from rest_framework_gis.serializers import GeoFeatureModelSerializer
 
+from rest_framework.serializers import ModelSerializer
+
 from . import models
 
 class ActiveMultiUseTrailSerializer(GeoFeatureModelSerializer):
@@ -20,12 +22,12 @@ class BikeCountLocationsSerializer(GeoFeatureModelSerializer):
         geo_field = "geom"
         fields = "__all__"
 
-class BikeCountsSerializer(GeoFeatureModelSerializer):
+class BikeCountsSerializer(ModelSerializer):
     class Meta:
         model = models.BikeCounts
         fields = "__all__"
 
-class BikeDailyEstimatesSerializer(GeoFeatureModelSerializer):
+class BikeDailyEstimatesSerializer(ModelSerializer):
     class Meta:
         model = models.BikeDailyEstimates
         fields = "__all__"
@@ -114,7 +116,7 @@ class ParksTrailsSerializer(GeoFeatureModelSerializer):
         geo_field = "geom"
         fields = "__all__"
 
-class PercentSharedHousingSerializer(GeoFeatureModelSerializer):
+class PercentSharedHousingSerializer(ModelSerializer):
     class Meta:
         model = models.PercentSharedHousing
         fields = "__all__"
@@ -129,23 +131,23 @@ class RetailLocationsSerializer(GeoFeatureModelSerializer):
     class Meta:
         model = models.RetailLocations
         geo_field = "geom"
-        exclude = ('lat', 'lon',)
-
-class RlisNeighborhoodsSerializer(GeoFeatureModelSerializer):
-    class Meta:
-        model = models.RlisNeighborhoods
-        geo_field = "geom"
-        exclude = ('lat', 'lon',)
-
-class RlisTaxlot2017Serializer(GeoFeatureModelSerializer):
-    class Meta:
-        model = models.RlisTaxlot2017
         fields = "__all__"
 
-class RlisTaxlotPts2015Serializer(GeoFeatureModelSerializer):
-    class Meta:
-        model = models.RlisTaxlotPts2015
-        fields = "__all__"
+# class RlisNeighborhoodsSerializer(GeoFeatureModelSerializer):
+#     class Meta:
+#         model = models.RlisNeighborhoods
+#         geo_field = "geom"
+#         exclude = ('lat', 'lon',)
+
+# class RlisTaxlot2017Serializer(ModelSerializer):
+#     class Meta:
+#         model = models.RlisTaxlot2017
+#         fields = "__all__"
+
+# class RlisTaxlotPts2015Serializer(ModelSerializer):
+#     class Meta:
+#         model = models.RlisTaxlotPts2015
+#         fields = "__all__"
 
 class SchoolDistrictsSerializer(GeoFeatureModelSerializer):
     class Meta:
@@ -186,11 +188,5 @@ class ZipCodesSerializer(GeoFeatureModelSerializer):
 class ZoningSerializer(GeoFeatureModelSerializer):
     class Meta:
         model = models.Zoning
-        geo_field = "geom"
-        fields = "__all__"
-
-class ElBlockgroupsSerializer(GeoFeatureModelSerializer):
-    class Meta:
-        model = models.ElBlockgroups
         geo_field = "geom"
         fields = "__all__"
