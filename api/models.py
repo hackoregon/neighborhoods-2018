@@ -5,10 +5,10 @@ from django.contrib.gis.db import models
 class ActiveMultiuseTrail(models.Model):
     ogc_fid = models.AutoField(primary_key=True)
     objectid = models.IntegerField(blank=True, null=True)
-    tranplanid = models.CharField(max_length=-1, blank=True, null=True)
-    segmentnam = models.CharField(max_length=-1, blank=True, null=True)
-    status = models.CharField(max_length=-1, blank=True, null=True)
-    facility = models.CharField(max_length=-1, blank=True, null=True)
+    tranplanid = models.CharField(max_length=20, blank=True, null=True)
+    segmentnam = models.CharField(max_length=35, blank=True, null=True)
+    status = models.CharField(max_length=10, blank=True, null=True)
+    facility = models.CharField(max_length=3, blank=True, null=True)
     yearbuilt = models.IntegerField(blank=True, null=True)
     yearretire = models.IntegerField(blank=True, null=True)
     lengthmile = models.FloatField(blank=True, null=True)
@@ -52,12 +52,12 @@ class AffordableHousing(models.Model):
 
 class BikeCountLocations(models.Model):
     objectid = models.IntegerField(blank=True, null=True)
-    location = models.CharField(max_length=-1, blank=True, null=True)
-    sector = models.CharField(max_length=-1, blank=True, null=True)
-    counttype = models.CharField(max_length=-1, blank=True, null=True)
-    counttime = models.CharField(max_length=-1, blank=True, null=True)
-    year_loc_a = models.CharField(max_length=-1, blank=True, null=True)
-    priority = models.CharField(max_length=-1, blank=True, null=True)
+    location = models.CharField(max_length=50, blank=True, null=True)
+    sector = models.CharField(max_length=5, blank=True, null=True)
+    counttype = models.CharField(max_length=10, blank=True, null=True)
+    counttime = models.CharField(max_length=10, blank=True, null=True)
+    year_loc_a = models.CharField(max_length=5, blank=True, null=True)
+    priority = models.CharField(max_length=15, blank=True, null=True)
     geom = models.GeometryField(blank=True, null=True)
 
     class Meta:
@@ -68,9 +68,9 @@ class BikeCountLocations(models.Model):
 class BikeCounts(models.Model):
     id = models.DecimalField(
         primary_key=True, max_digits=65535, decimal_places=65535)
-    sector = models.CharField(db_column='Sector', max_length=-1)
-    location = models.CharField(db_column='Location', max_length=-1)
-    count_time = models.CharField(max_length=-1)
+    sector = models.CharField(db_column='Sector', max_length=15)
+    location = models.CharField(db_column='Location', max_length=50)
+    count_time = models.CharField(max_length=5)
     number_2017 = models.DecimalField(
         db_column='2017', max_digits=65535, decimal_places=65535, blank=True, null=True)
     number_2016 = models.DecimalField(
@@ -116,10 +116,10 @@ class BikeCounts(models.Model):
 
 
 class BikeDailyEstimates(models.Model):
-    sector = models.CharField(db_column='Sector', max_length=-1)
+    sector = models.CharField(db_column='Sector', max_length=15)
     id = models.DecimalField(
         primary_key=True, max_digits=65535, decimal_places=65535)
-    location = models.CharField(db_column='Location', max_length=-1)
+    location = models.CharField(db_column='Location', max_length=50)
     number_2016 = models.DecimalField(
         db_column='2016', max_digits=65535, decimal_places=65535, blank=True, null=True)
     number_2015 = models.DecimalField(
@@ -486,128 +486,128 @@ class RetailLocations(models.Model):
         db_table = 'retail_locations'
 
 
-class RlisNeighborhoods(models.Model):
-    ogc_fid = models.AutoField(primary_key=True)
-    name = models.CharField(max_length=-1, blank=True, null=True)
-    sum_area = models.FloatField(blank=True, null=True)
-    sum_sqmile = models.FloatField(blank=True, null=True)
-    geom = models.GeometryField(blank=True, null=True)
+# class RlisNeighborhoods(models.Model):
+#     ogc_fid = models.AutoField(primary_key=True)
+#     name = models.CharField(max_length=-1, blank=True, null=True)
+#     sum_area = models.FloatField(blank=True, null=True)
+#     sum_sqmile = models.FloatField(blank=True, null=True)
+#     geom = models.GeometryField(blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'rlis_neighborhoods'
-
-
-class RlisTaxlot2017(models.Model):
-    x = models.FloatField(db_column='X', blank=True, null=True)
-    y = models.FloatField(db_column='Y', blank=True, null=True)
-    area = models.FloatField(db_column='AREA', blank=True, null=True)
-    tlid = models.TextField(db_column='TLID', blank=True, null=True)
-    rno = models.TextField(db_column='RNO', blank=True, null=True)
-    owneraddr = models.TextField(db_column='OWNERADDR', blank=True, null=True)
-    ownercity = models.TextField(db_column='OWNERCITY', blank=True, null=True)
-    ownerstate = models.TextField(
-        db_column='OWNERSTATE', blank=True, null=True)
-    ownerzip = models.TextField(db_column='OWNERZIP', blank=True, null=True)
-    sitestrno = models.BigIntegerField(
-        db_column='SITESTRNO', blank=True, null=True)
-    siteaddr = models.TextField(db_column='SITEADDR', blank=True, null=True)
-    sitecity = models.TextField(db_column='SITECITY', blank=True, null=True)
-    sitezip = models.TextField(db_column='SITEZIP', blank=True, null=True)
-    landval = models.BigIntegerField(
-        db_column='LANDVAL', blank=True, null=True)
-    bldgval = models.BigIntegerField(
-        db_column='BLDGVAL', blank=True, null=True)
-    totalval = models.BigIntegerField(
-        db_column='TOTALVAL', blank=True, null=True)
-    bldgsqft = models.FloatField(db_column='BLDGSQFT', blank=True, null=True)
-    a_t_acres = models.FloatField(db_column='A_T_ACRES', blank=True, null=True)
-    yearbuilt = models.BigIntegerField(
-        db_column='YEARBUILT', blank=True, null=True)
-    prop_code = models.FloatField(db_column='PROP_CODE', blank=True, null=True)
-    landuse = models.TextField(db_column='LANDUSE', blank=True, null=True)
-    taxcode = models.FloatField(db_column='TAXCODE', blank=True, null=True)
-    saledate = models.FloatField(db_column='SALEDATE', blank=True, null=True)
-    saleprice = models.BigIntegerField(
-        db_column='SALEPRICE', blank=True, null=True)
-    county = models.TextField(db_column='COUNTY', blank=True, null=True)
-    juris_city = models.TextField(
-        db_column='JURIS_CITY', blank=True, null=True)
-    gis_acres = models.FloatField(db_column='GIS_ACRES', blank=True, null=True)
-    stateclass = models.TextField(
-        db_column='STATECLASS', blank=True, null=True)
-    ortaxlot = models.TextField(db_column='ORTAXLOT', blank=True, null=True)
-
-    class Meta:
-        managed = False
-        db_table = 'rlis_taxlot_2017'
+#     class Meta:
+#         managed = False
+#         db_table = 'rlis_neighborhoods'
 
 
-class RlisTaxlotPts2015(models.Model):
-    x = models.CharField(db_column='X', max_length=-1, blank=True, null=True)
-    y = models.CharField(db_column='Y', max_length=-1, blank=True, null=True)
-    area = models.CharField(
-        db_column='AREA', max_length=-1, blank=True, null=True)
-    tlid = models.CharField(
-        db_column='TLID', max_length=-1, blank=True, null=True)
-    rno = models.CharField(
-        db_column='RNO', max_length=-1, blank=True, null=True)
-    owneraddr = models.CharField(
-        db_column='OWNERADDR', max_length=-1, blank=True, null=True)
-    ownercity = models.CharField(
-        db_column='OWNERCITY', max_length=-1, blank=True, null=True)
-    ownerstate = models.CharField(
-        db_column='OWNERSTATE', max_length=-1, blank=True, null=True)
-    ownerzip = models.CharField(
-        db_column='OWNERZIP', max_length=-1, blank=True, null=True)
-    sitestrno = models.CharField(
-        db_column='SITESTRNO', max_length=-1, blank=True, null=True)
-    siteaddr = models.CharField(
-        db_column='SITEADDR', max_length=-1, blank=True, null=True)
-    sitecity = models.CharField(
-        db_column='SITECITY', max_length=-1, blank=True, null=True)
-    sitezip = models.CharField(
-        db_column='SITEZIP', max_length=-1, blank=True, null=True)
-    landval = models.CharField(
-        db_column='LANDVAL', max_length=-1, blank=True, null=True)
-    bldgval = models.CharField(
-        db_column='BLDGVAL', max_length=-1, blank=True, null=True)
-    totalval = models.CharField(
-        db_column='TOTALVAL', max_length=-1, blank=True, null=True)
-    bldgsqft = models.CharField(
-        db_column='BLDGSQFT', max_length=-1, blank=True, null=True)
-    a_t_acres = models.CharField(
-        db_column='A_T_ACRES', max_length=-1, blank=True, null=True)
-    yearbuilt = models.CharField(
-        db_column='YEARBUILT', max_length=-1, blank=True, null=True)
-    prop_code = models.CharField(
-        db_column='PROP_CODE', max_length=-1, blank=True, null=True)
-    landuse = models.CharField(
-        db_column='LANDUSE', max_length=-1, blank=True, null=True)
-    taxcode = models.CharField(
-        db_column='TAXCODE', max_length=-1, blank=True, null=True)
-    saledate = models.CharField(
-        db_column='SALEDATE', max_length=-1, blank=True, null=True)
-    saleprice = models.CharField(
-        db_column='SALEPRICE', max_length=-1, blank=True, null=True)
-    county = models.CharField(
-        db_column='COUNTY', max_length=-1, blank=True, null=True)
-    x_coord = models.CharField(
-        db_column='X_COORD', max_length=-1, blank=True, null=True)
-    y_coord = models.CharField(
-        db_column='Y_COORD', max_length=-1, blank=True, null=True)
-    juris_city = models.CharField(
-        db_column='JURIS_CITY', max_length=-1, blank=True, null=True)
-    gis_acres = models.CharField(
-        db_column='GIS_ACRES', max_length=-1, blank=True, null=True)
-    stateclass = models.CharField(
-        db_column='STATECLASS', max_length=-1, blank=True, null=True)
-    ortaxlot = models.CharField(
-        db_column='ORTAXLOT', max_length=-1, blank=True, null=True)
+# class RlisTaxlot2017(models.Model):
+#     x = models.FloatField(db_column='X', blank=True, null=True)
+#     y = models.FloatField(db_column='Y', blank=True, null=True)
+#     area = models.FloatField(db_column='AREA', blank=True, null=True)
+#     tlid = models.TextField(db_column='TLID', blank=True, null=True)
+#     rno = models.TextField(db_column='RNO', blank=True, null=True)
+#     owneraddr = models.TextField(db_column='OWNERADDR', blank=True, null=True)
+#     ownercity = models.TextField(db_column='OWNERCITY', blank=True, null=True)
+#     ownerstate = models.TextField(
+#         db_column='OWNERSTATE', blank=True, null=True)
+#     ownerzip = models.TextField(db_column='OWNERZIP', blank=True, null=True)
+#     sitestrno = models.BigIntegerField(
+#         db_column='SITESTRNO', blank=True, null=True)
+#     siteaddr = models.TextField(db_column='SITEADDR', blank=True, null=True)
+#     sitecity = models.TextField(db_column='SITECITY', blank=True, null=True)
+#     sitezip = models.TextField(db_column='SITEZIP', blank=True, null=True)
+#     landval = models.BigIntegerField(
+#         db_column='LANDVAL', blank=True, null=True)
+#     bldgval = models.BigIntegerField(
+#         db_column='BLDGVAL', blank=True, null=True)
+#     totalval = models.BigIntegerField(
+#         db_column='TOTALVAL', blank=True, null=True)
+#     bldgsqft = models.FloatField(db_column='BLDGSQFT', blank=True, null=True)
+#     a_t_acres = models.FloatField(db_column='A_T_ACRES', blank=True, null=True)
+#     yearbuilt = models.BigIntegerField(
+#         db_column='YEARBUILT', blank=True, null=True)
+#     prop_code = models.FloatField(db_column='PROP_CODE', blank=True, null=True)
+#     landuse = models.TextField(db_column='LANDUSE', blank=True, null=True)
+#     taxcode = models.FloatField(db_column='TAXCODE', blank=True, null=True)
+#     saledate = models.FloatField(db_column='SALEDATE', blank=True, null=True)
+#     saleprice = models.BigIntegerField(
+#         db_column='SALEPRICE', blank=True, null=True)
+#     county = models.TextField(db_column='COUNTY', blank=True, null=True)
+#     juris_city = models.TextField(
+#         db_column='JURIS_CITY', blank=True, null=True)
+#     gis_acres = models.FloatField(db_column='GIS_ACRES', blank=True, null=True)
+#     stateclass = models.TextField(
+#         db_column='STATECLASS', blank=True, null=True)
+#     ortaxlot = models.TextField(db_column='ORTAXLOT', blank=True, null=True)
 
-    class Meta:
-        managed = False
-        db_table = 'rlis_taxlot_pts_2015'
+#     class Meta:
+#         managed = False
+#         db_table = 'rlis_taxlot_2017'
+
+
+# class RlisTaxlotPts2015(models.Model):
+#     x = models.CharField(db_column='X', max_length=-1, blank=True, null=True)
+#     y = models.CharField(db_column='Y', max_length=-1, blank=True, null=True)
+#     area = models.CharField(
+#         db_column='AREA', max_length=-1, blank=True, null=True)
+#     tlid = models.CharField(
+#         db_column='TLID', max_length=-1, blank=True, null=True)
+#     rno = models.CharField(
+#         db_column='RNO', max_length=-1, blank=True, null=True)
+#     owneraddr = models.CharField(
+#         db_column='OWNERADDR', max_length=-1, blank=True, null=True)
+#     ownercity = models.CharField(
+#         db_column='OWNERCITY', max_length=-1, blank=True, null=True)
+#     ownerstate = models.CharField(
+#         db_column='OWNERSTATE', max_length=-1, blank=True, null=True)
+#     ownerzip = models.CharField(
+#         db_column='OWNERZIP', max_length=-1, blank=True, null=True)
+#     sitestrno = models.CharField(
+#         db_column='SITESTRNO', max_length=-1, blank=True, null=True)
+#     siteaddr = models.CharField(
+#         db_column='SITEADDR', max_length=-1, blank=True, null=True)
+#     sitecity = models.CharField(
+#         db_column='SITECITY', max_length=-1, blank=True, null=True)
+#     sitezip = models.CharField(
+#         db_column='SITEZIP', max_length=-1, blank=True, null=True)
+#     landval = models.CharField(
+#         db_column='LANDVAL', max_length=-1, blank=True, null=True)
+#     bldgval = models.CharField(
+#         db_column='BLDGVAL', max_length=-1, blank=True, null=True)
+#     totalval = models.CharField(
+#         db_column='TOTALVAL', max_length=-1, blank=True, null=True)
+#     bldgsqft = models.CharField(
+#         db_column='BLDGSQFT', max_length=-1, blank=True, null=True)
+#     a_t_acres = models.CharField(
+#         db_column='A_T_ACRES', max_length=-1, blank=True, null=True)
+#     yearbuilt = models.CharField(
+#         db_column='YEARBUILT', max_length=-1, blank=True, null=True)
+#     prop_code = models.CharField(
+#         db_column='PROP_CODE', max_length=-1, blank=True, null=True)
+#     landuse = models.CharField(
+#         db_column='LANDUSE', max_length=-1, blank=True, null=True)
+#     taxcode = models.CharField(
+#         db_column='TAXCODE', max_length=-1, blank=True, null=True)
+#     saledate = models.CharField(
+#         db_column='SALEDATE', max_length=-1, blank=True, null=True)
+#     saleprice = models.CharField(
+#         db_column='SALEPRICE', max_length=-1, blank=True, null=True)
+#     county = models.CharField(
+#         db_column='COUNTY', max_length=-1, blank=True, null=True)
+#     x_coord = models.CharField(
+#         db_column='X_COORD', max_length=-1, blank=True, null=True)
+#     y_coord = models.CharField(
+#         db_column='Y_COORD', max_length=-1, blank=True, null=True)
+#     juris_city = models.CharField(
+#         db_column='JURIS_CITY', max_length=-1, blank=True, null=True)
+#     gis_acres = models.CharField(
+#         db_column='GIS_ACRES', max_length=-1, blank=True, null=True)
+#     stateclass = models.CharField(
+#         db_column='STATECLASS', max_length=-1, blank=True, null=True)
+#     ortaxlot = models.CharField(
+#         db_column='ORTAXLOT', max_length=-1, blank=True, null=True)
+
+#     class Meta:
+#         managed = False
+#         db_table = 'rlis_taxlot_pts_2015'
 
 
 class SchoolDistricts(models.Model):
