@@ -156,19 +156,6 @@ class HousingAreas(models.Model):
         db_table = 'housing_areas'
 
 
-class Neighborhoods(models.Model):
-    # TODO: Double check this one once the table is recreated
-    fid = models.IntegerField()
-    name = models.CharField(max_length=60)
-    area = models.FloatField()
-    sqmiles = models.FloatField()
-    geom = models.MultiPolygonField()
-
-    class Meta:
-        managed = False
-        db_table = 'neighborhoods'
-
-
 class ParksTrails(models.Model):
     id = models.IntegerField(primary_key=True)
     objectid = models.IntegerField()
