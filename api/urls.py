@@ -4,7 +4,7 @@ from rest_framework_swagger.views import get_swagger_view
 
 from . import views
 
-schema_view = get_swagger_view(title='Hack Oregon 2018 Transportation Systems APIs')
+schema_view = get_swagger_view(title='Hack Oregon 2018 Neighborhood Development APIs')
 
 urlpatterns = [
     path('', schema_view),
