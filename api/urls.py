@@ -4,13 +4,10 @@ from rest_framework_swagger.views import get_swagger_view
 
 from . import views
 
-schema_view = get_swagger_view(title='Hack Oregon 2018 Neighborhood Development APIs')
-
 urlpatterns = [
     # path('rlis_neighborhoods', views.RlisNeighborhoodsList.as_view()),
     # path('rlis_taxlot_2017', views.RlisTaxlot2017List.as_view()),
     # path('rlis_taxlot_pts_2015', views.RlisTaxlotPts2015List.as_view()),
-    path('', schema_view),
     path('active_multiuse_trail', views.ActiveMultiuseTrailList.as_view()),
     path('affordable_housing', views.AffordableHousingList.as_view()),
     path('bike_count_locations', views.BikeCountLocationsList.as_view()),
