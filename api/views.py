@@ -86,17 +86,17 @@ class RetailLocationsList(ListAPIView):
     queryset = models.RetailLocations.objects.all()
     serializer_class = serializers.RetailLocationsSerializer
 
-class RlisNeighborhoodsList(ListAPIView):
-    queryset = models.RlisNeighborhoods.objects.all()
-    serializer_class = serializers.RlisNeighborhoodsSerializer
+# class RlisNeighborhoodsList(ListAPIView):
+#     queryset = models.RlisNeighborhoods.objects.all()
+#     serializer_class = serializers.RlisNeighborhoodsSerializer
 
-class RlisTaxlot2017List(ListAPIView):
-    queryset = models.RlisTaxlot2017.objects.all()
-    serializer_class = serializers.RlisTaxlot2017Serializer
+# class RlisTaxlot2017List(ListAPIView):
+#     queryset = models.RlisTaxlot2017.objects.all()
+#     serializer_class = serializers.RlisTaxlot2017Serializer
 
-class RlisTaxlotPts2015List(ListAPIView):
-    queryset = models.RlisTaxlotPts2015.objects.all()
-    serializer_class = serializers.RlisTaxlotPts2015Serializer
+# class RlisTaxlotPts2015List(ListAPIView):
+#     queryset = models.RlisTaxlotPts2015.objects.all()
+#     serializer_class = serializers.RlisTaxlotPts2015Serializer
 
 class SchoolDistrictsList(ListAPIView):
     queryset = models.SchoolDistricts.objects.all()
