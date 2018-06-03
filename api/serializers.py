@@ -86,6 +86,7 @@ class HousingAreasSerializer(GeoFeatureModelSerializer):
         geo_field = "geom"
         fields = "__all__"
 
+
 class HousingAreasSerializer(GeoFeatureModelSerializer):
     class Meta:
         model = models.HousingAreas
@@ -109,6 +110,7 @@ class ParksSerializer(GeoFeatureModelSerializer):
         model = models.Parks
         geo_field = "geom"
         fields = "__all__"
+
 
 class ParksTrailsSerializer(GeoFeatureModelSerializer):
     class Meta:

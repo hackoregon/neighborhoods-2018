@@ -1,11 +1,18 @@
 from django.urls import path
 from rest_framework.urlpatterns import format_suffix_patterns
+from rest_framework_swagger.views import get_swagger_view
 
 from . import views
 
+schema_view = get_swagger_view(title='Hack Oregon 2018 Neighborhood Development APIs')
 
 urlpatterns = [
+    # path('rlis_neighborhoods', views.RlisNeighborhoodsList.as_view()),
+    # path('rlis_taxlot_2017', views.RlisTaxlot2017List.as_view()),
+    # path('rlis_taxlot_pts_2015', views.RlisTaxlotPts2015List.as_view()),
+    path('', schema_view),
     path('active_multiuse_trail', views.ActiveMultiuseTrailList.as_view()),
+    path('affordable_housing', views.AffordableHousingList.as_view()),
     path('bike_count_locations', views.BikeCountLocationsList.as_view()),
     path('bike_counts', views.BikeCountsList.as_view()),
     path('bike_daily_estimates', views.BikeDailyEstimatesList.as_view()),
@@ -20,14 +27,11 @@ urlpatterns = [
     path('housing_areas', views.HousingAreasList.as_view()),
     path('metro_limit', views.MetroLimitList.as_view()),
     path('park_ride_lots', views.ParkRideLotsList.as_view()),
-    path('parks', views.ParksList.as_view()),
     path('parks_trails', views.ParksTrailsList.as_view()),
+    path('parks', views.ParksList.as_view()),
     path('percent_shared_housing', views.PercentSharedHousingList.as_view()),
     path('rail_stops', views.RailStopsList.as_view()),
     path('retail_locations', views.RetailLocationsList.as_view()),
-    # path('rlis_neighborhoods', views.RlisNeighborhoodsList.as_view()),
-    # path('rlis_taxlot_2017', views.RlisTaxlot2017List.as_view()),
-    # path('rlis_taxlot_pts_2015', views.RlisTaxlotPts2015List.as_view()),
     path('school_districts', views.SchoolDistrictsList.as_view()),
     path('transit_centers', views.TransitCentersList.as_view()),
     path('trees', views.TreesList.as_view()),
