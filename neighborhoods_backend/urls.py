@@ -18,5 +18,5 @@ from django.urls import path, include
 
 urlpatterns = [
     path('neighborhood-development/', include('api.urls')),
-    path('census/', include('census.urls'))
+    path('neighborhood-development/census/', include('census.urls'))
 ]

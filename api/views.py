@@ -26,10 +26,6 @@ class HousingAreasList(ListAPIView):
     queryset = models.HousingAreas.objects.all()
     serializer_class = serializers.HousingAreasSerializer
 
-class NeighborhoodsList(ListAPIView):
-    queryset = models.Neighborhoods.objects.all()
-    serializer_class = serializers.NeighborhoodsSerializer
-
 class ParksTrailsList(ListAPIView):
     queryset = models.ParksTrails.objects.all()
     serializer_class = serializers.ParksTrailsSerializer
@@ -53,7 +49,3 @@ class ZipCodesList(ListAPIView):
 class ZoningList(ListAPIView):
     queryset = models.Zoning.objects.all()
     serializer_class = serializers.ZoningSerializer
-
-class BlockgroupsElList(ListAPIView):
-    queryset = models.BlockgroupsEl.objects.all()
-    serializer_class = serializers.BlockgroupsElSerializer

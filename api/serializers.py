@@ -38,12 +38,6 @@ class HousingAreasSerializer(GeoFeatureModelSerializer):
         geo_field = "geom"
         fields = "__all__"
 
-class NeighborhoodsSerializer(GeoFeatureModelSerializer):
-    class Meta:
-        model = models.Neighborhoods
-        geo_field = "geom"
-        fields = "__all__"
-
 class ParksTrailsSerializer(GeoFeatureModelSerializer):
     class Meta:
         model = models.ParksTrails
@@ -77,11 +71,5 @@ class ZipCodesSerializer(GeoFeatureModelSerializer):
 class ZoningSerializer(GeoFeatureModelSerializer):
     class Meta:
         model = models.Zoning
-        geo_field = "geom"
-        fields = "__all__"
-
-class BlockgroupsElSerializer(GeoFeatureModelSerializer):
-    class Meta:
-        model = models.BlockgroupsEl
         geo_field = "geom"
         fields = "__all__"

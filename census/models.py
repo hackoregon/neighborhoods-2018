@@ -1,6 +1,26 @@
 from django.contrib.gis.db import models
 
 
+class Census1990(models.Model):
+    ogc_fid = models.AutoField(primary_key=True)
+    trbg = models.CharField(max_length=7, blank=True, null=True)
+    fips = models.CharField(max_length=12, blank=True, null=True)
+    bg = models.CharField(max_length=1, blank=True, null=True)
+    ct90 = models.FloatField(blank=True, null=True)
+    pop90 = models.FloatField(blank=True, null=True)
+    hh90 = models.FloatField(blank=True, null=True)
+    du90 = models.IntegerField(blank=True, null=True)
+    sf90 = models.FloatField(blank=True, null=True)
+    mf90 = models.FloatField(blank=True, null=True)
+    vac90 = models.IntegerField(blank=True, null=True)
+    hhsize90 = models.FloatField(blank=True, null=True)
+    geom = models.GeometryField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'census_1990'
+
+
 class Census2000(models.Model):
     id = models.IntegerField(primary_key=True)
     trbg = models.CharField(max_length=50)
@@ -67,3 +87,75 @@ class Census2010(models.Model):
     class Meta:
         managed = False
         db_table = 'census_2010'
+
+
+class EvictionsBlockgroups(models.Model):
+   geoid = models.CharField(db_column="GEOID", max_length=15)
+   year = models.IntegerField()
+   name = models.CharField(max_length=10)
+   parent_location = models.CharField(max_length=25)
+   population = models.IntegerField()
+   poverty_rate = models.FloatField()
+   pctrenter_occupied = models.FloatField()
+   median_gross_rent = models.IntegerField(db_column="Median_gross_rent", blank=True, null=True)
+   median_household_income = models.IntegerField(blank=True, null=True)
+   median_property_value = models.IntegerField(blank=True, null=True)
+   rent_burden = models.FloatField(blank=True, null=True)
+   pct_white = models.FloatField()
+   pct_af_am = models.FloatField()
+   pct_hispanic = models.FloatField()
+   pct_am_ind = models.FloatField()
+   pct_asian = models.FloatField()
+   pct_nh_pi = models.FloatField()
+   pct_multiple = models.FloatField()
+   pct_other = models.FloatField()
+   renter_occupied_households = models.IntegerField()
+   eviction_filings = models.IntegerField(blank=True, null=True)
+   evictions = models.IntegerField(blank=True, null=True)
+   eviction_rate = models.FloatField(blank=True, null=True)
+   eviction_filing_rate = models.FloatField(blank=True, null=True)
+   imputed = models.BooleanField()
+   subbed = models.BooleanField()
+
+   class Meta:
+       managed = False
+       db_table = "evictions_blockgroups"
+
+
+class ImsNbrhdDemographics(models.Model):
+    id = models.IntegerField(primary_key=True)
+    name = models.TextField(blank=True, null=True)
+    total_population_2000 = models.FloatField(blank=True, null=True)
+    total_population_2010 = models.FloatField(blank=True, null=True)
+    pc_change_in_total_pop = models.FloatField(blank=True, null=True)
+    number_households_2000 = models.FloatField(blank=True, null=True)
+    number_households_2010 = models.FloatField(blank=True, null=True)
+    pc_change_in_number_of_households = models.FloatField(
+        blank=True, null=True)
+    pop_density_2000 = models.FloatField(blank=True, null=True)
+    pop_density_2010 = models.FloatField(blank=True, null=True)
+    pc_household_with_children_under_18_2000 = models.FloatField(
+        blank=True, null=True)
+    pc_household_with_children_under_18_2010 = models.FloatField(
+        blank=True, null=True)
+    pc_household_with_individuals_65_ovr_2000 = models.FloatField(
+        blank=True, null=True)
+    pc_household_with_individuals_65_ovr_2010 = models.FloatField(
+        blank=True, null=True)
+    pc_non_white_2000 = models.FloatField(blank=True, null=True)
+    pc_non_white_2010 = models.FloatField(blank=True, null=True)
+    change_in_pc_avg_household_size = models.FloatField(blank=True, null=True)
+    avg_household_size_2000 = models.FloatField(blank=True, null=True)
+    avg_household_size_2010 = models.FloatField(blank=True, null=True)
+    pc_owner_occupied_housing_units_2000 = models.FloatField(
+        blank=True, null=True)
+    pc_owner_occupied_housing_units_2010 = models.FloatField(
+        blank=True, null=True)
+    pc_householders_living_alone_2000 = models.FloatField(
+        blank=True, null=True)
+    pc_householders_living_alone_2010 = models.FloatField(
+        blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'ims_nbrhd_demographics'

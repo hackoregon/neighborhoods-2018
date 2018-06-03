@@ -14,14 +14,12 @@ urlpatterns = [
     path('bus_stops', views.BusStopsList.as_view()),
     path('demolitions', views.DemolitionsList.as_view()),
     path('housing_areas', views.HousingAreasList.as_view()),
-    path('neighborhoods', views.NeighborhoodsList.as_view()),
     path('parks_trails', views.ParksTrailsList.as_view()),
     path('school_districts', views.SchoolDistrictsList.as_view()),
     path('transit_centers', views.TransitCentersList.as_view()),
     path('voter_precincts', views.VoterPrecinctsList.as_view()),
     path('zip_codes', views.ZipCodesList.as_view()),
     path('zoning', views.ZoningList.as_view()),
-    path('blockgroups_el', views.BlockgroupsElList.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
