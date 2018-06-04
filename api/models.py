@@ -376,6 +376,25 @@ class MetroLimit(models.Model):
         db_table = 'metro_limit'
 
 
+class NeighborhoodAges(models.Model):
+    age = models.SmallIntegerField()
+    neighborhood = models.CharField(max_length=50)
+    year_2006 = models.FloatField(db_column="2006")
+    year_2007 = models.FloatField(db_column="2007")
+    year_2008 = models.FloatField(db_column="2008")
+    year_2009 = models.FloatField(db_column="2009")
+    year_2010 = models.FloatField(db_column="2010")
+    year_2011 = models.FloatField(db_column="2011")
+    year_2012 = models.FloatField(db_column="2012")
+    year_2013 = models.FloatField(db_column="2013")
+    year_2014 = models.FloatField(db_column="2014")
+    year_2015 = models.FloatField(db_column="2015")
+    year_2016 = models.FloatField(db_column="2016")
+
+    class Meta:
+        managed = False
+        db_table = 'neighborhood_ages_over_time'
+
 class ParkRideLots(models.Model):
     station = models.CharField(max_length=50)
     address = models.CharField(max_length=50)
@@ -689,6 +708,25 @@ class VoterPrecincts(models.Model):
     class Meta:
         managed = False
         db_table = 'voter_precincts'
+
+
+class VoterRegistrationByAge(models.Model):
+    age = models.SmallIntegerField()
+    year_2006 = models.FloatField(db_column="2006")
+    year_2007 = models.FloatField(db_column="2007")
+    year_2008 = models.FloatField(db_column="2008")
+    year_2009 = models.FloatField(db_column="2009")
+    year_2010 = models.FloatField(db_column="2010")
+    year_2011 = models.FloatField(db_column="2011")
+    year_2012 = models.FloatField(db_column="2012")
+    year_2013 = models.FloatField(db_column="2013")
+    year_2014 = models.FloatField(db_column="2014")
+    year_2015 = models.FloatField(db_column="2015")
+    year_2016 = models.FloatField(db_column="2016")
+
+    class Meta:
+        managed = False
+        db_table = 'age_group_registration_percent'
 
 
 class ZipCodes(models.Model):

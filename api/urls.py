@@ -26,6 +26,7 @@ urlpatterns = [
     path('demolitions', views.DemolitionsList.as_view()),
     path('housing_areas', views.HousingAreasList.as_view()),
     path('metro_limit', views.MetroLimitList.as_view()),
+    path('neighborhood_ages', views.NeighborhoodAgesList.as_view()),
     path('park_ride_lots', views.ParkRideLotsList.as_view()),
     path('parks_trails', views.ParksTrailsList.as_view()),
     path('parks', views.ParksList.as_view()),
@@ -36,6 +37,7 @@ urlpatterns = [
     path('transit_centers', views.TransitCentersList.as_view()),
     path('trees', views.TreesList.as_view()),
     path('voter_precincts', views.VoterPrecinctsList.as_view()),
+    path('voter_registration_age', views.VoterRegistrationByAgeList.as_view()),
     path('zip_codes', views.ZipCodesList.as_view()),
     path('zoning', views.ZoningList.as_view()),
 ]
