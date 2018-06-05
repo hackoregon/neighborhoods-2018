@@ -46,6 +46,7 @@ if DEBUG == True:
         'rest_framework',
         'rest_framework_gis',
         'rest_framework_swagger',
+        'civic_sandbox'
         ]
 
 else:
@@ -63,6 +64,7 @@ else:
         'rest_framework',
         'rest_framework_gis',
         'rest_framework_swagger',
+        'civic_sandbox'
         ]
 
 MIDDLEWARE = [
