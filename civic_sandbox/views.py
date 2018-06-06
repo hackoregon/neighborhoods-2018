@@ -1,10 +1,10 @@
 
 from rest_framework.decorators import api_view
-from .models import BikeParking, BikeLane, TaxLotBlockGroup
-from .serializers import BikeParkingSerializer, BikeLaneSerializer, TaxLotBlockGroupSerializer
+from .models import BikeParking, BikeLane, TaxLotBlockGroup, Park
+from .serializers import BikeParkingSerializer, BikeLaneSerializer, TaxLotBlockGroupSerializer, ParksSerializer
 from django.contrib.gis.geos import GEOSGeometry, MultiPoint, MultiPolygon, MultiLineString
 from .helpers import sandbox_view_factory
-from .meta import bikeparking_meta, bikelanes_meta, taxlot_block_groups_meta
+from .meta import bikeparking_meta, bikelanes_meta, taxlot_block_groups_meta, parks_meta
 
 
 
@@ -33,4 +33,13 @@ taxlotblockgroups = sandbox_view_factory(
   geom_field='geom',
   attributes =taxlot_block_groups_meta['attributes'],
   dates=taxlot_block_groups_meta['dates'], 
+  )
+
+parks = sandbox_view_factory(
+  model_class=Park,
+  serializer_class=ParksSerializer,
+  multi_geom_class=MultiPolygon,
+  geom_field='geom',
+  attributes =parks_meta['attributes'],
+  dates=parks_meta['dates'], 
   )

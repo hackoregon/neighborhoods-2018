@@ -26,3 +26,13 @@ class TaxLotBlockGroup(models.Model):
         managed = False
         db_table = 'taxlot_mview'
 
+class Park(models.Model):
+    objectid = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=50)
+    acres = models.FloatField()
+    geom = models.GeometryField()
+
+    class Meta:
+        managed = False
+        db_table = 'parks'
+
