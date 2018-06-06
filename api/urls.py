@@ -29,6 +29,8 @@ urlpatterns = [
     path('rail_stops', views.RailStopsList.as_view()),
     path('retail_locations', views.RetailLocationsList.as_view()),
     path('school_districts', views.SchoolDistrictsList.as_view()),
+    path('teacher_experience', views.TeacherExperienceList.as_view()),
+    path('teacher_experience_subtotals', views.TeacherExperienceSubtotalsList.as_view()),
     path('transit_centers', views.TransitCentersList.as_view()),
     path('trees', views.TreesList.as_view()),
     path('voter_precincts', views.VoterPrecinctsList.as_view()),

@@ -163,6 +163,16 @@ class ScopeSerializer(GeoFeatureModelSerializer):
         geo_field = "geom"
         fields = "__all__"
 
+class TeacherExperienceSerializer(ModelSerializer):
+    class Meta:
+        model = models.TeacherExperience
+        fields = "__all__"
+
+class TeacherExperienceSubtotalsSerializer(ModelSerializer):
+    class Meta:
+        model = models.TeacherExperienceSubtotals
+        fields = "__all__"
+
 class TransitCentersSerializer(GeoFeatureModelSerializer):
     class Meta:
         model = models.TransitCenters

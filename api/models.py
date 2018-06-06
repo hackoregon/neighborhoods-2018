@@ -632,6 +632,32 @@ class Scope(models.Model):
         db_table = 'scope'
 
 
+class TeacherExperience(models.Model):
+    school = models.CharField(max_length=50)
+    fte = models.FloatField(db_column='FTE')
+    fte_grad_degree = models.FloatField(db_column='FTE With Graduate Degree')
+    fte_grad_degree_pct = models.FloatField()
+    average_experience_years = models.FloatField(db_column='Average Experience School FTE (in years)')
+    school_year = models.CharField(max_length=20)
+
+    class Meta:
+        managed = False
+        db_table = 'teacher_experience'
+
+
+class TeacherExperienceSubtotals(models.Model):
+    school_type = models.CharField(max_length=50)
+    fte = models.FloatField(db_column='FTE')
+    fte_grad_degree = models.FloatField(db_column='FTE With Graduate Degree')
+    fte_grad_degree_pct = models.FloatField()
+    average_experience_years = models.FloatField(db_column='Average Experience School FTE (in years)')
+    school_year = models.CharField(max_length=20)
+
+    class Meta:
+        managed = False
+        db_table = 'teacher_experience_subtotals'
+
+
 class TransitCenters(models.Model):
     name = models.CharField(max_length=50)
     address = models.CharField(max_length=75)
