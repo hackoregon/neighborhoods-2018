@@ -1,10 +1,10 @@
 version: '3.4'
 services:
-  api_production:
+  neighborhood-development:
     build:
       context: .
       dockerfile: DOCKERFILE.api.production
-    image: api_production
+    image: $DOCKER_IMAGE
     command: ./bin/production-docker-entrypoint.sh
     volumes:
       - .:/code

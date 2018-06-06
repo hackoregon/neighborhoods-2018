@@ -2,6 +2,25 @@
 from django.contrib.gis.db import models
 
 
+class ActiveMultiuseTrail(models.Model):
+    ogc_fid = models.AutoField(primary_key=True)
+    objectid = models.IntegerField(blank=True, null=True)
+    tranplanid = models.CharField(max_length=20, blank=True, null=True)
+    segmentnam = models.CharField(max_length=35, blank=True, null=True)
+    status = models.CharField(max_length=10, blank=True, null=True)
+    facility = models.CharField(max_length=3, blank=True, null=True)
+    yearbuilt = models.IntegerField(blank=True, null=True)
+    yearretire = models.IntegerField(blank=True, null=True)
+    lengthmile = models.FloatField(blank=True, null=True)
+    shape_leng = models.FloatField(blank=True, null=True)
+    shape_le_1 = models.FloatField(blank=True, null=True)
+    geom = models.GeometryField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'active_multiuse_trail'
+
+
 class AffordableHousing(models.Model):
     id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=50)
@@ -31,394 +50,176 @@ class AffordableHousing(models.Model):
         db_table = 'affordable_housing'
 
 
-class BlockgroupsEl(models.Model):
-    id = models.IntegerField(primary_key=True)
-    geoid = models.CharField(max_length=50)
-    west = models.FloatField()
-    south = models.FloatField()
-    east = models.FloatField()
-    north = models.FloatField()
-    n = models.CharField(max_length=50)
-    pl = models.CharField(max_length=50)
-    p_00 = models.FloatField()
-    pr_00 = models.FloatField()
-    pro_00 = models.FloatField()
-    mgr_00 = models.FloatField()
-    mhi_00 = models.FloatField()
-    mpv_00 = models.FloatField()
-    rb_00 = models.FloatField()
-    pw_00 = models.FloatField()
-    paa_00 = models.FloatField()
-    ph_00 = models.FloatField()
-    pai_00 = models.FloatField()
-    pa_00 = models.FloatField()
-    pnp_00 = models.FloatField()
-    pm_00 = models.FloatField()
-    po_00 = models.FloatField()
-    roh_00 = models.FloatField()
-    ef_00 = models.FloatField()
-    e_00 = models.FloatField()
-    er_00 = models.FloatField()
-    efr_00 = models.FloatField()
-    imputed_00 = models.FloatField()
-    subbed_00 = models.FloatField()
-    p_01 = models.FloatField()
-    pr_01 = models.FloatField()
-    pro_01 = models.FloatField()
-    mgr_01 = models.FloatField()
-    mhi_01 = models.FloatField()
-    mpv_01 = models.FloatField()
-    rb_01 = models.FloatField()
-    pw_01 = models.FloatField()
-    paa_01 = models.FloatField()
-    ph_01 = models.FloatField()
-    pai_01 = models.FloatField()
-    pa_01 = models.FloatField()
-    pnp_01 = models.FloatField()
-    pm_01 = models.FloatField()
-    po_01 = models.FloatField()
-    roh_01 = models.FloatField()
-    ef_01 = models.FloatField()
-    e_01 = models.FloatField()
-    er_01 = models.FloatField()
-    efr_01 = models.FloatField()
-    imputed_01 = models.FloatField()
-    subbed_01 = models.FloatField()
-    p_02 = models.FloatField()
-    pr_02 = models.FloatField()
-    pro_02 = models.FloatField()
-    mgr_02 = models.FloatField()
-    mhi_02 = models.FloatField()
-    mpv_02 = models.FloatField()
-    rb_02 = models.FloatField()
-    pw_02 = models.FloatField()
-    paa_02 = models.FloatField()
-    ph_02 = models.FloatField()
-    pai_02 = models.FloatField()
-    pa_02 = models.FloatField()
-    pnp_02 = models.FloatField()
-    pm_02 = models.FloatField()
-    po_02 = models.FloatField()
-    roh_02 = models.FloatField()
-    ef_02 = models.FloatField()
-    e_02 = models.FloatField()
-    er_02 = models.FloatField()
-    efr_02 = models.FloatField()
-    imputed_02 = models.FloatField()
-    subbed_02 = models.FloatField()
-    p_03 = models.FloatField()
-    pr_03 = models.FloatField()
-    pro_03 = models.FloatField()
-    mgr_03 = models.FloatField()
-    mhi_03 = models.FloatField()
-    mpv_03 = models.FloatField()
-    rb_03 = models.FloatField()
-    pw_03 = models.FloatField()
-    paa_03 = models.FloatField()
-    ph_03 = models.FloatField()
-    pai_03 = models.FloatField()
-    pa_03 = models.FloatField()
-    pnp_03 = models.FloatField()
-    pm_03 = models.FloatField()
-    po_03 = models.FloatField()
-    roh_03 = models.FloatField()
-    ef_03 = models.FloatField()
-    e_03 = models.FloatField()
-    er_03 = models.FloatField()
-    efr_03 = models.FloatField()
-    imputed_03 = models.FloatField()
-    subbed_03 = models.FloatField()
-    p_04 = models.FloatField()
-    pr_04 = models.FloatField()
-    pro_04 = models.FloatField()
-    mgr_04 = models.FloatField()
-    mhi_04 = models.FloatField()
-    mpv_04 = models.FloatField()
-    rb_04 = models.FloatField()
-    pw_04 = models.FloatField()
-    paa_04 = models.FloatField()
-    ph_04 = models.FloatField()
-    pai_04 = models.FloatField()
-    pa_04 = models.FloatField()
-    pnp_04 = models.FloatField()
-    pm_04 = models.FloatField()
-    po_04 = models.FloatField()
-    roh_04 = models.FloatField()
-    ef_04 = models.FloatField()
-    e_04 = models.FloatField()
-    er_04 = models.FloatField()
-    efr_04 = models.FloatField()
-    imputed_04 = models.FloatField()
-    subbed_04 = models.FloatField()
-    p_05 = models.FloatField()
-    pr_05 = models.FloatField()
-    pro_05 = models.FloatField()
-    mgr_05 = models.FloatField()
-    mhi_05 = models.FloatField()
-    mpv_05 = models.FloatField()
-    rb_05 = models.FloatField()
-    pw_05 = models.FloatField()
-    paa_05 = models.FloatField()
-    ph_05 = models.FloatField()
-    pai_05 = models.FloatField()
-    pa_05 = models.FloatField()
-    pnp_05 = models.FloatField()
-    pm_05 = models.FloatField()
-    po_05 = models.FloatField()
-    roh_05 = models.FloatField()
-    ef_05 = models.FloatField()
-    e_05 = models.FloatField()
-    er_05 = models.FloatField()
-    efr_05 = models.FloatField()
-    imputed_05 = models.FloatField()
-    subbed_05 = models.FloatField()
-    p_06 = models.FloatField()
-    pr_06 = models.FloatField()
-    pro_06 = models.FloatField()
-    mgr_06 = models.FloatField()
-    mhi_06 = models.FloatField()
-    mpv_06 = models.FloatField()
-    rb_06 = models.FloatField()
-    pw_06 = models.FloatField()
-    paa_06 = models.FloatField()
-    ph_06 = models.FloatField()
-    pai_06 = models.FloatField()
-    pa_06 = models.FloatField()
-    pnp_06 = models.FloatField()
-    pm_06 = models.FloatField()
-    po_06 = models.FloatField()
-    roh_06 = models.FloatField()
-    ef_06 = models.FloatField()
-    e_06 = models.FloatField()
-    er_06 = models.FloatField()
-    efr_06 = models.FloatField()
-    imputed_06 = models.FloatField()
-    subbed_06 = models.FloatField()
-    p_07 = models.FloatField()
-    pr_07 = models.FloatField()
-    pro_07 = models.FloatField()
-    mgr_07 = models.FloatField()
-    mhi_07 = models.FloatField()
-    mpv_07 = models.FloatField()
-    rb_07 = models.FloatField()
-    pw_07 = models.FloatField()
-    paa_07 = models.FloatField()
-    ph_07 = models.FloatField()
-    pai_07 = models.FloatField()
-    pa_07 = models.FloatField()
-    pnp_07 = models.FloatField()
-    pm_07 = models.FloatField()
-    po_07 = models.FloatField()
-    roh_07 = models.FloatField()
-    ef_07 = models.FloatField()
-    e_07 = models.FloatField()
-    er_07 = models.FloatField()
-    efr_07 = models.FloatField()
-    imputed_07 = models.FloatField()
-    subbed_07 = models.FloatField()
-    p_08 = models.FloatField()
-    pr_08 = models.FloatField()
-    pro_08 = models.FloatField()
-    mgr_08 = models.FloatField()
-    mhi_08 = models.FloatField()
-    mpv_08 = models.FloatField()
-    rb_08 = models.FloatField()
-    pw_08 = models.FloatField()
-    paa_08 = models.FloatField()
-    ph_08 = models.FloatField()
-    pai_08 = models.FloatField()
-    pa_08 = models.FloatField()
-    pnp_08 = models.FloatField()
-    pm_08 = models.FloatField()
-    po_08 = models.FloatField()
-    roh_08 = models.FloatField()
-    ef_08 = models.FloatField()
-    e_08 = models.FloatField()
-    er_08 = models.FloatField()
-    efr_08 = models.FloatField()
-    imputed_08 = models.FloatField()
-    subbed_08 = models.FloatField()
-    p_09 = models.FloatField()
-    pr_09 = models.FloatField()
-    pro_09 = models.FloatField()
-    mgr_09 = models.FloatField()
-    mhi_09 = models.FloatField()
-    mpv_09 = models.FloatField()
-    rb_09 = models.FloatField()
-    pw_09 = models.FloatField()
-    paa_09 = models.FloatField()
-    ph_09 = models.FloatField()
-    pai_09 = models.FloatField()
-    pa_09 = models.FloatField()
-    pnp_09 = models.FloatField()
-    pm_09 = models.FloatField()
-    po_09 = models.FloatField()
-    roh_09 = models.FloatField()
-    ef_09 = models.FloatField()
-    e_09 = models.FloatField()
-    er_09 = models.FloatField()
-    efr_09 = models.FloatField()
-    imputed_09 = models.FloatField()
-    subbed_09 = models.FloatField()
-    p_10 = models.FloatField()
-    pr_10 = models.FloatField()
-    pro_10 = models.FloatField()
-    mgr_10 = models.FloatField()
-    mhi_10 = models.FloatField()
-    mpv_10 = models.FloatField()
-    rb_10 = models.FloatField()
-    pw_10 = models.FloatField()
-    paa_10 = models.FloatField()
-    ph_10 = models.FloatField()
-    pai_10 = models.FloatField()
-    pa_10 = models.FloatField()
-    pnp_10 = models.FloatField()
-    pm_10 = models.FloatField()
-    po_10 = models.FloatField()
-    roh_10 = models.FloatField()
-    ef_10 = models.FloatField()
-    e_10 = models.FloatField()
-    er_10 = models.FloatField()
-    efr_10 = models.FloatField()
-    imputed_10 = models.FloatField()
-    subbed_10 = models.FloatField()
-    p_11 = models.FloatField()
-    pr_11 = models.FloatField()
-    pro_11 = models.FloatField()
-    mgr_11 = models.FloatField()
-    mhi_11 = models.FloatField()
-    mpv_11 = models.FloatField()
-    rb_11 = models.FloatField()
-    pw_11 = models.FloatField()
-    paa_11 = models.FloatField()
-    ph_11 = models.FloatField()
-    pai_11 = models.FloatField()
-    pa_11 = models.FloatField()
-    pnp_11 = models.FloatField()
-    pm_11 = models.FloatField()
-    po_11 = models.FloatField()
-    roh_11 = models.FloatField()
-    ef_11 = models.FloatField()
-    e_11 = models.FloatField()
-    er_11 = models.FloatField()
-    efr_11 = models.FloatField()
-    imputed_11 = models.FloatField()
-    subbed_11 = models.FloatField()
-    p_12 = models.FloatField()
-    pr_12 = models.FloatField()
-    pro_12 = models.FloatField()
-    mgr_12 = models.FloatField()
-    mhi_12 = models.FloatField()
-    mpv_12 = models.FloatField()
-    rb_12 = models.FloatField()
-    pw_12 = models.FloatField()
-    paa_12 = models.FloatField()
-    ph_12 = models.FloatField()
-    pai_12 = models.FloatField()
-    pa_12 = models.FloatField()
-    pnp_12 = models.FloatField()
-    pm_12 = models.FloatField()
-    po_12 = models.FloatField()
-    roh_12 = models.FloatField()
-    ef_12 = models.FloatField()
-    e_12 = models.FloatField()
-    er_12 = models.FloatField()
-    efr_12 = models.FloatField()
-    imputed_12 = models.FloatField()
-    subbed_12 = models.FloatField()
-    p_13 = models.FloatField()
-    pr_13 = models.FloatField()
-    pro_13 = models.FloatField()
-    mgr_13 = models.FloatField()
-    mhi_13 = models.FloatField()
-    mpv_13 = models.FloatField()
-    rb_13 = models.FloatField()
-    pw_13 = models.FloatField()
-    paa_13 = models.FloatField()
-    ph_13 = models.FloatField()
-    pai_13 = models.FloatField()
-    pa_13 = models.FloatField()
-    pnp_13 = models.FloatField()
-    pm_13 = models.FloatField()
-    po_13 = models.FloatField()
-    roh_13 = models.FloatField()
-    ef_13 = models.FloatField()
-    e_13 = models.FloatField()
-    er_13 = models.FloatField()
-    efr_13 = models.FloatField()
-    imputed_13 = models.FloatField()
-    subbed_13 = models.FloatField()
-    p_14 = models.FloatField()
-    pr_14 = models.FloatField()
-    pro_14 = models.FloatField()
-    mgr_14 = models.FloatField()
-    mhi_14 = models.FloatField()
-    mpv_14 = models.FloatField()
-    rb_14 = models.FloatField()
-    pw_14 = models.FloatField()
-    paa_14 = models.FloatField()
-    ph_14 = models.FloatField()
-    pai_14 = models.FloatField()
-    pa_14 = models.FloatField()
-    pnp_14 = models.FloatField()
-    pm_14 = models.FloatField()
-    po_14 = models.FloatField()
-    roh_14 = models.FloatField()
-    ef_14 = models.FloatField()
-    e_14 = models.FloatField()
-    er_14 = models.FloatField()
-    efr_14 = models.FloatField()
-    imputed_14 = models.FloatField()
-    subbed_14 = models.FloatField()
-    p_15 = models.FloatField()
-    pr_15 = models.FloatField()
-    pro_15 = models.FloatField()
-    mgr_15 = models.FloatField()
-    mhi_15 = models.FloatField()
-    mpv_15 = models.FloatField()
-    rb_15 = models.FloatField()
-    pw_15 = models.FloatField()
-    paa_15 = models.FloatField()
-    ph_15 = models.FloatField()
-    pai_15 = models.FloatField()
-    pa_15 = models.FloatField()
-    pnp_15 = models.FloatField()
-    pm_15 = models.FloatField()
-    po_15 = models.FloatField()
-    roh_15 = models.FloatField()
-    ef_15 = models.FloatField()
-    e_15 = models.FloatField()
-    er_15 = models.FloatField()
-    efr_15 = models.FloatField()
-    imputed_15 = models.FloatField()
-    subbed_15 = models.FloatField()
-    p_16 = models.FloatField()
-    pr_16 = models.FloatField()
-    pro_16 = models.FloatField()
-    mgr_16 = models.FloatField()
-    mhi_16 = models.FloatField()
-    mpv_16 = models.FloatField()
-    rb_16 = models.FloatField()
-    pw_16 = models.FloatField()
-    paa_16 = models.FloatField()
-    ph_16 = models.FloatField()
-    pai_16 = models.FloatField()
-    pa_16 = models.FloatField()
-    pnp_16 = models.FloatField()
-    pm_16 = models.FloatField()
-    po_16 = models.FloatField()
-    roh_16 = models.FloatField()
-    ef_16 = models.FloatField()
-    e_16 = models.FloatField()
-    er_16 = models.FloatField()
-    efr_16 = models.FloatField()
-    imputed_16 = models.FloatField()
-    subbed_16 = models.FloatField()
+class BikeCountLocations(models.Model):
+    objectid = models.IntegerField(blank=True, null=True)
+    location = models.CharField(max_length=50, blank=True, null=True)
+    sector = models.CharField(max_length=5, blank=True, null=True)
+    counttype = models.CharField(max_length=10, blank=True, null=True)
+    counttime = models.CharField(max_length=10, blank=True, null=True)
+    year_loc_a = models.CharField(max_length=5, blank=True, null=True)
+    priority = models.CharField(max_length=15, blank=True, null=True)
+    geom = models.GeometryField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'bike_count_locations'
+
+
+class BikeCounts(models.Model):
+   id = models.IntegerField(primary_key=True)
+   # Field name made lowercase.
+   sector = models.CharField(db_column="Sector", max_length=15)
+   # Field name made lowercase.
+   location = models.CharField(db_column="Location", max_length=50)
+   count_time = models.CharField(max_length=5)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2017 = models.IntegerField(db_column="2017", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2016 = models.IntegerField(db_column="2016", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2015 = models.IntegerField(db_column="2015", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2014 = models.IntegerField(db_column="2014", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2013 = models.IntegerField(db_column="2013", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2012 = models.IntegerField(db_column="2012", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2011 = models.IntegerField(db_column="2011", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2010 = models.IntegerField(db_column="2010", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2009 = models.IntegerField(db_column="2009", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2008 = models.IntegerField(db_column="2008", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2007 = models.IntegerField(db_column="2007", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2006 = models.IntegerField(db_column="2006", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2005 = models.IntegerField(db_column="2005", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2004 = models.IntegerField(db_column="2004", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2003 = models.IntegerField(db_column="2003", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2002 = models.IntegerField(db_column="2002", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2001 = models.IntegerField(db_column="2001", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2000 = models.IntegerField(db_column="2000", blank=True, null=True)
+   prior_to_2000 = models.IntegerField(blank=True, null=True)
+
+   class Meta:
+       managed = False
+       db_table = "bike_counts"
+
+
+class BikeDailyEstimates(models.Model):
+   # Field name made lowercase.
+   sector = models.CharField(db_column="Sector", max_length=15)
+   id = models.IntegerField(primary_key=True)
+   # Field name made lowercase.
+   location = models.CharField(db_column="Location", max_length=50)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2016 = models.IntegerField(db_column="2016", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2015 = models.IntegerField(db_column="2015", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2014 = models.IntegerField(db_column="2014", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2013 = models.IntegerField(db_column="2013", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2012 = models.IntegerField(db_column="2012", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2011 = models.IntegerField(db_column="2011", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2010 = models.IntegerField(db_column="2010", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2009 = models.IntegerField(db_column="2009", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2008 = models.IntegerField(db_column="2008", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2007 = models.IntegerField(db_column="2007", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2006 = models.IntegerField(db_column="2006", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2005 = models.IntegerField(db_column="2005", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2004 = models.IntegerField(db_column="2004", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2003 = models.IntegerField(db_column="2003", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2002 = models.IntegerField(db_column="2002", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2001 = models.IntegerField(db_column="2001", blank=True, null=True)
+   # Field renamed because it wasn’t a valid Python identifier.
+   number_2000 = models.IntegerField(db_column="2000", blank=True, null=True)
+   prior_to_2000 = models.IntegerField(blank=True, null=True)
+
+   class Meta:
+       managed = False
+       db_table = "bike_daily_estimates"
+
+
+class BikeGreenways(models.Model):
+    objectid = models.IntegerField(primary_key=True)
+    tranplanid = models.CharField(max_length=50)
+    segmentnam = models.CharField(max_length=50)
+    status = models.CharField(max_length=50)
+    facility = models.CharField(max_length=50)
+    yearbuilt = models.IntegerField()
+    yearretire = models.IntegerField()
+    lengthmile = models.FloatField()
+    shape_leng = models.FloatField()
+    shape_le_1 = models.FloatField()
     geom = models.GeometryField()
 
     class Meta:
         managed = False
-        db_table = 'blockgroups_el'
+        db_table = 'bike_greenways'
+
+
+class BikeLanes(models.Model):
+    objectid = models.IntegerField(primary_key=True)
+    tranplanid = models.CharField(max_length=50)
+    segmentnam = models.CharField(max_length=50)
+    status = models.CharField(max_length=50)
+    facility = models.CharField(max_length=50)
+    yearbuilt = models.IntegerField()
+    yearretire = models.IntegerField()
+    lengthmile = models.FloatField()
+    shape_leng = models.FloatField()
+    shape_le_1 = models.FloatField()
+    geom = models.GeometryField()
+
+    class Meta:
+        managed = False
+        db_table = 'bike_lanes'
+
+
+class BikeParking(models.Model):
+    objectid = models.IntegerField(primary_key=True)
+    assetid = models.CharField(max_length=50)
+    owner = models.CharField(max_length=50)
+    maintresp = models.CharField(max_length=50)
+    locationid = models.CharField(max_length=50)
+    imagepath = models.CharField(max_length=50)
+    bikeparktype = models.IntegerField()
+    numspaces = models.IntegerField()
+    numunits = models.IntegerField()
+    bplevel = models.CharField(max_length=50)
+    bpstyle = models.CharField(max_length=50)
+    finish = models.CharField(max_length=50)
+    mounting = models.CharField(max_length=50)
+    covered = models.CharField(max_length=50)
+    bpfund = models.CharField(max_length=50)
+    rotation = models.FloatField()
+    geom = models.GeometryField()
+
+    class Meta:
+        managed = False
+        db_table = 'bike_parking'
 
 
 class BusStops(models.Model):
@@ -464,75 +265,23 @@ class CampSweeps(models.Model):
         db_table = 'camp_sweeps'
 
 
-class Census2000(models.Model):
-    # TODO: Move census data into its own app
-    id = models.IntegerField(primary_key=True)
-    trbg = models.CharField(max_length=50)
-    fips = models.CharField(max_length=50)
-    bg = models.CharField(max_length=50)
-    ct00 = models.FloatField()
-    dist = models.IntegerField()
-    pop00 = models.IntegerField()
-    hh00 = models.IntegerField()
-    du00 = models.IntegerField()
-    sf00 = models.IntegerField()
-    mf00 = models.IntegerField()
-    vac00 = models.IntegerField()
-    hhsize00 = models.FloatField()
-    pop01 = models.IntegerField()
-    hh01 = models.IntegerField()
-    du01 = models.IntegerField()
-    pop02 = models.IntegerField()
-    hh02 = models.IntegerField()
-    du02 = models.IntegerField()
-    pop03 = models.IntegerField()
-    hh03 = models.IntegerField()
-    du03 = models.IntegerField()
-    pop04 = models.IntegerField()
-    hh04 = models.IntegerField()
-    du04 = models.IntegerField()
-    pop05 = models.IntegerField()
-    hh05 = models.IntegerField()
-    du05 = models.IntegerField()
-    pop06 = models.IntegerField()
-    hh06 = models.IntegerField()
-    du06 = models.IntegerField()
-    pop08 = models.IntegerField()
-    hh08 = models.IntegerField()
-    du08 = models.IntegerField()
-    geom = models.MultiPolygonField()
+class CommunityGardens(models.Model):
+    objectid = models.IntegerField()
+    propertyid = models.IntegerField()
+    sitename = models.CharField(max_length=50)
+    area = models.FloatField()
+    acres = models.FloatField()
+    status = models.CharField(max_length=50)
+    r_value = models.IntegerField()
+    plotsperga = models.IntegerField()
+    waitlist = models.IntegerField()
+    shape_leng = models.FloatField()
+    shape_area = models.FloatField()
+    geom = models.GeometryField()
 
     class Meta:
         managed = False
-        db_table = 'census_2000'
-
-
-class Census2010(models.Model):
-    # TODO: Move census data into its own app
-    id = models.IntegerField(primary_key=True)
-    state = models.CharField(max_length=50)
-    county = models.CharField(max_length=50)
-    tract = models.CharField(max_length=50)
-    tract_no = models.FloatField()
-    bg = models.CharField(max_length=50)
-    trbg = models.CharField(max_length=50)
-    fips = models.CharField(max_length=50)
-    pop10 = models.IntegerField()
-    du10 = models.IntegerField()
-    vac10 = models.IntegerField()
-    white = models.IntegerField()
-    black = models.IntegerField()
-    aian = models.IntegerField()
-    asian = models.IntegerField()
-    nhpi = models.IntegerField()
-    other_race = models.IntegerField()
-    pop_2_race = models.IntegerField()
-    hispanic = models.IntegerField()
-    geom = models.PolygonField()
-
-    class Meta:
-        managed = False
-        db_table = 'census_2010'
+        db_table = 'community_gardens'
 
 
 class Crime(models.Model):
@@ -608,26 +357,53 @@ class Demolitions(models.Model):
 
 
 class HousingAreas(models.Model):
-    id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=50)
-    geom = models.MultiPolygonField()
+    id = models.IntegerField(primary_key=True)
+    geom = models.GeometryField()
 
     class Meta:
         managed = False
         db_table = 'housing_areas'
 
 
-class Neighborhoods(models.Model):
-    # TODO: Double check this one once the table is recreated
-    fid = models.IntegerField()
-    name = models.CharField(max_length=60)
-    area = models.FloatField()
-    sqmiles = models.FloatField()
-    geom = models.MultiPolygonField()
+class MetroLimit(models.Model):
+    ogc_fid = models.AutoField(primary_key=True)
+    area = models.FloatField(blank=True, null=True)
+    geom = models.GeometryField(blank=True, null=True)
 
     class Meta:
         managed = False
-        db_table = 'neighborhoods'
+        db_table = 'metro_limit'
+
+
+class ParkRideLots(models.Model):
+    station = models.CharField(max_length=50)
+    address = models.CharField(max_length=50)
+    city = models.CharField(max_length=50)
+    zipcode = models.CharField(max_length=50)
+    county = models.CharField(max_length=50)
+    owner = models.CharField(max_length=50)
+    spaces = models.FloatField()
+    status = models.CharField(max_length=50)
+    geom = models.GeometryField()
+
+    class Meta:
+        managed = False
+        db_table = 'park_ride_lots'
+
+
+class Parks(models.Model):
+    objectid = models.IntegerField()
+    propertyid = models.IntegerField()
+    name = models.CharField(max_length=50)
+    acres = models.FloatField()
+    shape_leng = models.FloatField()
+    shape_area = models.FloatField()
+    geom = models.GeometryField()
+
+    class Meta:
+        managed = False
+        db_table = 'parks'
 
 
 class ParksTrails(models.Model):
@@ -662,6 +438,177 @@ class ParksTrails(models.Model):
         managed = False
         db_table = 'parks_trails'
 
+class PercentSharedHousing(models.Model):
+    id = models.IntegerField(primary_key=True)
+    dates = models.DateField(blank=True, null=True)
+    four_or_more = models.FloatField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'percent_shared_housing'
+
+
+class RailStops(models.Model):
+    station = models.CharField(max_length=50)
+    status = models.CharField(max_length=50)
+    type = models.CharField(max_length=50)
+    line = models.CharField(max_length=50)
+    geom = models.GeometryField()
+
+    class Meta:
+        managed = False
+        db_table = 'rail_stops'
+
+
+class RetailLocations(models.Model):
+    company_na = models.CharField(max_length=50)
+    address = models.CharField(max_length=50)
+    city = models.CharField(max_length=50)
+    state = models.CharField(max_length=50)
+    zip_code = models.IntegerField()
+    full_addre = models.CharField(max_length=50)
+    county = models.CharField(max_length=50)
+    metro_area = models.CharField(max_length=50)
+    neighborho = models.CharField(max_length=50)
+    primary_si = models.IntegerField()
+    primary_1 = models.CharField(max_length=50)
+    primary_2 = models.IntegerField()
+    sic_code_1 = models.IntegerField()
+    sic_code_2 = models.CharField(max_length=50)
+    primary_na = models.IntegerField()
+    primary_3 = models.CharField(max_length=50)
+    lat = models.FloatField()
+    long = models.FloatField()
+    geom = models.GeometryField()
+
+    class Meta:
+        managed = False
+        db_table = 'retail_locations'
+
+
+# class RlisNeighborhoods(models.Model):
+#     ogc_fid = models.AutoField(primary_key=True)
+#     name = models.CharField(max_length=-1, blank=True, null=True)
+#     sum_area = models.FloatField(blank=True, null=True)
+#     sum_sqmile = models.FloatField(blank=True, null=True)
+#     geom = models.GeometryField(blank=True, null=True)
+
+#     class Meta:
+#         managed = False
+#         db_table = 'rlis_neighborhoods'
+
+
+# class RlisTaxlot2017(models.Model):
+#     x = models.FloatField(db_column='X', blank=True, null=True)
+#     y = models.FloatField(db_column='Y', blank=True, null=True)
+#     area = models.FloatField(db_column='AREA', blank=True, null=True)
+#     tlid = models.TextField(db_column='TLID', blank=True, null=True)
+#     rno = models.TextField(db_column='RNO', blank=True, null=True)
+#     owneraddr = models.TextField(db_column='OWNERADDR', blank=True, null=True)
+#     ownercity = models.TextField(db_column='OWNERCITY', blank=True, null=True)
+#     ownerstate = models.TextField(
+#         db_column='OWNERSTATE', blank=True, null=True)
+#     ownerzip = models.TextField(db_column='OWNERZIP', blank=True, null=True)
+#     sitestrno = models.BigIntegerField(
+#         db_column='SITESTRNO', blank=True, null=True)
+#     siteaddr = models.TextField(db_column='SITEADDR', blank=True, null=True)
+#     sitecity = models.TextField(db_column='SITECITY', blank=True, null=True)
+#     sitezip = models.TextField(db_column='SITEZIP', blank=True, null=True)
+#     landval = models.BigIntegerField(
+#         db_column='LANDVAL', blank=True, null=True)
+#     bldgval = models.BigIntegerField(
+#         db_column='BLDGVAL', blank=True, null=True)
+#     totalval = models.BigIntegerField(
+#         db_column='TOTALVAL', blank=True, null=True)
+#     bldgsqft = models.FloatField(db_column='BLDGSQFT', blank=True, null=True)
+#     a_t_acres = models.FloatField(db_column='A_T_ACRES', blank=True, null=True)
+#     yearbuilt = models.BigIntegerField(
+#         db_column='YEARBUILT', blank=True, null=True)
+#     prop_code = models.FloatField(db_column='PROP_CODE', blank=True, null=True)
+#     landuse = models.TextField(db_column='LANDUSE', blank=True, null=True)
+#     taxcode = models.FloatField(db_column='TAXCODE', blank=True, null=True)
+#     saledate = models.FloatField(db_column='SALEDATE', blank=True, null=True)
+#     saleprice = models.BigIntegerField(
+#         db_column='SALEPRICE', blank=True, null=True)
+#     county = models.TextField(db_column='COUNTY', blank=True, null=True)
+#     juris_city = models.TextField(
+#         db_column='JURIS_CITY', blank=True, null=True)
+#     gis_acres = models.FloatField(db_column='GIS_ACRES', blank=True, null=True)
+#     stateclass = models.TextField(
+#         db_column='STATECLASS', blank=True, null=True)
+#     ortaxlot = models.TextField(db_column='ORTAXLOT', blank=True, null=True)
+
+#     class Meta:
+#         managed = False
+#         db_table = 'rlis_taxlot_2017'
+
+
+# class RlisTaxlotPts2015(models.Model):
+#     x = models.CharField(db_column='X', max_length=-1, blank=True, null=True)
+#     y = models.CharField(db_column='Y', max_length=-1, blank=True, null=True)
+#     area = models.CharField(
+#         db_column='AREA', max_length=-1, blank=True, null=True)
+#     tlid = models.CharField(
+#         db_column='TLID', max_length=-1, blank=True, null=True)
+#     rno = models.CharField(
+#         db_column='RNO', max_length=-1, blank=True, null=True)
+#     owneraddr = models.CharField(
+#         db_column='OWNERADDR', max_length=-1, blank=True, null=True)
+#     ownercity = models.CharField(
+#         db_column='OWNERCITY', max_length=-1, blank=True, null=True)
+#     ownerstate = models.CharField(
+#         db_column='OWNERSTATE', max_length=-1, blank=True, null=True)
+#     ownerzip = models.CharField(
+#         db_column='OWNERZIP', max_length=-1, blank=True, null=True)
+#     sitestrno = models.CharField(
+#         db_column='SITESTRNO', max_length=-1, blank=True, null=True)
+#     siteaddr = models.CharField(
+#         db_column='SITEADDR', max_length=-1, blank=True, null=True)
+#     sitecity = models.CharField(
+#         db_column='SITECITY', max_length=-1, blank=True, null=True)
+#     sitezip = models.CharField(
+#         db_column='SITEZIP', max_length=-1, blank=True, null=True)
+#     landval = models.CharField(
+#         db_column='LANDVAL', max_length=-1, blank=True, null=True)
+#     bldgval = models.CharField(
+#         db_column='BLDGVAL', max_length=-1, blank=True, null=True)
+#     totalval = models.CharField(
+#         db_column='TOTALVAL', max_length=-1, blank=True, null=True)
+#     bldgsqft = models.CharField(
+#         db_column='BLDGSQFT', max_length=-1, blank=True, null=True)
+#     a_t_acres = models.CharField(
+#         db_column='A_T_ACRES', max_length=-1, blank=True, null=True)
+#     yearbuilt = models.CharField(
+#         db_column='YEARBUILT', max_length=-1, blank=True, null=True)
+#     prop_code = models.CharField(
+#         db_column='PROP_CODE', max_length=-1, blank=True, null=True)
+#     landuse = models.CharField(
+#         db_column='LANDUSE', max_length=-1, blank=True, null=True)
+#     taxcode = models.CharField(
+#         db_column='TAXCODE', max_length=-1, blank=True, null=True)
+#     saledate = models.CharField(
+#         db_column='SALEDATE', max_length=-1, blank=True, null=True)
+#     saleprice = models.CharField(
+#         db_column='SALEPRICE', max_length=-1, blank=True, null=True)
+#     county = models.CharField(
+#         db_column='COUNTY', max_length=-1, blank=True, null=True)
+#     x_coord = models.CharField(
+#         db_column='X_COORD', max_length=-1, blank=True, null=True)
+#     y_coord = models.CharField(
+#         db_column='Y_COORD', max_length=-1, blank=True, null=True)
+#     juris_city = models.CharField(
+#         db_column='JURIS_CITY', max_length=-1, blank=True, null=True)
+#     gis_acres = models.CharField(
+#         db_column='GIS_ACRES', max_length=-1, blank=True, null=True)
+#     stateclass = models.CharField(
+#         db_column='STATECLASS', max_length=-1, blank=True, null=True)
+#     ortaxlot = models.CharField(
+#         db_column='ORTAXLOT', max_length=-1, blank=True, null=True)
+
+#     class Meta:
+#         managed = False
+#         db_table = 'rlis_taxlot_pts_2015'
+
 
 class SchoolDistricts(models.Model):
     distno = models.CharField(primary_key=True, max_length=50)
@@ -676,21 +623,61 @@ class SchoolDistricts(models.Model):
         db_table = 'school_districts'
 
 
+class Scope(models.Model):
+    area = models.FloatField()
+    geom = models.GeometryField()
+
+    class Meta:
+        managed = False
+        db_table = 'scope'
 
 
 class TransitCenters(models.Model):
-    id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=50)
     address = models.CharField(max_length=75)
     city = models.CharField(max_length=50)
     zipcode = models.CharField(max_length=50)
     county = models.CharField(max_length=50)
     status = models.CharField(max_length=50)
-    geom = models.MultiPointField()
+    geom = models.GeometryField()
+    in_scope = models.NullBooleanField()
 
     class Meta:
         managed = False
         db_table = 'transit_centers'
+
+
+class Trees(models.Model):
+    objectid = models.IntegerField()
+    date_inventoried = models.DateTimeField(blank=True, null=True)
+    species = models.CharField(max_length=50, blank=True, null=True)
+    dbh = models.FloatField(blank=True, null=True)
+    condition = models.CharField(max_length=50, blank=True, null=True)
+    site_type = models.CharField(max_length=50, blank=True, null=True)
+    site_width = models.FloatField(blank=True, null=True)
+    wires = models.CharField(max_length=50, blank=True, null=True)
+    site_development = models.CharField(max_length=50, blank=True, null=True)
+    site_size = models.CharField(max_length=50, blank=True, null=True)
+    notes = models.CharField(max_length=200, blank=True, null=True)
+    address = models.CharField(max_length=50, blank=True, null=True)
+    neighborhood = models.CharField(max_length=50, blank=True, null=True)
+    collected_by = models.CharField(max_length=50, blank=True, null=True)
+    planted_by = models.CharField(max_length=50, blank=True, null=True)
+    plant_date = models.DateTimeField(blank=True, null=True)
+    scientific = models.CharField(max_length=50, blank=True, null=True)
+    family = models.CharField(max_length=50, blank=True, null=True)
+    genus = models.CharField(max_length=50, blank=True, null=True)
+    common = models.CharField(max_length=50, blank=True, null=True)
+    functionaltype = models.CharField(max_length=50, blank=True, null=True)
+    size = models.CharField(max_length=50, blank=True, null=True)
+    edible = models.CharField(max_length=50, blank=True, null=True)
+    species_description = models.CharField(
+        max_length=50, blank=True, null=True)
+    geom = models.GeometryField()
+
+    class Meta:
+        managed = False
+        db_table = 'trees'
 
 
 class VoterPrecincts(models.Model):

@@ -46,6 +46,7 @@ if DEBUG == True:
         'rest_framework',
         'rest_framework_gis',
         'rest_framework_swagger',
+        'civic_sandbox'
         ]
 
 else:
@@ -63,6 +64,7 @@ else:
         'rest_framework',
         'rest_framework_gis',
         'rest_framework_swagger',
+        'civic_sandbox'
         ]
 
 MIDDLEWARE = [
@@ -169,7 +171,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-STATIC_URL = '/static/'
+STATIC_URL = '/neighborhood-development/static/'
 
 #custom test runner to toggle between Managed=True and Managed=False for models handling test db
 #TEST_RUNNER = 'api.utils.UnManagedModelTestRunner'
