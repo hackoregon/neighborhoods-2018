@@ -14,10 +14,10 @@ def sandbox_view_factory(model_class, serializer_class, multi_geom_class, geom_f
         print('\n====================================================================================\n')
         ## get data ##
         try:
-            if not dates['date_column']: 
+            if not dates['date_attribute']: 
                 dataset= model_class.objects.all()
             else:
-                variable_column = dates['date_column']
+                variable_column = dates['date_attribute']
                 filter = variable_column + '__contains'
                 dataset= model_class.objects.filter(**{ filter: date_filter })
             print('got objects')   

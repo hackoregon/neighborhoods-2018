@@ -1,5 +1,5 @@
 
-bikeparking_meta = {
+bike_parking_meta = {
   'attributes': {
     'primary': {
       'field': None,
@@ -11,13 +11,13 @@ bikeparking_meta = {
     },
   },
     'dates': {
-    'date_column': None,
+    'date_attribute': None,
     'date_granularity': None,
     'default_date_filter': '2017',
     },
   }
 
-bikelanes_meta = {
+bike_lanes_meta = {
   'attributes': {
     'primary': {
       'field': None,
@@ -29,7 +29,7 @@ bikelanes_meta = {
     },
   },
     'dates': {
-    'date_column': None, 
+    'date_attribute': None, 
     'date_granularity': None,
     'default_date_filter': '2018',
     },
@@ -47,7 +47,7 @@ taxlot_block_groups_meta = {
   },
 },
   'dates': {
-  'date_column': 'year',
+  'date_attribute': 'year',
   'date_granularity': 'year',
   'default_date_filter': '2010',
   },
@@ -65,13 +65,13 @@ parks_meta = {
   },
 },
   'dates': {
-  'date_column': None,
-  'date_granularity': 'year',
+  'date_attribute': None,
+  'date_granularity': None,
   'default_date_filter': '2018',
   },
 }
 
-parkstrails_meta = {
+parks_trails_meta = {
 'attributes': {
   'primary': {
     'field': None,
@@ -83,9 +83,48 @@ parkstrails_meta = {
   },
 },
   'dates': {
-  'date_column': None,
-  'date_granularity': 'year',
+  'date_attribute': None,
+  'date_granularity': None,
   'default_date_filter': '2018',
   },
 }
+
+
+multiuse_trails_meta = {
+'attributes': {
+  'primary': {
+    'field': None,
+    'name': None,
+  },
+  'secondary': {
+    'field': None,
+    'name': None,
+  },
+},
+  'dates': {
+  'date_attribute': None,
+  'date_granularity': None,
+  'default_date_filter': '2018',
+  },
+}
+
+community_gardens_meta = {
+'attributes': {
+  'primary': {
+    'field': 'sitename' ,
+    'name': 'Name',
+  },
+  'secondary': {
+    'field': None,
+    'name': None,
+  },
+},
+  'dates': {
+  'date_attribute': None,
+  'date_granularity': None,
+  'default_date_filter': '2017',
+  },
+}
+
+
 

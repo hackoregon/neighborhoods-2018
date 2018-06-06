@@ -44,3 +44,20 @@ class ParksTrail(models.Model):
         managed = False
         db_table = 'parks_trails'
 
+
+class MultiuseTrail(models.Model):
+    ogc_fid = models.IntegerField(primary_key=True)
+    geom = models.LineStringField()
+
+    class Meta:
+        managed = False
+        db_table = 'active_multiuse_trail'
+
+class CommunityGarden(models.Model):
+    id = models.IntegerField(primary_key=True)
+    sitename = models.CharField(max_length=50)
+    geom = models.GeometryField()
+
+    class Meta:
+        managed = False
+        db_table = 'community_gardens'
