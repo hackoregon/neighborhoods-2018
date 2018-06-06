@@ -42,8 +42,8 @@ def sandbox_view_factory(model_class, serializer_class, multi_geom_class, geom_f
 
             # calculate date meta #
             
-            min_date = 'null'
-            max_date = 'null'
+            min_date = None
+            max_date = None
     
         except model_class.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
