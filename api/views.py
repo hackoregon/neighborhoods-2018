@@ -62,6 +62,10 @@ class MetroLimitList(ListAPIView):
     queryset = models.MetroLimit.objects.all()
     serializer_class = serializers.MetroLimitSerializer
 
+class NeighborhoodAgesList(ListAPIView):
+    queryset = models.NeighborhoodAges.objects.all()
+    serializer_class = serializers.NeighborhoodAgesSerializer
+
 class ParkRideLotsList(ListAPIView):
     queryset = models.ParkRideLots.objects.all()
     serializer_class = serializers.ParkRideLotsSerializer
@@ -117,6 +121,10 @@ class TreesList(ListAPIView):
 class VoterPrecinctsList(ListAPIView):
     queryset = models.VoterPrecincts.objects.all()
     serializer_class = serializers.VoterPrecinctsSerializer
+
+class VoterRegistrationByAgeList(ListAPIView):
+    queryset = models.VoterRegistrationByAge.objects.all()
+    serializer_class = serializers.VoterRegistrationByAgeSerializer
 
 class ZipCodesList(ListAPIView):
     queryset = models.ZipCodes.objects.all()
