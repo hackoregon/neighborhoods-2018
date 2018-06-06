@@ -1,10 +1,10 @@
 
 from rest_framework.decorators import api_view
-from .models import BikeParking, BikeLane, TaxLotBlockGroup, Park
-from .serializers import BikeParkingSerializer, BikeLaneSerializer, TaxLotBlockGroupSerializer, ParksSerializer
+from .models import BikeParking, BikeLane, TaxLotBlockGroup, Park, ParksTrail
+from .serializers import BikeParkingSerializer, BikeLaneSerializer, TaxLotBlockGroupSerializer, ParksSerializer, ParksTrailsSerializer
 from django.contrib.gis.geos import GEOSGeometry, MultiPoint, MultiPolygon, MultiLineString
 from .helpers import sandbox_view_factory
-from .meta import bikeparking_meta, bikelanes_meta, taxlot_block_groups_meta, parks_meta
+from .meta import bikeparking_meta, bikelanes_meta, taxlot_block_groups_meta, parks_meta, parkstrails_meta
 
 
 
@@ -39,6 +39,15 @@ parks = sandbox_view_factory(
   model_class=Park,
   serializer_class=ParksSerializer,
   multi_geom_class=MultiPolygon,
+  geom_field='geom',
+  attributes =parks_meta['attributes'],
+  dates=parks_meta['dates'], 
+  )
+
+parkstrails = sandbox_view_factory(
+  model_class=ParksTrail,
+  serializer_class=ParksTrailsSerializer,
+  multi_geom_class=MultiLineString,
   geom_field='geom',
   attributes =parks_meta['attributes'],
   dates=parks_meta['dates'], 

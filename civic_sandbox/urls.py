@@ -8,6 +8,7 @@ urlpatterns = [
     url(r'^taxlotblockgroups/(?P<date_filter>\d+)', views.taxlotblockgroups),
     url(r'^taxlotblockgroups/', views.taxlotblockgroups),
     url(r'^parks/', views.parks),
+    url(r'^parkstrails/', views.parks),
 ]
 urlpatterns = format_suffix_patterns(urlpatterns)
 

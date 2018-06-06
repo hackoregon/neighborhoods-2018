@@ -70,3 +70,22 @@ parks_meta = {
   'default_date_filter': '2018',
   },
 }
+
+parkstrails_meta = {
+'attributes': {
+  'primary': {
+    'field': None,
+    'name': None,
+  },
+  'secondary': {
+    'field': None,
+    'name': None,
+  },
+},
+  'dates': {
+  'date_column': None,
+  'date_granularity': 'year',
+  'default_date_filter': '2018',
+  },
+}
+

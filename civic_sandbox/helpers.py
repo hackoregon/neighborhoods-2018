@@ -29,6 +29,8 @@ def sandbox_view_factory(model_class, serializer_class, multi_geom_class, geom_f
                 ## converts MultiPolygons to Polygons ##
                 if isinstance(geom, MultiPolygon):
                     coords.append(geom.convex_hull)
+                elif isinstance(geom, MultiLineString):
+                    coords.append(geom.union)
                 else: 
                     coords.append(geom)
             

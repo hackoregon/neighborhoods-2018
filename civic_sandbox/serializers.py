@@ -2,7 +2,7 @@ from rest_framework_gis.serializers import GeoFeatureModelSerializer
 
 from rest_framework.serializers import ModelSerializer
 
-from .models import BikeParking, BikeLane, TaxLotBlockGroup, Park
+from .models import BikeParking, BikeLane, TaxLotBlockGroup, Park, ParksTrail
 
 class BikeParkingSerializer(GeoFeatureModelSerializer):
     class Meta:
@@ -25,5 +25,11 @@ class TaxLotBlockGroupSerializer(GeoFeatureModelSerializer):
 class ParksSerializer(GeoFeatureModelSerializer):
     class Meta:
         model = Park
+        geo_field = 'geom'
+        fields = '__all__'
+
+class ParksTrailsSerializer(GeoFeatureModelSerializer):
+    class Meta:
+        model = ParksTrail
         geo_field = 'geom'
         fields = '__all__'
