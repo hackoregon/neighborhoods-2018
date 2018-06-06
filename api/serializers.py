@@ -180,6 +180,12 @@ class TreesSerializer(GeoFeatureModelSerializer):
         geo_field = "geom"
         fields = "__all__"
 
+class VoterMovementAngleByAgeSerializer(ModelSerializer):
+    class Meta:
+        model = models.VoterMovementAngleByAge
+        # exclude = ('id',)
+        fields = "__all__"
+
 class VoterPrecinctsSerializer(GeoFeatureModelSerializer):
     class Meta:
         model = models.VoterPrecincts
