@@ -24,4 +24,6 @@ urlpatterns = [
     path('neighborhood-development/', schema_view),
     path('neighborhood-development/api/', include('api.urls')),
     path('neighborhood-development/census/', include('census.urls')),
+    path('neighborhood-development/sandbox/', include('civic_sandbox.urls')),
+
 ]
