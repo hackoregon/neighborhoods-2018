@@ -248,7 +248,7 @@ class BusStops(models.Model):
 
 class CampSweeps(models.Model):
     id = models.IntegerField(primary_key=True)
-    reportdate = models.CharField(max_length=50)
+    reportdate = models.DateField()
     location = models.CharField(max_length=150)
     maintenanceproject = models.CharField(max_length=50)
     greenspace = models.CharField(max_length=50)
