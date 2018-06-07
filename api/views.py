@@ -118,6 +118,11 @@ class TreesList(ListAPIView):
     queryset = models.Trees.objects.all()
     serializer_class = serializers.TreesSerializer
 
+
+class VoterMovementAngleByAgeList(ListAPIView):
+    queryset = models.VoterMovementAngleByAge.objects.all()
+    serializer_class = serializers.VoterMovementAngleByAgeSerializer
+
 class VoterPrecinctsList(ListAPIView):
     queryset = models.VoterPrecincts.objects.all()
     serializer_class = serializers.VoterPrecinctsSerializer

@@ -699,6 +699,17 @@ class Trees(models.Model):
         db_table = 'trees'
 
 
+class VoterMovementAngleByAge(models.Model):
+    current_age = models.SmallIntegerField()
+    consec_dist = models.FloatField()
+    radians = models.FloatField
+    age_group = models.SmallIntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'age_move_distance_angle'
+
+
 class VoterPrecincts(models.Model):
     county = models.CharField(max_length=50)
     precinct = models.FloatField(primary_key=True)
