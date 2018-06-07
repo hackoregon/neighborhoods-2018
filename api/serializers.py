@@ -186,6 +186,11 @@ class VoterMovementAngleByAgeSerializer(ModelSerializer):
         # exclude = ('id',)
         fields = "__all__"
 
+class VoterMovementAverageByAgeSerializer(ModelSerializer):
+    class Meta:
+        model = models.VoterMovementAverageByAge
+        exclude = ('id',)
+
 class VoterPrecinctsSerializer(GeoFeatureModelSerializer):
     class Meta:
         model = models.VoterPrecincts

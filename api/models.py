@@ -710,6 +710,15 @@ class VoterMovementAngleByAge(models.Model):
         db_table = 'age_move_distance_angle'
 
 
+class VoterMovementAverageByAge(models.Model):
+    age_groups = models.SmallIntegerField()
+    average_address_counts = models.FloatField()
+
+    class Meta:
+        managed = False
+        db_table = 'age_address_counts_average'
+
+
 class VoterPrecincts(models.Model):
     county = models.CharField(max_length=50)
     precinct = models.FloatField(primary_key=True)
