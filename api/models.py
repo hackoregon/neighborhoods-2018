@@ -723,7 +723,7 @@ class Trees(models.Model):
 class VoterMovementAngleByAge(models.Model):
     current_age = models.SmallIntegerField()
     consec_dist = models.FloatField()
-    radians = models.FloatField
+    radians = models.FloatField()
     age_group = models.SmallIntegerField()
 
     class Meta:
