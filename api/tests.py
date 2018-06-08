@@ -6,7 +6,7 @@ class RootEndpointsTestCase(TestCase):
     def setUp(self):
         self.client = APIClient()
     def test_list_200_response(self):
-        response = self.client.get('/disaster-resilience/')
+        response = self.client.get('/neighborhood-development/')
         assert response.status_code == 200
 
 # Django, Writing and Running Unit Tests: https://docs.djangoproject.com/en/2.0/topics/testing/overview/
