@@ -16,6 +16,7 @@ urlpatterns = [
     path('bike_lanes', views.BikeLanesList.as_view()),
     path('bike_parking', views.BikeParkingList.as_view()),
     path('bus_stops', views.BusStopsList.as_view()),
+    path('camp_reports', views.CampReportList.as_view()),
     path('camp_sweeps', views.CampSweepsList.as_view()),
     path('camp_sweeps/bytime', views.camp_sweeps_by_time),
     path('camp_sweeps/by_neighborhood', views.camp_sweeps_by_neighborhood),
