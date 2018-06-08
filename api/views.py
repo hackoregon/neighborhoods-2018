@@ -47,6 +47,10 @@ class CampSweepsList(ListAPIView):
     queryset = models.CampSweeps.objects.all()
     serializer_class = serializers.CampSweepsSerializer
 
+class CampReportList(ListAPIView):
+    queryset = models.CampReports.objects.all()
+    serializer_class = serializers.CampReportsSerializer
+
 class CommunityGardensList(ListAPIView):
     queryset = models.CommunityGardens.objects.all()
     serializer_class = serializers.CommunityGardensSerializer

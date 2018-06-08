@@ -265,6 +265,27 @@ class CampSweeps(models.Model):
         db_table = 'camp_sweeps'
 
 
+class CampReports(models.Model):
+    id = models.IntegerField(db_column='ItemID', primary_key=True)
+    date = models.DateTimeField()
+    num_campers = models.IntegerField(db_column='NumCampers_int')
+    children_present = models.NullBooleanField(db_column='Children')
+    dogs_present = models.NullBooleanField(db_column='Dogs')
+    vehicles = models.NullBooleanField(db_column='Vehicles')
+    aggression = models.NullBooleanField(db_column='Aggression')
+    intoxicating_drugs = models.NullBooleanField(db_column='IntoxDrugs')
+    obstructs_right_of_way = models.NullBooleanField(db_column='ObstructsRightOfWay')
+    misuse_public_spaces = models.NullBooleanField(db_column='MisusePublicSpaces')
+    structures_tents_present = models.NullBooleanField(db_column='StructuresTentsPresent')
+    excessive_trash = models.NullBooleanField(db_column='ExcessiveTrash')
+    damage_to_environment = models.NullBooleanField(db_column='DamageEnvironment')
+    geom = models.PointField()
+
+    class Meta:
+        managed = False
+        db_table = 'campsite_reports'
+
+
 class CommunityGardens(models.Model):
     objectid = models.IntegerField()
     propertyid = models.IntegerField()
