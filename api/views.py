@@ -131,6 +131,10 @@ class VoterMovementAverageByAgeList(ListAPIView):
     queryset = models.VoterMovementAverageByAge.objects.all()
     serializer_class = serializers.VoterMovementAverageByAgeSerializer
 
+class VoterMovementCountByAgeList(ListAPIView):
+    queryset = models.VoterMovementCountByAge.objects.all()
+    serializer_class = serializers.VoterMovementCountByAgeSerializer
+
 class VoterPrecinctsList(ListAPIView):
     queryset = models.VoterPrecincts.objects.all()
     serializer_class = serializers.VoterPrecinctsSerializer

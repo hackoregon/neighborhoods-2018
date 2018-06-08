@@ -718,6 +718,16 @@ class VoterMovementAverageByAge(models.Model):
         managed = False
         db_table = 'age_address_counts_average'
 
+class VoterMovementCountByAge(models.Model):
+    age_group = models.SmallIntegerField()
+    num_addresses = models.SmallIntegerField()
+    total_count = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'voter_address_counts_by_age_group'
+
+
 
 class VoterPrecincts(models.Model):
     county = models.CharField(max_length=50)

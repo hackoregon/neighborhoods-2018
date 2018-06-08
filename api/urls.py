@@ -38,6 +38,7 @@ urlpatterns = [
     path('voter_registration_age', views.VoterRegistrationByAgeList.as_view()),
     path('voter_movement', views.VoterMovementAngleByAgeList.as_view()),
     path('voter_movement_averages', views.VoterMovementAverageByAgeList.as_view()),
+    path('voter_movement_counts', views.VoterMovementCountByAgeList.as_view()),
     path('zip_codes', views.ZipCodesList.as_view()),
     path('zoning', views.ZoningList.as_view()),
 ]
