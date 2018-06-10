@@ -416,6 +416,21 @@ class NeighborhoodAges(models.Model):
         managed = False
         db_table = 'neighborhood_ages_over_time'
 
+
+class NeighborhoodVoterRegistrationByAgeGroup(models.Model):
+    neighborhood = models.TextField()
+    year = models.IntegerField()
+    pct_18_25 = models.FloatField()
+    pct_26_32 = models.FloatField()
+    pct_33_39 = models.FloatField()
+    pct_40_49 = models.FloatField()
+    pct_50_plus = models.FloatField()
+
+    class Meta:
+        managed = False
+        db_table = 'neighborhood_voters_ages_over_time'
+
+
 class ParkRideLots(models.Model):
     station = models.CharField(max_length=50)
     address = models.CharField(max_length=50)
