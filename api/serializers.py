@@ -62,6 +62,12 @@ class CampSweepsSerializer(GeoFeatureModelSerializer):
         geo_field = "geom"
         exclude = ('lat', 'long',)
 
+class CampReportsSerializer(GeoFeatureModelSerializer):
+    class Meta:
+        model = models.CampReports
+        geo_field = "geom"
+        fields = "__all__"
+
 class CommunityGardensSerializer(GeoFeatureModelSerializer):
     class Meta:
         model = models.CommunityGardens
@@ -97,6 +103,11 @@ class MetroLimitSerializer(GeoFeatureModelSerializer):
     class Meta:
         model = models.MetroLimit
         geo_field = "geom"
+        fields = "__all__"
+
+class NeighborhoodAgesSerializer(ModelSerializer):
+    class Meta:
+        model = models.NeighborhoodAges
         fields = "__all__"
 
 class ParkRideLotsSerializer(GeoFeatureModelSerializer):
@@ -175,10 +186,31 @@ class TreesSerializer(GeoFeatureModelSerializer):
         geo_field = "geom"
         fields = "__all__"
 
+class VoterMovementAngleByAgeSerializer(ModelSerializer):
+    class Meta:
+        model = models.VoterMovementAngleByAge
+        # exclude = ('id',)
+        fields = "__all__"
+
+class VoterMovementAverageByAgeSerializer(ModelSerializer):
+    class Meta:
+        model = models.VoterMovementAverageByAge
+        exclude = ('id',)
+
+class VoterMovementCountByAgeSerializer(ModelSerializer):
+    class Meta:
+        model = models.VoterMovementCountByAge
+        exclude = ('id',)
+
 class VoterPrecinctsSerializer(GeoFeatureModelSerializer):
     class Meta:
         model = models.VoterPrecincts
         geo_field = "geom"
+        fields = "__all__"
+
+class VoterRegistrationByAgeSerializer(ModelSerializer):
+    class Meta:
+        model = models.VoterRegistrationByAge
         fields = "__all__"
 
 class ZipCodesSerializer(GeoFeatureModelSerializer):

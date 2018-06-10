@@ -1,16 +1,12 @@
 from django.urls import path
 from rest_framework.urlpatterns import format_suffix_patterns
-from rest_framework_swagger.views import get_swagger_view
 
 from . import views
-
-schema_view = get_swagger_view(title='Hack Oregon 2018 Neighborhood Development APIs')
 
 urlpatterns = [
     # path('rlis_neighborhoods', views.RlisNeighborhoodsList.as_view()),
     # path('rlis_taxlot_2017', views.RlisTaxlot2017List.as_view()),
     # path('rlis_taxlot_pts_2015', views.RlisTaxlotPts2015List.as_view()),
-    path('', schema_view),
     path('active_multiuse_trail', views.ActiveMultiuseTrailList.as_view()),
     path('affordable_housing', views.AffordableHousingList.as_view()),
     path('bike_count_locations', views.BikeCountLocationsList.as_view()),
@@ -20,12 +16,16 @@ urlpatterns = [
     path('bike_lanes', views.BikeLanesList.as_view()),
     path('bike_parking', views.BikeParkingList.as_view()),
     path('bus_stops', views.BusStopsList.as_view()),
+    path('camp_reports', views.CampReportList.as_view()),
     path('camp_sweeps', views.CampSweepsList.as_view()),
+    path('camp_sweeps/bytime', views.camp_sweeps_by_time),
+    path('camp_sweeps/by_neighborhood', views.camp_sweeps_by_neighborhood),
     path('community_gardens', views.CommunityGardensList.as_view()),
     path('crimes', views.CrimesList.as_view()),
     path('demolitions', views.DemolitionsList.as_view()),
     path('housing_areas', views.HousingAreasList.as_view()),
     path('metro_limit', views.MetroLimitList.as_view()),
+    path('neighborhood_ages', views.NeighborhoodAgesList.as_view()),
     path('park_ride_lots', views.ParkRideLotsList.as_view()),
     path('parks_trails', views.ParksTrailsList.as_view()),
     path('parks', views.ParksList.as_view()),
@@ -36,6 +36,10 @@ urlpatterns = [
     path('transit_centers', views.TransitCentersList.as_view()),
     path('trees', views.TreesList.as_view()),
     path('voter_precincts', views.VoterPrecinctsList.as_view()),
+    path('voter_registration_age', views.VoterRegistrationByAgeList.as_view()),
+    path('voter_movement', views.VoterMovementAngleByAgeList.as_view()),
+    path('voter_movement_averages', views.VoterMovementAverageByAgeList.as_view()),
+    path('voter_movement_counts', views.VoterMovementCountByAgeList.as_view()),
     path('zip_codes', views.ZipCodesList.as_view()),
     path('zoning', views.ZoningList.as_view()),
 ]

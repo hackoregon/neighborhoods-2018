@@ -1,3 +1,5 @@
+from rest_framework_swagger.views import get_swagger_view
+
 """neighborhoods_backend URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -16,7 +18,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
+schema_view = get_swagger_view(title='Hack Oregon 2018 Neighborhood Development APIs')
+
 urlpatterns = [
+    path('neighborhood-development/', schema_view),
     path('neighborhood-development/api/', include('api.urls')),
     path('neighborhood-development/census/', include('census.urls')),
     path('neighborhood-development/sandbox/', include('civic_sandbox.urls')),

@@ -248,7 +248,7 @@ class BusStops(models.Model):
 
 class CampSweeps(models.Model):
     id = models.IntegerField(primary_key=True)
-    reportdate = models.CharField(max_length=50)
+    reportdate = models.DateField()
     location = models.CharField(max_length=150)
     maintenanceproject = models.CharField(max_length=50)
     greenspace = models.CharField(max_length=50)
@@ -263,6 +263,27 @@ class CampSweeps(models.Model):
     class Meta:
         managed = False
         db_table = 'camp_sweeps'
+
+
+class CampReports(models.Model):
+    id = models.IntegerField(db_column='ItemID', primary_key=True)
+    date = models.DateTimeField()
+    num_campers = models.IntegerField(db_column='NumCampers_int')
+    children_present = models.NullBooleanField(db_column='Children')
+    dogs_present = models.NullBooleanField(db_column='Dogs')
+    vehicles = models.NullBooleanField(db_column='Vehicles')
+    aggression = models.NullBooleanField(db_column='Aggression')
+    intoxicating_drugs = models.NullBooleanField(db_column='IntoxDrugs')
+    obstructs_right_of_way = models.NullBooleanField(db_column='ObstructsRightOfWay')
+    misuse_public_spaces = models.NullBooleanField(db_column='MisusePublicSpaces')
+    structures_tents_present = models.NullBooleanField(db_column='StructuresTentsPresent')
+    excessive_trash = models.NullBooleanField(db_column='ExcessiveTrash')
+    damage_to_environment = models.NullBooleanField(db_column='DamageEnvironment')
+    geom = models.PointField()
+
+    class Meta:
+        managed = False
+        db_table = 'campsite_reports'
 
 
 class CommunityGardens(models.Model):
@@ -375,6 +396,25 @@ class MetroLimit(models.Model):
         managed = False
         db_table = 'metro_limit'
 
+
+class NeighborhoodAges(models.Model):
+    age = models.SmallIntegerField()
+    neighborhood = models.CharField(max_length=50)
+    year_2006 = models.FloatField(db_column="2006")
+    year_2007 = models.FloatField(db_column="2007")
+    year_2008 = models.FloatField(db_column="2008")
+    year_2009 = models.FloatField(db_column="2009")
+    year_2010 = models.FloatField(db_column="2010")
+    year_2011 = models.FloatField(db_column="2011")
+    year_2012 = models.FloatField(db_column="2012")
+    year_2013 = models.FloatField(db_column="2013")
+    year_2014 = models.FloatField(db_column="2014")
+    year_2015 = models.FloatField(db_column="2015")
+    year_2016 = models.FloatField(db_column="2016")
+
+    class Meta:
+        managed = False
+        db_table = 'neighborhood_ages_over_time'
 
 class ParkRideLots(models.Model):
     station = models.CharField(max_length=50)
@@ -680,6 +720,36 @@ class Trees(models.Model):
         db_table = 'trees'
 
 
+class VoterMovementAngleByAge(models.Model):
+    current_age = models.SmallIntegerField()
+    consec_dist = models.FloatField()
+    radians = models.FloatField
+    age_group = models.SmallIntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'age_move_distance_angle'
+
+
+class VoterMovementAverageByAge(models.Model):
+    age_groups = models.SmallIntegerField()
+    average_address_counts = models.FloatField()
+
+    class Meta:
+        managed = False
+        db_table = 'age_address_counts_average'
+
+class VoterMovementCountByAge(models.Model):
+    age_group = models.SmallIntegerField()
+    num_addresses = models.SmallIntegerField()
+    total_count = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'voter_address_counts_by_age_group'
+
+
+
 class VoterPrecincts(models.Model):
     county = models.CharField(max_length=50)
     precinct = models.FloatField(primary_key=True)
@@ -689,6 +759,25 @@ class VoterPrecincts(models.Model):
     class Meta:
         managed = False
         db_table = 'voter_precincts'
+
+
+class VoterRegistrationByAge(models.Model):
+    age = models.SmallIntegerField()
+    year_2006 = models.FloatField(db_column="2006")
+    year_2007 = models.FloatField(db_column="2007")
+    year_2008 = models.FloatField(db_column="2008")
+    year_2009 = models.FloatField(db_column="2009")
+    year_2010 = models.FloatField(db_column="2010")
+    year_2011 = models.FloatField(db_column="2011")
+    year_2012 = models.FloatField(db_column="2012")
+    year_2013 = models.FloatField(db_column="2013")
+    year_2014 = models.FloatField(db_column="2014")
+    year_2015 = models.FloatField(db_column="2015")
+    year_2016 = models.FloatField(db_column="2016")
+
+    class Meta:
+        managed = False
+        db_table = 'age_group_registration_percent'
 
 
 class ZipCodes(models.Model):
