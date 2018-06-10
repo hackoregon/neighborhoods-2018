@@ -126,5 +126,95 @@ community_gardens_meta = {
   },
 }
 
+bike_greenways_meta = {
+'attributes': {
+  'primary': {
+    'field': None,
+    'name': None,
+  },
+  'secondary': {
+    'field': None,
+    'name': None,
+  },
+},
+  'dates': {
+  'date_attribute': None,
+  'date_granularity': None,
+  'default_date_filter': '2018',
+  },
+}
+
+rail_stops_meta = {
+'attributes': {
+  'primary': {
+    'field': None,
+    'name': None,
+  },
+  'secondary': {
+    'field': None,
+    'name': None,
+  },
+},
+  'dates': {
+  'date_attribute': None,
+  'date_granularity': None,
+  'default_date_filter': '2018',
+  },
+}
+
+demolitions_meta = {
+'attributes': {
+  'primary': {
+    'field': None,
+    'name': None,
+  },
+  'secondary': {
+    'field': None,
+    'name': None,
+  },
+},
+  'dates': {
+  'date_attribute': 'year',
+  'date_granularity': 'year',
+  'default_date_filter': '18',
+  },
+}
+
+
+camp_sweeps_meta = {
+'attributes': {
+  'primary': {
+    'field': None,
+    'name': None,
+  },
+  'secondary': {
+    'field': None,
+    'name': None,
+  },
+},
+  'dates': {
+  'date_attribute': 'reportdate',
+  'date_granularity': 'year',
+  'default_date_filter': '2018',
+  },
+}
+
+camp_reports_meta = {
+'attributes': {
+  'primary': {
+    'field': None,
+    'name': None,
+  },
+  'secondary': {
+    'field': None,
+    'name': None,
+  },
+},
+  'dates': {
+  'date_attribute': 'date',
+  'date_granularity': 'year',
+  'default_date_filter': '2018',
+  },
+}
 
 

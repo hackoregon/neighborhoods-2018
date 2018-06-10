@@ -61,3 +61,48 @@ class CommunityGarden(models.Model):
     class Meta:
         managed = False
         db_table = 'community_gardens'
+
+class BikeGreenway(models.Model):
+    objectid = models.IntegerField(primary_key=True)
+    geom = models.GeometryField()
+
+    class Meta:
+        managed = False
+        db_table = 'bike_greenways'
+
+class RailStop(models.Model):
+    id = models.IntegerField(primary_key=True)
+    geom = models.PointField()
+
+    class Meta:
+        managed = False
+        db_table = 'rail_stops'
+
+class Demolition(models.Model):
+    objectid = models.IntegerField(primary_key=True)
+    year = models.CharField(max_length=50)
+    description = models.CharField(max_length=300)
+    geom = models.PointField()
+
+    class Meta:
+        managed = False
+        db_table = 'demolitions'
+
+class CampSweep(models.Model):
+    id = models.IntegerField(primary_key=True)
+    reportdate = models.DateField()
+    geom = models.PointField()
+
+    class Meta:
+        managed = False
+        db_table = 'camp_sweeps'
+
+
+class CampReport(models.Model):
+    id = models.IntegerField(db_column='ItemID', primary_key=True)
+    date = models.DateTimeField()
+    geom = models.PointField()
+
+    class Meta:
+        managed = False
+        db_table = 'campsite_reports'

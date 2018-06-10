@@ -2,6 +2,7 @@ import json
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
+from django.conf import settings
 from django.contrib.gis.geos import GEOSGeometry, MultiPoint, MultiPolygon, MultiLineString
 
 
@@ -17,6 +18,8 @@ def sandbox_view_factory(model_class, serializer_class, multi_geom_class, geom_f
                 variable_column = dates['date_attribute']
                 filter = variable_column + '__contains'
                 dataset= model_class.objects.filter(**{ filter: date_filter })
+
+            if settings.DEBUG: print('made queryset')
         
         # calculate limit boundary meta #
             coords = []
@@ -25,13 +28,19 @@ def sandbox_view_factory(model_class, serializer_class, multi_geom_class, geom_f
                 ## converts MultiPolygons to Polygons ##
                 if isinstance(geom, MultiPolygon):
                     coords.append(geom.convex_hull)
-                elif isinstance(geom, MultiLineString):
-                    coords.append(geom.union)
+
+                #TODO merge multilinestring to linestring(https://docs.djangoproject.com/en/2.0/ref/contrib/gis/geos/#django.contrib.gis.geos.MultiLineString.merged)
+                # elif isinstance(geom, MultiLineString):
+                #     merged = geom.merged
+                #     coords.append(merged)
+
                 else: 
                     coords.append(geom)
             
             multi = multi_geom_class(coords)
             limit_boundary = multi.convex_hull.json
+
+            if settings.DEBUG: print('boundary calculation complete')
 
             # calculate date meta #
             
