@@ -105,9 +105,14 @@ class MetroLimitSerializer(GeoFeatureModelSerializer):
         geo_field = "geom"
         fields = "__all__"
 
-class NeighborhoodAgesSerializer(ModelSerializer):
+class NeighborhoodVoterRegistrationByAgeGroupSerializer(ModelSerializer):
     class Meta:
-        model = models.NeighborhoodAges
+        model = models.NeighborhoodVoterRegistrationByAgeGroup
+        fields = "__all__"
+
+class NeighborhoodVoterRegistrationByAgeGroupGeomSerializer(ModelSerializer):
+    class Meta:
+        model = models.NeighborhoodVoterRegistrationByAgeGroupGeom
         fields = "__all__"
 
 class ParkRideLotsSerializer(GeoFeatureModelSerializer):
