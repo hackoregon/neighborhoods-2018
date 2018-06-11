@@ -738,7 +738,7 @@ class Trees(models.Model):
 class VoterMovementAngleByAge(models.Model):
     current_age = models.SmallIntegerField()
     consec_dist = models.FloatField()
-    radians = models.FloatField
+    radians = models.FloatField()
     age_group = models.SmallIntegerField()
 
     class Meta:
@@ -755,7 +755,7 @@ class VoterMovementAverageByAge(models.Model):
         db_table = 'age_address_counts_average'
 
 class VoterMovementCountByAge(models.Model):
-    age_group = models.SmallIntegerField()
+    age_group = models.TextField()
     num_addresses = models.SmallIntegerField()
     total_count = models.IntegerField()
 
