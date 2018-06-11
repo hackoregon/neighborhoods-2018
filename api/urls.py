@@ -26,6 +26,7 @@ urlpatterns = [
     path('housing_areas', views.HousingAreasList.as_view()),
     path('metro_limit', views.MetroLimitList.as_view()),
     path('neighborhood_ages', views.NeighborhoodVoterRegistrationByAgeGroupList.as_view()),
+    path('neighborhood_ages_geom', views.NeighborhoodVoterRegistrationByAgeGroupGeomList.as_view()),
     path('park_ride_lots', views.ParkRideLotsList.as_view()),
     path('parks_trails', views.ParksTrailsList.as_view()),
     path('parks', views.ParksList.as_view()),

@@ -110,6 +110,11 @@ class NeighborhoodVoterRegistrationByAgeGroupSerializer(ModelSerializer):
         model = models.NeighborhoodVoterRegistrationByAgeGroup
         fields = "__all__"
 
+class NeighborhoodVoterRegistrationByAgeGroupGeomSerializer(ModelSerializer):
+    class Meta:
+        model = models.NeighborhoodVoterRegistrationByAgeGroupGeom
+        fields = "__all__"
+
 class ParkRideLotsSerializer(GeoFeatureModelSerializer):
     class Meta:
         model = models.ParkRideLots
