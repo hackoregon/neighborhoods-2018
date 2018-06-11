@@ -1,10 +1,10 @@
 
 from rest_framework.decorators import api_view
-from .models import BikeParking, BikeLane, TaxLotBlockGroup, Park, ParksTrail, MultiuseTrail, CommunityGarden
-from .serializers import BikeParkingSerializer, BikeLaneSerializer, TaxLotBlockGroupSerializer, ParksSerializer, ParksTrailsSerializer, MultiuseTrailsSerializer, CommunityGardensSerializer
+from .models import BikeParking, BikeLane, TaxLotBlockGroup, Park, ParksTrail, MultiuseTrail, CommunityGarden, BikeGreenway, RailStop, Demolition, CampSweep, CampReport, RetailGrocer, Tree
+from .serializers import BikeParkingSerializer, BikeLaneSerializer, TaxLotBlockGroupSerializer, ParkSerializer, ParksTrailSerializer, MultiuseTrailSerializer, CommunityGardenSerializer, BikeGreenwaySerializer, RailStopSerializer, DemolitionSerializer, CampSweepSerializer, CampReportSerializer, RetailGrocerSerializer, TreeSerializer
 from django.contrib.gis.geos import GEOSGeometry, MultiPoint, MultiPolygon, MultiLineString
 from .helpers import sandbox_view_factory
-from .meta import bike_parking_meta, bike_lanes_meta, taxlot_block_groups_meta, parks_meta, parks_trails_meta, multiuse_trails_meta, community_gardens_meta
+from .meta import bike_parking_meta, bike_lanes_meta, taxlot_block_groups_meta, parks_meta, parks_trails_meta, multiuse_trails_meta, community_gardens_meta, bike_greenways_meta, rail_stops_meta, demolitions_meta, camp_sweeps_meta, camp_reports_meta, retail_grocers_meta, trees_meta
 
 
 
@@ -37,7 +37,7 @@ taxlotblockgroups = sandbox_view_factory(
 
 parks = sandbox_view_factory(
   model_class=Park,
-  serializer_class=ParksSerializer,
+  serializer_class=ParkSerializer,
   multi_geom_class=MultiPolygon,
   geom_field='geom',
   attributes =parks_meta['attributes'],
@@ -46,7 +46,7 @@ parks = sandbox_view_factory(
 
 parkstrails = sandbox_view_factory(
   model_class=ParksTrail,
-  serializer_class=ParksTrailsSerializer,
+  serializer_class=ParksTrailSerializer,
   multi_geom_class=MultiLineString,
   geom_field='geom',
   attributes =parks_trails_meta['attributes'],
@@ -55,7 +55,7 @@ parkstrails = sandbox_view_factory(
 
 multiusetrails = sandbox_view_factory(
   model_class=MultiuseTrail,
-  serializer_class=MultiuseTrailsSerializer,
+  serializer_class=MultiuseTrailSerializer,
   multi_geom_class=MultiLineString,
   geom_field='geom',
   attributes =multiuse_trails_meta['attributes'],
@@ -64,9 +64,73 @@ multiusetrails = sandbox_view_factory(
 
 communitygardens = sandbox_view_factory(
   model_class=CommunityGarden,
-  serializer_class=CommunityGardensSerializer,
+  serializer_class=CommunityGardenSerializer,
   multi_geom_class=MultiPolygon,
   geom_field='geom',
   attributes =community_gardens_meta['attributes'],
   dates=community_gardens_meta['dates'], 
+  )
+
+bikegreenways = sandbox_view_factory(
+  model_class=BikeGreenway,
+  serializer_class=BikeGreenwaySerializer,
+  multi_geom_class=MultiLineString,
+  geom_field='geom',
+  attributes =bike_greenways_meta['attributes'],
+  dates=bike_greenways_meta['dates'], 
+  )
+
+railstops = sandbox_view_factory(
+  model_class=RailStop,
+  serializer_class=RailStopSerializer,
+  multi_geom_class=MultiPoint,
+  geom_field='geom',
+  attributes =rail_stops_meta['attributes'],
+  dates=rail_stops_meta['dates'], 
+  )
+
+demolitions = sandbox_view_factory(
+  model_class=Demolition,
+  serializer_class=DemolitionSerializer,
+  multi_geom_class=MultiPoint,
+  geom_field='geom',
+  attributes =demolitions_meta['attributes'],
+  dates=demolitions_meta['dates'], 
+  )
+
+campsweeps = sandbox_view_factory(
+  model_class=CampSweep,
+  serializer_class=CampSweepSerializer,
+  multi_geom_class=MultiPoint,
+  geom_field='geom',
+  attributes =camp_sweeps_meta['attributes'],
+  dates=camp_sweeps_meta['dates'], 
+  )
+
+campreports = sandbox_view_factory(
+  model_class=CampReport,
+  serializer_class=CampReportSerializer,
+  multi_geom_class=MultiPoint,
+  geom_field='geom',
+  attributes =camp_reports_meta['attributes'],
+  dates=camp_reports_meta['dates'], 
+  )
+
+retailgrocers = sandbox_view_factory(
+  model_class=RetailGrocer,
+  serializer_class=RetailGrocerSerializer,
+  multi_geom_class=MultiPoint,
+  geom_field='geom',
+  attributes =retail_grocers_meta['attributes'],
+  dates=retail_grocers_meta['dates'], 
+  )
+
+
+trees = sandbox_view_factory(
+  model_class=Tree,
+  serializer_class=TreeSerializer,
+  multi_geom_class=MultiPoint,
+  geom_field='geom',
+  attributes =trees_meta['attributes'],
+  dates=trees_meta['dates'], 
   )

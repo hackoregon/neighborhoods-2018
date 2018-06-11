@@ -1,26 +1,26 @@
+import json 
 from rest_framework import status
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from .models import BikeParking
-from .serializers import BikeParkingSerializer
-import json 
+from django.conf import settings
 from django.contrib.gis.geos import GEOSGeometry, MultiPoint, MultiPolygon, MultiLineString
-from pprint import pprint 
 
 
 def sandbox_view_factory(model_class, serializer_class, multi_geom_class, geom_field, attributes, dates):
     @api_view(['GET'])
     def sandbox_function(request, date_filter=dates['default_date_filter'], format=None): 
-        print('\n====================================================================================\n')
+
         ## get data ##
         try:
             if not dates['date_attribute']: 
                 dataset= model_class.objects.all()
+                print(dataset)
             else:
                 variable_column = dates['date_attribute']
                 filter = variable_column + '__contains'
                 dataset= model_class.objects.filter(**{ filter: date_filter })
-            print('got objects')   
+
+            if settings.DEBUG: print('made queryset')
         
         # calculate limit boundary meta #
             coords = []
@@ -29,42 +29,46 @@ def sandbox_view_factory(model_class, serializer_class, multi_geom_class, geom_f
                 ## converts MultiPolygons to Polygons ##
                 if isinstance(geom, MultiPolygon):
                     coords.append(geom.convex_hull)
-                elif isinstance(geom, MultiLineString):
-                    coords.append(geom.union)
+
+                #TODO merge multilinestring to linestring(https://docs.djangoproject.com/en/2.0/ref/contrib/gis/geos/#django.contrib.gis.geos.MultiLineString.merged)
+                # elif isinstance(geom, MultiLineString):
+                #     merged = geom.merged
+                #     coords.append(merged)
+
                 else: 
                     coords.append(geom)
             
             multi = multi_geom_class(coords)
             limit_boundary = multi.convex_hull.json
-            
 
-            print('made mps')  
+            if settings.DEBUG: print('boundary calculation complete')
 
             # calculate date meta #
             
             min_date = None
             max_date = None
+            if dates['date_attribute'] is not None: 
+                min_date = min(dates['date_attribute'])
+                max_date = max(dates['date_attribute'])
     
         except model_class.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
+        serializer = serializer_class(dataset, many=True)
 
-        if request.method == 'GET':
-                serializer = serializer_class(dataset, many=True)
-
-                response= { 
-                    'slide_meta': {
-                        'boundary': [json.loads(limit_boundary)],
-                        'dates': {
-                            'min_date': min_date, 
-                            'max_date': max_date, 
-                            'date_granularity': dates['date_granularity'],
-                        },
-                        'attributes': attributes
-                        },
-                    'slide_data': serializer.data
-                
-                }
-                return Response(response)
+        response= { 
+            'slide_meta': {
+                'boundary': [json.loads(limit_boundary)],
+                'dates': {
+                    'min_date': min_date, 
+                    'max_date': max_date, 
+                    'date_granularity': dates['date_granularity'],
+                },
+                'attributes': attributes
+                },
+            'slide_data': serializer.data
+        
+        }
+        return Response(response)
 
     return sandbox_function
