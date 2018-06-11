@@ -158,7 +158,7 @@ rail_stops_meta = {
   'dates': {
   'date_attribute': None,
   'date_granularity': None,
-  'default_date_filter': '2018',
+  'default_date_filter': '2016',
   },
 }
 
@@ -252,4 +252,20 @@ trees_meta = {
   },
 }
 
-
+bus_stops_meta = {
+'attributes': {
+  'primary': {
+    'field': None,
+    'name': None,
+  },
+  'secondary': {
+    'field': None,
+    'name': None,
+  },
+},
+  'dates': {
+  'date_attribute': None,
+  'date_granularity': None,
+  'default_date_filter': '2018',
+  },
+}

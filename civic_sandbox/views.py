@@ -1,10 +1,10 @@
 
 from rest_framework.decorators import api_view
-from .models import BikeParking, BikeLane, TaxLotBlockGroup, Park, ParksTrail, MultiuseTrail, CommunityGarden, BikeGreenway, RailStop, Demolition, CampSweep, CampReport, RetailGrocer, Tree
-from .serializers import BikeParkingSerializer, BikeLaneSerializer, TaxLotBlockGroupSerializer, ParkSerializer, ParksTrailSerializer, MultiuseTrailSerializer, CommunityGardenSerializer, BikeGreenwaySerializer, RailStopSerializer, DemolitionSerializer, CampSweepSerializer, CampReportSerializer, RetailGrocerSerializer, TreeSerializer
+from .models import BikeParking, BikeLane, TaxLotBlockGroup, Park, ParksTrail, MultiuseTrail, CommunityGarden, BikeGreenway, RailStop, Demolition, CampSweep, CampReport, RetailGrocer, Tree, BusStop
+from .serializers import BikeParkingSerializer, BikeLaneSerializer, TaxLotBlockGroupSerializer, ParkSerializer, ParksTrailSerializer, MultiuseTrailSerializer, CommunityGardenSerializer, BikeGreenwaySerializer, RailStopSerializer, DemolitionSerializer, CampSweepSerializer, CampReportSerializer, RetailGrocerSerializer, TreeSerializer, BusStopSerializer
 from django.contrib.gis.geos import GEOSGeometry, MultiPoint, MultiPolygon, MultiLineString
 from .helpers import sandbox_view_factory
-from .meta import bike_parking_meta, bike_lanes_meta, taxlot_block_groups_meta, parks_meta, parks_trails_meta, multiuse_trails_meta, community_gardens_meta, bike_greenways_meta, rail_stops_meta, demolitions_meta, camp_sweeps_meta, camp_reports_meta, retail_grocers_meta, trees_meta
+from .meta import bike_parking_meta, bike_lanes_meta, taxlot_block_groups_meta, parks_meta, parks_trails_meta, multiuse_trails_meta, community_gardens_meta, bike_greenways_meta, rail_stops_meta, demolitions_meta, camp_sweeps_meta, camp_reports_meta, retail_grocers_meta, trees_meta, bus_stops_meta
 
 
 
@@ -133,4 +133,13 @@ trees = sandbox_view_factory(
   geom_field='geom',
   attributes =trees_meta['attributes'],
   dates=trees_meta['dates'], 
+  )
+
+busstops = sandbox_view_factory(
+  model_class=BusStop,
+  serializer_class=BusStopSerializer,
+  multi_geom_class=MultiPoint,
+  geom_field='geom',
+  attributes =bus_stops_meta['attributes'],
+  dates=bus_stops_meta['dates'], 
   )

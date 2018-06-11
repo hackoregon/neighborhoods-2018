@@ -125,3 +125,12 @@ class Tree(models.Model):
     class Meta:
         managed = False
         db_table = 'trees'
+
+class BusStop(models.Model):
+
+    keyitem = models.CharField(primary_key=True, max_length=50)
+    geom = models.PointField()
+
+    class Meta:
+        managed = False
+        db_table = 'bus_stops'
