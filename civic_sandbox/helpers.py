@@ -14,6 +14,7 @@ def sandbox_view_factory(model_class, serializer_class, multi_geom_class, geom_f
         try:
             if not dates['date_attribute']: 
                 dataset= model_class.objects.all()
+                print(dataset)
             else:
                 variable_column = dates['date_attribute']
                 filter = variable_column + '__contains'
@@ -48,7 +49,7 @@ def sandbox_view_factory(model_class, serializer_class, multi_geom_class, geom_f
             max_date = None
             if dates['date_attribute'] is not None: 
                 min_date = min(dates['date_attribute'])
-                max_date = max(['date_attribute'])
+                max_date = max(dates['date_attribute'])
     
         except model_class.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)

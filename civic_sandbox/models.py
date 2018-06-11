@@ -106,3 +106,22 @@ class CampReport(models.Model):
     class Meta:
         managed = False
         db_table = 'campsite_reports'
+
+class RetailGrocer(models.Model):
+    id = models.IntegerField(primary_key=True)
+    company_na = models.CharField(max_length=50)
+    geom = models.GeometryField()
+
+    class Meta:
+        managed = False
+        db_table = 'retail_grocers'
+
+class Tree(models.Model):
+    id = models.IntegerField(primary_key=True)
+    date_inventoried = models.DateTimeField(blank=True, null=True)
+    common = models.CharField(max_length=50)
+    geom = models.PointField()
+
+    class Meta:
+        managed = False
+        db_table = 'trees'

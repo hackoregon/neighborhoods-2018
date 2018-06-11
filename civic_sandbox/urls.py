@@ -8,7 +8,7 @@ urlpatterns = [
     url(r'^foundations/taxlotblockgroups/(?P<date_filter>\d+)', views.taxlotblockgroups),
     url(r'^foundations/taxlotblockgroups/', views.taxlotblockgroups),
     url(r'^slides/parks/', views.parks),
-    #TODO: url(r'^slides/parkstrails/', views.parkstrails),
+    url(r'^slides/parkstrails/', views.parkstrails),
     url(r'^slides/multiusetrails/', views.multiusetrails),
     url(r'^slides/communitygardens/', views.communitygardens),
     url(r'^slides/bikegreenways/', views.bikegreenways),
@@ -19,6 +19,9 @@ urlpatterns = [
     url(r'^slides/campsweeps/', views.campsweeps),
     url(r'^slides/campreports/(?P<date_filter>\d+)', views.campreports),
     url(r'^slides/campreports/', views.campreports),
+    url(r'^slides/retailgrocers/', views.retailgrocers),
+    url(r'^slides/trees/', views.trees),
+    url(r'^slides/trees/(?P<date_filter>\d+)', views.trees),
 ]
 urlpatterns = format_suffix_patterns(urlpatterns)
 

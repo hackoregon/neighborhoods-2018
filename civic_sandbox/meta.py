@@ -217,4 +217,39 @@ camp_reports_meta = {
   },
 }
 
+retail_grocers_meta = {
+'attributes': {
+  'primary': {
+    'field': 'company_na',
+    'name': 'Name',
+  },
+  'secondary': {
+    'field': None,
+    'name': None,
+  },
+},
+  'dates': {
+  'date_attribute': None,
+  'date_granularity': None,
+  'default_date_filter': '2018',
+  },
+}
+trees_meta = {
+'attributes': {
+  'primary': {
+    'field': 'company_na',
+    'name': 'Name',
+  },
+  'secondary': {
+    'field': None,
+    'name': None,
+  },
+},
+  'dates': {
+  'date_attribute': 'date_inventoried',
+  'date_granularity': 'year',
+  'default_date_filter': '2016',
+  },
+}
+
 
