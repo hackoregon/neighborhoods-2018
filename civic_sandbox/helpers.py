@@ -48,18 +48,17 @@ def sandbox_view_factory(model_class, serializer_class, multi_geom_class, geom_f
             if settings.DEBUG: print('boundary calculation complete')
 
             # calculate date meta #
-            date_list = []
-            for each in full_dataset: 
-                date = getattr(each, dates['date_attribute'])
-                date_list.append(date)
-
-            
-            min_date = None
-            max_date = None
             if dates['date_attribute'] is not None: 
+                date_list = []
+                for each in full_dataset: 
+                    date = getattr(each, dates['date_attribute'])
+                    date_list.append(date)
                 min_date = min(date_list)
                 max_date = max(date_list)
-    
+            else: 
+                min_date = None
+                max_date = None
+
         except model_class.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
 
