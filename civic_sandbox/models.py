@@ -125,3 +125,27 @@ class Tree(models.Model):
     class Meta:
         managed = False
         db_table = 'trees'
+
+class BusStop(models.Model):
+
+    keyitem = models.CharField(primary_key=True, max_length=50)
+    geom = models.PointField()
+
+    class Meta:
+        managed = False
+        db_table = 'bus_stops'
+
+class IMSNeighborhood(models.Model):
+    id = models.IntegerField(primary_key=True)
+    year = models.CharField(max_length=10)
+    total_population = models.IntegerField()
+    pc_household_with_children_under_18 = models.FloatField()
+    pc_household_with_individuals_65_ovr = models.FloatField()
+    pc_owner_occupied_housing_units = models.FloatField()
+    pc_householders_living_alone = models.FloatField()
+    geom = models.GeometryField()
+
+    class Meta:
+        managed = False
+        db_table = 'ims_neighborhood_demographics'
+

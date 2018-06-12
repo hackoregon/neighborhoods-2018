@@ -12,13 +12,17 @@ def sandbox_view_factory(model_class, serializer_class, multi_geom_class, geom_f
 
         ## get data ##
         try:
+            full_dataset = model_class.objects.all()
             if not dates['date_attribute']: 
                 dataset= model_class.objects.all()
-                print(dataset)
             else:
                 variable_column = dates['date_attribute']
                 filter = variable_column + '__contains'
                 dataset= model_class.objects.filter(**{ filter: date_filter })
+                print('---------------------------------------')
+                print(filter)
+                print(date_filter)
+
 
             if settings.DEBUG: print('made queryset')
         
@@ -44,12 +48,17 @@ def sandbox_view_factory(model_class, serializer_class, multi_geom_class, geom_f
             if settings.DEBUG: print('boundary calculation complete')
 
             # calculate date meta #
+            date_list = []
+            for each in full_dataset: 
+                date = getattr(each, dates['date_attribute'])
+                date_list.append(date)
+
             
             min_date = None
             max_date = None
             if dates['date_attribute'] is not None: 
-                min_date = min(dates['date_attribute'])
-                max_date = max(dates['date_attribute'])
+                min_date = min(date_list)
+                max_date = max(date_list)
     
         except model_class.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)

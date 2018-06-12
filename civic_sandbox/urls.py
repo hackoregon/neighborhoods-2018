@@ -22,6 +22,14 @@ urlpatterns = [
     url(r'^slides/retailgrocers/', views.retailgrocers),
     url(r'^slides/trees/', views.trees),
     url(r'^slides/trees/(?P<date_filter>\d+)', views.trees),
+    url(r'^slides/busstops/', views.busstops),
+    url(r'^foundations/under18/', views.under18),
+    url(r'^foundations/under18/(?P<date_filter>\d+)', views.under18),
+    url(r'^foundations/over65/', views.over65),
+    url(r'^foundations/over65/(?P<date_filter>\d+)', views.over65),
+    url(r'^foundations/population/', views.population),
+    url(r'^foundations/population/(?P<date_filter>\d+)', views.over65),
+
 ]
 urlpatterns = format_suffix_patterns(urlpatterns)
 
