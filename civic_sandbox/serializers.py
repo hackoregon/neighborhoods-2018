@@ -2,7 +2,7 @@ from rest_framework_gis.serializers import GeoFeatureModelSerializer
 
 from rest_framework.serializers import ModelSerializer
 
-from .models import BikeParking, BikeLane, TaxLotBlockGroup, Park, ParksTrail, MultiuseTrail, CommunityGarden, BikeGreenway, RailStop, Demolition, CampSweep, CampReport, RetailGrocer, Tree, BusStop
+from .models import BikeParking, BikeLane, TaxLotBlockGroup, Park, ParksTrail, MultiuseTrail, CommunityGarden, BikeGreenway, RailStop, Demolition, CampSweep, CampReport, RetailGrocer, Tree, BusStop, IMSNeighborhood
 
 class BikeParkingSerializer(GeoFeatureModelSerializer):
     class Meta:
@@ -95,3 +95,21 @@ class BusStopSerializer(GeoFeatureModelSerializer):
         model = BusStop
         geo_field = 'geom'
         fields = '__all__'
+
+class Under18Serializer(GeoFeatureModelSerializer):
+    class Meta:
+        model = IMSNeighborhood
+        geo_field = 'geom'
+        fields = ('id', 'pc_household_with_children_under_18', 'year')
+
+class Over65Serializer(GeoFeatureModelSerializer):
+    class Meta:
+        model = IMSNeighborhood
+        geo_field = 'geom'
+        fields = ('id', 'pc_household_with_individuals_65_ovr', 'year')
+
+class PopulationSerializer(GeoFeatureModelSerializer):
+    class Meta:
+        model = IMSNeighborhood
+        geo_field = 'geom'
+        fields = ('id', 'total_population', 'year')

@@ -269,3 +269,68 @@ bus_stops_meta = {
   'default_date_filter': '2018',
   },
 }
+
+under18_meta = {
+'attributes': {
+  'primary': {
+    'field': 'pc_household_with_children_under_18',
+    'name': 'Households with Children',
+    'visualization': {
+      'type': 'PercentDonut',
+    },
+  },
+  'secondary': {
+    'field': None,
+    'name': None,
+  },
+},
+  'dates': {
+  'date_attribute': 'year',
+  'date_granularity': 'Decade',
+  'default_date_filter': '2010',
+  },
+}
+
+over65_meta = {
+'attributes': {
+  'primary': {
+    'field': 'pc_household_with_individuals_65_ovr',
+    'name': 'Households w/ Seniors',
+    'visualization': {
+      'type': 'PercentDonut',
+    },
+  },
+  'secondary': {
+    'field': None,
+    'name': None,
+  },
+},
+  'dates': {
+  'date_attribute': 'year',
+  'date_granularity': 'Decade',
+  'default_date_filter': '2010',
+  },
+}
+
+population_meta = {
+'attributes': {
+  'primary': {
+    'field': 'total_population',
+    'name': 'Total Population',
+    'visualization': {
+      'type': 'ComparisonBar',
+      'comparison_value':'5005',
+      'comparison_name':'Average Total Population',
+    },
+  },
+  'secondary': {
+    'field': None,
+    'name': None,
+  },
+},
+  'dates': {
+  'date_attribute': 'year',
+  'date_granularity': 'Decade',
+  'default_date_filter': '2010',
+  },
+}
