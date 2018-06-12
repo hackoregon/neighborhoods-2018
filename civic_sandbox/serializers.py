@@ -2,7 +2,7 @@ from rest_framework_gis.serializers import GeoFeatureModelSerializer
 
 from rest_framework.serializers import ModelSerializer
 
-from .models import BikeParking, BikeLane, TaxLotBlockGroup, Park, ParksTrail, MultiuseTrail, CommunityGarden, BikeGreenway, RailStop, Demolition, CampSweep, CampReport, RetailGrocer, Tree, BusStop, IMSNeighborhood
+from .models import BikeParking, BikeLane, TaxLotBlockGroup, Park, ParksTrail, MultiuseTrail, CommunityGarden, BikeGreenway, RailStop, Demolition, CampSweep, CampReport, RetailGrocer, Tree, BusStop, IMSNeighborhood, BlockGroup
 
 class BikeParkingSerializer(GeoFeatureModelSerializer):
     class Meta:
@@ -113,3 +113,51 @@ class PopulationSerializer(GeoFeatureModelSerializer):
         model = IMSNeighborhood
         geo_field = 'geom'
         fields = ('id', 'total_population', 'year')
+
+class OwnerOccupiedSerializer(GeoFeatureModelSerializer):
+    class Meta:
+        model = IMSNeighborhood
+        geo_field = 'geom'
+        fields = ('id', 'pc_owner_occupied_housing_units', 'year')
+
+class LivingAloneSerializer(GeoFeatureModelSerializer):
+    class Meta:
+        model = IMSNeighborhood
+        geo_field = 'geom'
+        fields = ('id', 'pc_householders_living_alone', 'year')
+
+class IncomeSerializer(GeoFeatureModelSerializer):
+    class Meta:
+        model = BlockGroup
+        geo_field = 'geom'
+        fields = ('id', 'median_household_income', 'year')
+
+class GrossRentSerializer(GeoFeatureModelSerializer):
+    class Meta:
+        model = BlockGroup
+        geo_field = 'geom'
+        fields = ('id', 'Median_gross_rent', 'year')
+
+class EvictionsSerializer(GeoFeatureModelSerializer):
+    class Meta:
+        model = BlockGroup
+        geo_field = 'geom'
+        fields = ('id', 'evictions', 'year')
+
+class RenterOccupiedSerializer(GeoFeatureModelSerializer):
+    class Meta:
+        model = BlockGroup
+        geo_field = 'geom'
+        fields = ('id', 'renter_occupied_households', 'year')
+
+class RentBurdenSerializer(GeoFeatureModelSerializer):
+    class Meta:
+        model = BlockGroup
+        geo_field = 'geom'
+        fields = ('id', 'rent_burden', 'year')
+
+class PctRenterOccupiedSerializer(GeoFeatureModelSerializer):
+    class Meta:
+        model = BlockGroup
+        geo_field = 'geom'
+        fields = ('id', 'pctrenter_occupied', 'year')

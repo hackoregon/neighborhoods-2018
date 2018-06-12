@@ -176,7 +176,7 @@ demolitions_meta = {
   'dates': {
   'date_attribute': 'year',
   'date_granularity': 'year',
-  'default_date_filter': '18',
+  'default_date_filter': '2018',
   },
 }
 
@@ -332,5 +332,192 @@ population_meta = {
   'date_attribute': 'year',
   'date_granularity': 'Decade',
   'default_date_filter': '2010',
+  },
+}
+
+owner_occupied_meta = {
+'attributes': {
+  'primary': {
+    'field': 'pc_owner_occupied_housing_units',
+    'name': 'Owner Occupied Households',
+    'visualization': {
+      'type': 'PercentDonut',
+      'comparison_value': None,
+      'comparison_name': None, 
+    },
+  },
+  'secondary': {
+    'field': None,
+    'name': None,
+  },
+},
+  'dates': {
+  'date_attribute': 'year',
+  'date_granularity': 'year',
+  'default_date_filter': '2016',
+  },
+}
+
+
+living_alone_meta = {
+'attributes': {
+  'primary': {
+    'field': 'pc_householders_living_alone',
+    'name': 'Householders Living Alone',
+    'visualization': {
+      'type': 'PercentDonut',
+      'comparison_value': None,
+      'comparison_name': None, 
+    },
+  },
+  'secondary': {
+    'field': None,
+    'name': None,
+  },
+},
+  'dates': {
+  'date_attribute': 'year',
+  'date_granularity': 'year',
+  'default_date_filter': '2016',
+  },
+}
+
+bg_income_meta = {
+'attributes': {
+  'primary': {
+    'field': 'median_household_income',
+    'name': 'Median Household Income',
+    'visualization': {
+      'type': 'ComparisonBar',
+      'comparison_value':'55013',
+      'comparison_name':'Average Median Household Income',
+    },
+  },
+  'secondary': {
+    'field': None,
+    'name': None,
+  },
+},
+  'dates': {
+  'date_attribute': 'year',
+  'date_granularity': 'year',
+  'default_date_filter': '2016',
+  },
+}
+
+bg_gross_rent_meta = {
+'attributes': {
+  'primary': {
+    'field': 'Median_gross_rent',
+    'name': 'Median Gross Rent',
+    'visualization': {
+      'type': 'ComparisonBar',
+      'comparison_value':'10000000',
+      'comparison_name':'Average Median Gross Rent',
+    },
+  },
+  'secondary': {
+    'field': None,
+    'name': None,
+  },
+},
+  'dates': {
+  'date_attribute': 'year',
+  'date_granularity': 'year',
+  'default_date_filter': '2016',
+  },
+}
+
+bg_evictions_meta = {
+'attributes': {
+  'primary': {
+    'field': 'evictions',
+    'name': 'Evictions',
+    'visualization': {
+      'type': 'ComparisonBar',
+      'comparison_value':'10000000',
+      'comparison_name':'Average Evictions',
+    },
+  },
+  'secondary': {
+    'field': None,
+    'name': None,
+  },
+},
+  'dates': {
+  'date_attribute': 'year',
+  'date_granularity': 'year',
+  'default_date_filter': '2016',
+  },
+}
+
+bg_renter_occupied_meta = {
+'attributes': {
+  'primary': {
+    'field': 'renter_occupied_households',
+    'name': 'Renter Occupied Households',
+    'visualization': {
+      'type': 'ComparisonBar',
+      'comparison_value':'10000000',
+      'comparison_name':'Average Renter Occupied',
+    },
+  },
+  'secondary': {
+    'field': None,
+    'name': None,
+  },
+},
+  'dates': {
+  'date_attribute': 'year',
+  'date_granularity': 'year',
+  'default_date_filter': '2016',
+  },
+}
+
+bg_pctrenter_occupied_meta = {
+'attributes': {
+  'primary': {
+    'field': 'pctrenter_occupied_households',
+    'name': 'Percent Renter Occupied Households',
+    'visualization': {
+      'type': 'PercentDonut',
+      'comparison_value': None,
+      'comparison_name': None,
+    },
+  },
+  'secondary': {
+    'field': None,
+    'name': None,
+  },
+},
+  'dates': {
+  'date_attribute': 'year',
+  'date_granularity': 'year',
+  'default_date_filter': '2016',
+  },
+}
+
+bg_rent_burden_meta = {
+'attributes': {
+  'primary': {
+    'field': 'rent_burden',
+    'name': 'Rent Burden',
+    'visualization': {
+      'type': 'ComparisonBar',
+      'comparison_value':'10000000',
+      'comparison_name':'Average Rent Burden',
+    },
+  },
+  'secondary': {
+    'field': None,
+    'name': None,
+  },
+},
+  'dates': {
+  'date_attribute': 'year',
+  'date_granularity': 'year',
+  'default_date_filter': '2016',
+  'min_date': '2000',
+  'max_date': '2016'
   },
 }
