@@ -71,9 +71,13 @@ class MetroLimitList(ListAPIView):
     queryset = models.MetroLimit.objects.all()
     serializer_class = serializers.MetroLimitSerializer
 
-class NeighborhoodAgesList(ListAPIView):
-    queryset = models.NeighborhoodAges.objects.all()
-    serializer_class = serializers.NeighborhoodAgesSerializer
+class NeighborhoodVoterRegistrationByAgeGroupList(ListAPIView):
+    queryset = models.NeighborhoodVoterRegistrationByAgeGroup.objects.all()
+    serializer_class = serializers.NeighborhoodVoterRegistrationByAgeGroupSerializer
+
+class NeighborhoodVoterRegistrationByAgeGroupGeomList(ListAPIView):
+    queryset = models.NeighborhoodVoterRegistrationByAgeGroupGeom.objects.all()
+    serializer_class = serializers.NeighborhoodVoterRegistrationByAgeGroupGeomSerializer
 
 class ParkRideLotsList(ListAPIView):
     queryset = models.ParkRideLots.objects.all()
@@ -193,7 +197,8 @@ def camp_sweeps_by_neighborhood(request):
     FROM camp_sweeps
 	INNER JOIN rlis_neighborhoods ON st_intersects(camp_sweeps.geom, rlis_neighborhoods.geom)
 	GROUP BY rlis_neighborhoods.name, rlis_neighborhoods.geom
-	HAVING count(camp_sweeps) > 3;
+	HAVING count(camp_sweeps) > 3
+    ORDER BY 1 DESC;
     """
     with connection.cursor() as cursor:
         cursor.execute(raw_sql_query, )
