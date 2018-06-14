@@ -137,7 +137,7 @@ class BusStop(models.Model):
 
 class IMSNeighborhood(models.Model):
     id = models.IntegerField(primary_key=True)
-    year = models.CharField(max_length=10)
+    year = models.CharField(max_length=50)
     total_population = models.IntegerField()
     pc_household_with_children_under_18 = models.FloatField()
     pc_household_with_individuals_65_ovr = models.FloatField()
@@ -151,7 +151,7 @@ class IMSNeighborhood(models.Model):
 
 class BlockGroup(models.Model):
     id = models.IntegerField(primary_key=True)
-    year = models.CharField(max_length=10)
+    year = models.CharField(max_length=50)
     median_household_income = models.IntegerField()
     Median_gross_rent = models.IntegerField()
     evictions = models.IntegerField()

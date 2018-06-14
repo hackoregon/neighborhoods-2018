@@ -1,4 +1,3 @@
-
 bike_parking_meta = {
   'attributes': {
     'primary': {
@@ -14,6 +13,8 @@ bike_parking_meta = {
     'date_attribute': None,
     'date_granularity': None,
     'default_date_filter': '2017',
+    'min_date': None,
+    'max_date': None,
     },
   }
 
@@ -29,12 +30,13 @@ bike_lanes_meta = {
     },
   },
     'dates': {
-    'date_attribute': None, 
+    'date_attribute': None,
     'date_granularity': None,
     'default_date_filter': '2018',
+    'min_date': None,
+    'max_date': None,
     },
   }
-
 taxlot_block_groups_meta = {
 'attributes': {
   'primary': {
@@ -50,9 +52,10 @@ taxlot_block_groups_meta = {
   'date_attribute': 'year',
   'date_granularity': 'year',
   'default_date_filter': '2010',
+  'min_date': '2010',
+  'max_date': '2011',
   },
 }
-
 parks_meta = {
 'attributes': {
   'primary': {
@@ -68,9 +71,10 @@ parks_meta = {
   'date_attribute': None,
   'date_granularity': None,
   'default_date_filter': '2018',
+  'min_date': None,
+  'max_date': None,
   },
 }
-
 parks_trails_meta = {
 'attributes': {
   'primary': {
@@ -86,10 +90,10 @@ parks_trails_meta = {
   'date_attribute': None,
   'date_granularity': None,
   'default_date_filter': '2018',
+  'min_date': None,
+  'max_date': None,
   },
 }
-
-
 multiuse_trails_meta = {
 'attributes': {
   'primary': {
@@ -105,9 +109,10 @@ multiuse_trails_meta = {
   'date_attribute': None,
   'date_granularity': None,
   'default_date_filter': '2018',
+  'min_date': None,
+  'max_date': None,
   },
 }
-
 community_gardens_meta = {
 'attributes': {
   'primary': {
@@ -123,9 +128,10 @@ community_gardens_meta = {
   'date_attribute': None,
   'date_granularity': None,
   'default_date_filter': '2017',
+  'min_date': None,
+  'max_date': None,
   },
 }
-
 bike_greenways_meta = {
 'attributes': {
   'primary': {
@@ -141,9 +147,10 @@ bike_greenways_meta = {
   'date_attribute': None,
   'date_granularity': None,
   'default_date_filter': '2018',
+  'min_date': None,
+  'max_date': None,
   },
 }
-
 rail_stops_meta = {
 'attributes': {
   'primary': {
@@ -159,9 +166,10 @@ rail_stops_meta = {
   'date_attribute': None,
   'date_granularity': None,
   'default_date_filter': '2016',
+  'min_date': None,
+  'max_date': None,
   },
 }
-
 demolitions_meta = {
 'attributes': {
   'primary': {
@@ -177,10 +185,10 @@ demolitions_meta = {
   'date_attribute': 'year',
   'date_granularity': 'year',
   'default_date_filter': '2018',
+  'min_date': '2000',
+  'max_date': '2018',
   },
 }
-
-
 camp_sweeps_meta = {
 'attributes': {
   'primary': {
@@ -196,9 +204,10 @@ camp_sweeps_meta = {
   'date_attribute': 'reportdate',
   'date_granularity': 'year',
   'default_date_filter': '2018',
+  'min_date': '2016',
+  'max_date': '2018',
   },
 }
-
 camp_reports_meta = {
 'attributes': {
   'primary': {
@@ -214,9 +223,10 @@ camp_reports_meta = {
   'date_attribute': 'date',
   'date_granularity': 'year',
   'default_date_filter': '2018',
+  'min_date': '2015',
+  'max_date': '2018',
   },
 }
-
 retail_grocers_meta = {
 'attributes': {
   'primary': {
@@ -232,6 +242,8 @@ retail_grocers_meta = {
   'date_attribute': None,
   'date_granularity': None,
   'default_date_filter': '2018',
+  'min_date': None,
+  'max_date': None,
   },
 }
 trees_meta = {
@@ -251,7 +263,6 @@ trees_meta = {
   'default_date_filter': '2016',
   },
 }
-
 bus_stops_meta = {
 'attributes': {
   'primary': {
@@ -269,7 +280,6 @@ bus_stops_meta = {
   'default_date_filter': '2018',
   },
 }
-
 under18_meta = {
 'attributes': {
   'primary': {
@@ -288,9 +298,10 @@ under18_meta = {
   'date_attribute': 'year',
   'date_granularity': 'Decade',
   'default_date_filter': '2010',
+  'min_date': '2000',
+  'max_date': '2010',
   },
 }
-
 over65_meta = {
 'attributes': {
   'primary': {
@@ -309,9 +320,10 @@ over65_meta = {
   'date_attribute': 'year',
   'date_granularity': 'Decade',
   'default_date_filter': '2010',
+  'min_date': '2000',
+  'max_date': '2010',
   },
 }
-
 population_meta = {
 'attributes': {
   'primary': {
@@ -332,9 +344,10 @@ population_meta = {
   'date_attribute': 'year',
   'date_granularity': 'Decade',
   'default_date_filter': '2010',
+  'min_date': '2000',
+  'max_date': '2010',
   },
 }
-
 owner_occupied_meta = {
 'attributes': {
   'primary': {
@@ -343,7 +356,7 @@ owner_occupied_meta = {
     'visualization': {
       'type': 'PercentDonut',
       'comparison_value': None,
-      'comparison_name': None, 
+      'comparison_name': None,
     },
   },
   'secondary': {
@@ -355,10 +368,10 @@ owner_occupied_meta = {
   'date_attribute': 'year',
   'date_granularity': 'year',
   'default_date_filter': '2016',
+  'min_date': '2000',
+  'max_date': '2010',
   },
 }
-
-
 living_alone_meta = {
 'attributes': {
   'primary': {
@@ -367,7 +380,7 @@ living_alone_meta = {
     'visualization': {
       'type': 'PercentDonut',
       'comparison_value': None,
-      'comparison_name': None, 
+      'comparison_name': None,
     },
   },
   'secondary': {
@@ -379,9 +392,10 @@ living_alone_meta = {
   'date_attribute': 'year',
   'date_granularity': 'year',
   'default_date_filter': '2016',
+  'min_date': '2000',
+  'max_date': '2010',
   },
 }
-
 bg_income_meta = {
 'attributes': {
   'primary': {
@@ -402,9 +416,10 @@ bg_income_meta = {
   'date_attribute': 'year',
   'date_granularity': 'year',
   'default_date_filter': '2016',
+  'min_date': '2000',
+  'max_date': '2016',
   },
 }
-
 bg_gross_rent_meta = {
 'attributes': {
   'primary': {
@@ -425,9 +440,10 @@ bg_gross_rent_meta = {
   'date_attribute': 'year',
   'date_granularity': 'year',
   'default_date_filter': '2016',
+  'min_date': '2000',
+  'max_date': '2016',
   },
 }
-
 bg_evictions_meta = {
 'attributes': {
   'primary': {
@@ -448,9 +464,10 @@ bg_evictions_meta = {
   'date_attribute': 'year',
   'date_granularity': 'year',
   'default_date_filter': '2016',
+  'min_date': '2000',
+  'max_date': '2016',
   },
 }
-
 bg_renter_occupied_meta = {
 'attributes': {
   'primary': {
@@ -471,9 +488,10 @@ bg_renter_occupied_meta = {
   'date_attribute': 'year',
   'date_granularity': 'year',
   'default_date_filter': '2016',
+  'min_date': '2000',
+  'max_date': '2016',
   },
 }
-
 bg_pctrenter_occupied_meta = {
 'attributes': {
   'primary': {
@@ -494,9 +512,10 @@ bg_pctrenter_occupied_meta = {
   'date_attribute': 'year',
   'date_granularity': 'year',
   'default_date_filter': '2016',
+  'min_date': '2000',
+  'max_date': '2016',
   },
 }
-
 bg_rent_burden_meta = {
 'attributes': {
   'primary': {
@@ -518,6 +537,6 @@ bg_rent_burden_meta = {
   'date_granularity': 'year',
   'default_date_filter': '2016',
   'min_date': '2000',
-  'max_date': '2016'
+  'max_date': '2016',
   },
 }
