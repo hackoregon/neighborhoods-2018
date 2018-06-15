@@ -49,6 +49,14 @@ urlpatterns = [
     url(r'^foundations/renteroccupied/', views.renteroccupied), 
     url(r'^foundations/voters18to25/(?P<date_filter>\d+)', views.voters18to25),
     url(r'^foundations/voters18to25/', views.voters18to25),
+    url(r'^foundations/voters26to32/(?P<date_filter>\d+)', views.voters26to32),
+    url(r'^foundations/voters26to32/', views.voters26to32),
+    url(r'^foundations/voters33to39/(?P<date_filter>\d+)', views.voters33to39),
+    url(r'^foundations/voters33to39/', views.voters33to39),
+    url(r'^foundations/voters40to49/(?P<date_filter>\d+)', views.voters40to49),
+    url(r'^foundations/voters40to49/', views.voters40to49),
+    url(r'^foundations/voters50plus/(?P<date_filter>\d+)', views.voters50plus),
+    url(r'^foundations/voters50plus/', views.voters50plus),
 
 ]
 urlpatterns = format_suffix_patterns(urlpatterns)

@@ -545,7 +545,7 @@ voters18to25_meta = {
 'attributes': {
   'primary': {
     'field': 'pct_18_25',
-    'name': 'Percent Registered Voters 18 to 25',
+    'name': 'Registered Voters 18 to 25',
     'visualization': {
       'type': 'PercentDonut',
       'comparison_value': None,
@@ -565,3 +565,144 @@ voters18to25_meta = {
   'max_date': '2016',
   },
 }
+
+voters18to25_meta = {
+'attributes': {
+  'primary': {
+    'field': 'pct_18_25',
+    'name': 'Registered Voters 18 to 25',
+    'visualization': {
+      'type': 'PercentDonut',
+      'comparison_value': None,
+      'comparison_name': None,
+    },
+  },
+  'secondary': {
+    'field': None,
+    'name': None,
+    'type': None,
+    'comparison_value': None,
+    'comparison_name': None,
+  },
+},
+  'dates': {
+  'date_attribute': 'year',
+  'date_granularity': 'year',
+  'default_date_filter': '2016',
+  'min_date': '2006',
+  'max_date': '2016',
+  },
+}
+
+voters26to32_meta = {
+'attributes': {
+  'primary': {
+    'field': 'pct_26_32',
+    'name': 'Registered Voters 26 to 32',
+    'visualization': {
+      'type': 'PercentDonut',
+      'comparison_value': None,
+      'comparison_name': None,
+    },
+  },
+  'secondary': {
+    'field': None,
+    'name': None,
+    'type': None,
+    'comparison_value': None,
+    'comparison_name': None,
+  },
+},
+  'dates': {
+  'date_attribute': 'year',
+  'date_granularity': 'year',
+  'default_date_filter': '2016',
+  'min_date': '2006',
+  'max_date': '2016',
+  },
+}
+
+voters33to39_meta = {
+'attributes': {
+  'primary': {
+    'field': 'pct_33_39',
+    'name': 'Registered Voters 33 to 39',
+    'visualization': {
+      'type': 'PercentDonut',
+      'comparison_value': None,
+      'comparison_name': None,
+    },
+  },
+  'secondary': {
+    'field': None,
+    'name': None,
+    'type': None,
+    'comparison_value': None,
+    'comparison_name': None,
+  },
+},
+  'dates': {
+  'date_attribute': 'year',
+  'date_granularity': 'year',
+  'default_date_filter': '2016',
+  'min_date': '2006',
+  'max_date': '2016',
+  },
+}
+
+voters40to49_meta = {
+'attributes': {
+  'primary': {
+    'field': 'pct_40_49',
+    'name': 'Registered Voters 40 to 49',
+    'visualization': {
+      'type': 'PercentDonut',
+      'comparison_value': None,
+      'comparison_name': None,
+    },
+  },
+  'secondary': {
+    'field': None,
+    'name': None,
+    'type': None,
+    'comparison_value': None,
+    'comparison_name': None,
+  },
+},
+  'dates': {
+  'date_attribute': 'year',
+  'date_granularity': 'year',
+  'default_date_filter': '2016',
+  'min_date': '2006',
+  'max_date': '2016',
+  },
+}
+
+voters50plus_meta = {
+'attributes': {
+  'primary': {
+    'field': 'pct_50_plus',
+    'name': 'Registered Voters 50+',
+    'visualization': {
+      'type': 'PercentDonut',
+      'comparison_value': None,
+      'comparison_name': None,
+    },
+  },
+  'secondary': {
+    'field': None,
+    'name': None,
+    'type': None,
+    'comparison_value': None,
+    'comparison_name': None,
+  },
+},
+  'dates': {
+  'date_attribute': 'year',
+  'date_granularity': 'year',
+  'default_date_filter': '2016',
+  'min_date': '2006',
+  'max_date': '2016',
+  },
+}
+
