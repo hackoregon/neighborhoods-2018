@@ -33,9 +33,15 @@ urlpatterns = [
     path('percent_shared_housing', views.PercentSharedHousingList.as_view()),
     path('rail_stops', views.RailStopsList.as_view()),
     path('retail_locations', views.RetailLocationsList.as_view()),
+    path('school_class_size', views.SchoolClassSizeList.as_view()),
     path('school_districts', views.SchoolDistrictsList.as_view()),
+<<<<<<< HEAD
     path('teacher_experience', views.TeacherExperienceList.as_view()),
     path('teacher_experience_subtotals', views.TeacherExperienceSubtotalsList.as_view()),
+=======
+    path('school_enrollment', views.ODEEnrollmentList.as_view()),
+    path('school_reduced_lunches', views.ODEFRLunchList.as_view()),
+>>>>>>> all school data except the full time employment
     path('transit_centers', views.TransitCentersList.as_view()),
     path('trees', views.TreesList.as_view()),
     path('voter_precincts', views.VoterPrecinctsList.as_view()),

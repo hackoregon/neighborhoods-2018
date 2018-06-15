@@ -79,6 +79,14 @@ class NeighborhoodVoterRegistrationByAgeGroupGeomList(ListAPIView):
     queryset = models.NeighborhoodVoterRegistrationByAgeGroupGeom.objects.all()
     serializer_class = serializers.NeighborhoodVoterRegistrationByAgeGroupGeomSerializer
 
+class ODEFRLunchList(ListAPIView):
+    queryset = models.ODEFRLunch.objects.all()
+    serializer_class = serializers.ODEFRLunchSerializer
+
+class ODEEnrollmentList(ListAPIView):
+    queryset = models.ODEEnrollment.objects.all()
+    serializer_class = serializers.ODEEnrollmentSerializer
+
 class ParkRideLotsList(ListAPIView):
     queryset = models.ParkRideLots.objects.all()
     serializer_class = serializers.ParkRideLotsSerializer
@@ -103,17 +111,9 @@ class RetailLocationsList(ListAPIView):
     queryset = models.RetailLocations.objects.all()
     serializer_class = serializers.RetailLocationsSerializer
 
-# class RlisNeighborhoodsList(ListAPIView):
-#     queryset = models.RlisNeighborhoods.objects.all()
-#     serializer_class = serializers.RlisNeighborhoodsSerializer
-
-# class RlisTaxlot2017List(ListAPIView):
-#     queryset = models.RlisTaxlot2017.objects.all()
-#     serializer_class = serializers.RlisTaxlot2017Serializer
-
-# class RlisTaxlotPts2015List(ListAPIView):
-#     queryset = models.RlisTaxlotPts2015.objects.all()
-#     serializer_class = serializers.RlisTaxlotPts2015Serializer
+class SchoolClassSizeList(ListAPIView):
+    queryset = models.SchoolClassSize.objects.all()
+    serializer_class = serializers.SchoolClassSizeSerializer
 
 class SchoolDistrictsList(ListAPIView):
     queryset = models.SchoolDistricts.objects.all()

@@ -115,6 +115,16 @@ class NeighborhoodVoterRegistrationByAgeGroupGeomSerializer(ModelSerializer):
         model = models.NeighborhoodVoterRegistrationByAgeGroupGeom
         fields = "__all__"
 
+class ODEEnrollmentSerializer(ModelSerializer):
+    class Meta:
+        model = models.ODEEnrollment
+        fields = "__all__"
+
+class ODEFRLunchSerializer(ModelSerializer):
+    class Meta:
+        model = models.ODEFRLunch
+        fields = "__all__"
+
 class ParkRideLotsSerializer(GeoFeatureModelSerializer):
     class Meta:
         model = models.ParkRideLots
@@ -151,21 +161,10 @@ class RetailLocationsSerializer(GeoFeatureModelSerializer):
         geo_field = "geom"
         fields = "__all__"
 
-# class RlisNeighborhoodsSerializer(GeoFeatureModelSerializer):
-#     class Meta:
-#         model = models.RlisNeighborhoods
-#         geo_field = "geom"
-#         exclude = ('lat', 'lon',)
-
-# class RlisTaxlot2017Serializer(ModelSerializer):
-#     class Meta:
-#         model = models.RlisTaxlot2017
-#         fields = "__all__"
-
-# class RlisTaxlotPts2015Serializer(ModelSerializer):
-#     class Meta:
-#         model = models.RlisTaxlotPts2015
-#         fields = "__all__"
+class SchoolClassSizeSerializer(ModelSerializer):
+    class Meta:
+        model = models.SchoolClassSize
+        fields = "__all__"
 
 class SchoolDistrictsSerializer(GeoFeatureModelSerializer):
     class Meta:
