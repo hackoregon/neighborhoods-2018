@@ -45,6 +45,10 @@ urlpatterns = [
     url(r'^foundations/rentburden/', views.rentburden),
     url(r'^foundations/renteroccupied/(?P<date_filter>\d+)', views.renteroccupied),
     url(r'^foundations/renteroccupied/', views.renteroccupied),
+    url(r'^foundations/renteroccupied/(?P<date_filter>\d+)', views.renteroccupied),
+    url(r'^foundations/renteroccupied/', views.renteroccupied), 
+    url(r'^foundations/voters18to25/(?P<date_filter>\d+)', views.voters18to25),
+    url(r'^foundations/voters18to25/', views.voters18to25),
 
 ]
 urlpatterns = format_suffix_patterns(urlpatterns)

@@ -165,3 +165,19 @@ class BlockGroup(models.Model):
         managed = False
         db_table = 'evictions_blockgroups_scope'
 
+
+class NeighborhoodVoterRegistrationByAgeGroup(models.Model):
+    neighborhood = models.TextField()
+    id = models.IntegerField(primary_key=True)
+    year = models.IntegerField()
+    pct_18_25 = models.FloatField()
+    pct_26_32 = models.FloatField()
+    pct_33_39 = models.FloatField()
+    pct_40_49 = models.FloatField()
+    pct_50_plus = models.FloatField()
+    geom = models.GeometryField()
+    
+
+    class Meta:
+        managed = False
+        db_table = 'neighborhood_voters_ages_over_time_geom'

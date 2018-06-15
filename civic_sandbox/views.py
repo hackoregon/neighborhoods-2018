@@ -1,13 +1,13 @@
 
 from rest_framework.decorators import api_view
-from .models import BikeParking, BikeLane, TaxLotBlockGroup, Park, ParksTrail, MultiuseTrail, CommunityGarden, BikeGreenway, RailStop, Demolition, CampSweep, CampReport, RetailGrocer, Tree, BusStop, IMSNeighborhood, BlockGroup
+from .models import BikeParking, BikeLane, TaxLotBlockGroup, Park, ParksTrail, MultiuseTrail, CommunityGarden, BikeGreenway, RailStop, Demolition, CampSweep, CampReport, RetailGrocer, Tree, BusStop, IMSNeighborhood, BlockGroup, NeighborhoodVoterRegistrationByAgeGroup
 
-from .serializers import BikeParkingSerializer, BikeLaneSerializer, TaxLotBlockGroupSerializer, ParkSerializer, ParksTrailSerializer, MultiuseTrailSerializer, CommunityGardenSerializer, BikeGreenwaySerializer, RailStopSerializer, DemolitionSerializer, CampSweepSerializer, CampReportSerializer, RetailGrocerSerializer, TreeSerializer, BusStopSerializer, Under18Serializer, Over65Serializer, PopulationSerializer, IncomeSerializer, OwnerOccupiedSerializer, LivingAloneSerializer,GrossRentSerializer, EvictionsSerializer, RenterOccupiedSerializer, RentBurdenSerializer, PctRenterOccupiedSerializer
+from .serializers import BikeParkingSerializer, BikeLaneSerializer, TaxLotBlockGroupSerializer, ParkSerializer, ParksTrailSerializer, MultiuseTrailSerializer, CommunityGardenSerializer, BikeGreenwaySerializer, RailStopSerializer, DemolitionSerializer, CampSweepSerializer, CampReportSerializer, RetailGrocerSerializer, TreeSerializer, BusStopSerializer, Under18Serializer, Over65Serializer, PopulationSerializer, IncomeSerializer, OwnerOccupiedSerializer, LivingAloneSerializer,GrossRentSerializer, EvictionsSerializer, RenterOccupiedSerializer, RentBurdenSerializer, PctRenterOccupiedSerializer, NeighborhoodVoterRegistrationByAgeGroupSerializer
 
 from django.contrib.gis.geos import GEOSGeometry, MultiPoint, MultiPolygon, MultiLineString
 from .helpers import sandbox_view_factory 
 
-from .meta import bike_parking_meta, bike_lanes_meta, taxlot_block_groups_meta, parks_meta, parks_trails_meta, multiuse_trails_meta, community_gardens_meta, bike_greenways_meta, rail_stops_meta, demolitions_meta, camp_sweeps_meta, camp_reports_meta, retail_grocers_meta, trees_meta, bus_stops_meta, under18_meta, over65_meta, population_meta, owner_occupied_meta, living_alone_meta,  bg_income_meta, bg_evictions_meta, bg_gross_rent_meta, bg_pctrenter_occupied_meta, bg_rent_burden_meta, bg_renter_occupied_meta
+from .meta import bike_parking_meta, bike_lanes_meta, taxlot_block_groups_meta, parks_meta, parks_trails_meta, multiuse_trails_meta, community_gardens_meta, bike_greenways_meta, rail_stops_meta, demolitions_meta, camp_sweeps_meta, camp_reports_meta, retail_grocers_meta, trees_meta, bus_stops_meta, under18_meta, over65_meta, population_meta, owner_occupied_meta, living_alone_meta,  bg_income_meta, bg_evictions_meta, bg_gross_rent_meta, bg_pctrenter_occupied_meta, bg_rent_burden_meta, bg_renter_occupied_meta, voters18to25_meta
 
 
 
@@ -247,4 +247,13 @@ renteroccupied = sandbox_view_factory(
   geom_field='geom',
   attributes =bg_renter_occupied_meta['attributes'],
   dates= bg_renter_occupied_meta['dates'], 
+  )
+
+voters18to25 = sandbox_view_factory(
+  model_class=NeighborhoodVoterRegistrationByAgeGroup,
+  serializer_class=NeighborhoodVoterRegistrationByAgeGroupSerializer,
+  multi_geom_class=MultiPolygon,
+  geom_field='geom',
+  attributes =voters18to25_meta['attributes'],
+  dates= voters18to25_meta['dates'], 
   )

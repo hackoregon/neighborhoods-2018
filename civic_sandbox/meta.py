@@ -540,3 +540,28 @@ bg_rent_burden_meta = {
   'max_date': '2016',
   },
 }
+
+voters18to25_meta = {
+'attributes': {
+  'primary': {
+    'field': 'pct_18_25',
+    'name': 'Percent Registered Voters 18 to 25',
+    'visualization': {
+      'type': 'PercentDonut',
+      'comparison_value': None,
+      'comparison_name': None,
+    },
+  },
+  'secondary': {
+    'field': None,
+    'name': None,
+  },
+},
+  'dates': {
+  'date_attribute': 'year',
+  'date_granularity': 'year',
+  'default_date_filter': '2016',
+  'min_date': '2006',
+  'max_date': '2016',
+  },
+}
