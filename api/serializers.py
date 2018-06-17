@@ -163,8 +163,8 @@ class RetailLocationsSerializer(GeoFeatureModelSerializer):
 
 class SchoolClassSizeSerializer(ModelSerializer):
     class Meta:
-        model = models.SchoolClassSize
-        fields = "__all__"
+        model = models.SchoolDemographics
+        fields = ('name', 'year', 'teacher_experience', 'class_size', 'type')
 
 class SchoolDemographicsSerializer(ModelSerializer):
     class Meta:

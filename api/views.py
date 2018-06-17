@@ -5,7 +5,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status, exceptions
 
-from . import models, serializers, utils
+from . import models, serializers, utils, filters
 from .pagination import LargeResultSetPagination
 
 class ActiveMultiuseTrailList(ListAPIView):
@@ -114,12 +114,21 @@ class RetailLocationsList(ListAPIView):
     serializer_class = serializers.RetailLocationsSerializer
 
 class SchoolClassSizeList(ListAPIView):
-    queryset = models.SchoolClassSize.objects.all()
+    queryset = models.SchoolDemographics.objects.filter(
+        teacher_experience__isnull=False,
+        class_size__isnull=False
+    ).only(
+        'name', 'year', 'teacher_experience', 'class_size', 'type'
+    ).all()
     serializer_class = serializers.SchoolClassSizeSerializer
+    filter_fields = ('year',)
+    filter_backends = (filters.SchoolClassSizeFilter,)
 
 class SchoolDemographicsList(ListAPIView):
     queryset = models.SchoolDemographics.objects.all()
     serializer_class = serializers.SchoolDemographicsSerializer
+    filter_fields = ('year', 'type')
+    filter_backends = (filters.SchoolDemographicsFilter,)
 
 class SchoolDistrictsList(ListAPIView):
     queryset = models.SchoolDistricts.objects.all()
