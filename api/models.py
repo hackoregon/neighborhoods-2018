@@ -736,6 +736,33 @@ class SchoolClassSize(models.Model):
         db_table = 'pps_class_size'
 
 
+class SchoolDemographics(models.Model):
+    year = models.IntegerField()
+    name = models.TextField()
+    campus_name = models.TextField(null=True)
+    address = models.TextField()
+    type = models.TextField(max_length=3, null=True)
+    first_grade = models.CharField(max_length=3)
+    last_grade = models.CharField(max_length=3)
+    free_reduced = models.FloatField()
+    direct_certification = models.FloatField()
+    enroll_current = models.IntegerField()
+    enroll_hispanic = models.FloatField()
+    enroll_asian = models.FloatField()
+    enroll_pacific = models.FloatField()
+    enroll_black = models.FloatField()
+    enroll_native = models.FloatField()
+    enroll_white = models.FloatField()
+    enroll_multi_ethnic = models.FloatField()
+    enroll_unspecified = models.FloatField()
+    school_teacher_experience = models.FloatField()
+    school_class_size = models.FloatField()
+
+    class Meta:
+        managed = False
+        db_table = 'pps_student_teacher_demographics'
+
+
 class Scope(models.Model):
     area = models.FloatField()
     geom = models.GeometryField()

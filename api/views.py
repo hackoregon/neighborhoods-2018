@@ -115,6 +115,10 @@ class SchoolClassSizeList(ListAPIView):
     queryset = models.SchoolClassSize.objects.all()
     serializer_class = serializers.SchoolClassSizeSerializer
 
+class SchoolDemographicsList(ListAPIView):
+    queryset = models.SchoolDemographics.objects.all()
+    serializer_class = serializers.SchoolDemographicsSerializer
+
 class SchoolDistrictsList(ListAPIView):
     queryset = models.SchoolDistricts.objects.all()
     serializer_class = serializers.SchoolDistrictsSerializer
