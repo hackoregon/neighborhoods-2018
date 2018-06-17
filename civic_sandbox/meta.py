@@ -710,8 +710,13 @@ reports_month_meta = {
 'attributes': {
   'primary': {
     'field': 'count',
-    'name': 'Registered Voters 50+',
+    'name': 'Count',
+    'visualization': {
+      'type': 'Text',
+      'comparison_value': None,
+      'comparison_name': None,
     },
+  },
   'secondary': {
     'field': None,
     'name': None,
@@ -724,6 +729,48 @@ reports_month_meta = {
   'default_date_filter': 'Apr2018',
   'min_date': 'Dec2015',
   'max_date': 'Apr2018',
+  },
+}
+
+bike_daily_meta = {
+'attributes': {
+  'primary': {
+    'field': 'year_2016',
+    'name': 'Daily Estimates of Bike Traffic',
+    },
+  'secondary': {
+    'field': None,
+    'name': None,
+    'type': None,
+  },
+},
+  'dates': {
+  'date_attribute': None,
+  'date_granularity': None,
+  'default_date_filter': 2016,
+  'min_date': None,
+  'max_date': None,
+  },
+}
+
+bike_counts_meta = {
+'attributes': {
+  'primary': {
+    'field': 'year_2017',
+    'name': 'Actual Bike Count',
+    },
+  'secondary': {
+    'field': 'count_time',
+    'name': 'Count Time',
+    'type': None,
+  },
+},
+  'dates': {
+  'date_attribute': None,
+  'date_granularity': None,
+  'default_date_filter': 2017,
+  'min_date': None,
+  'max_date': None,
   },
 }
 

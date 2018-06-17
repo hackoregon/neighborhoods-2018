@@ -192,3 +192,25 @@ class ReportsByMonth(models.Model):
     class Meta:
         managed = False
         db_table = 'campsite_reports_by_month_neigh'
+
+
+class BikeCount(models.Model):
+   id = models.IntegerField(primary_key=True)
+   count_time = models.CharField(max_length=5)
+   year_2017 = models.IntegerField(db_column="2017", blank=True, null=True)
+   geom = models.PointField(blank=True, null=True)
+
+   class Meta:
+       managed = False
+       db_table = "bike_counts"
+
+
+class BikeDailyEstimate(models.Model):
+   id = models.IntegerField(primary_key=True)
+   year_2016 = models.IntegerField(db_column="2016", blank=True, null=True)
+   geom = models.PointField(blank=True, null=True)
+
+
+   class Meta:
+       managed = False
+       db_table = "bike_daily_estimates"
