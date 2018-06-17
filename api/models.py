@@ -426,6 +426,56 @@ class NeighborhoodVoterRegistrationByAgeGroupGeom(models.Model):
         db_table = 'neighborhood_voters_ages_over_time_geom'
 
 
+class ODEEnrollment(models.Model):
+    district_id = models.IntegerField(db_column='District Institution ID')
+    district_name = models.CharField(max_length=50, db_column='District')
+    school_id = models.IntegerField(db_column='Attending School Institution ID')
+    school_name = models.CharField(max_length=100, db_column='School')
+    total_enrollment = models.TextField(db_column='Total Enrollment')
+    year = models.IntegerField(db_column='year')
+
+    male_count = models.IntegerField(db_column='Male')
+    female_count = models.IntegerField(db_column='Female')
+    amerindian_native = models.IntegerField(db_column='American Indian/Alaska Native')
+    asian = models.IntegerField(db_column='Asian')
+    pacific_islander = models.IntegerField(db_column='Native Hawaiian/Pacific Islander')
+    black = models.IntegerField(db_column='Black/African American')
+    latinx = models.IntegerField(db_column='Hispanic/Latino')
+    white = models.IntegerField(db_column='White')
+    multi_racial = models.IntegerField(db_column='Multi-Racial')
+    gender_check = models.IntegerField(db_column='EnrollmentGenderCheck')
+    race_check = models.IntegerField(db_column='EnrollmentRaceCheck')
+
+    male_pct = models.FloatField(db_column='PERMale')
+    female_pct = models.FloatField(db_column='PERFemale')
+    amerindian_native_pct = models.FloatField(db_column='PERAmerican Indian/Alaska Native')
+    asian_pct = models.FloatField(db_column='PERAsian')
+    pacific_islander_pct = models.FloatField(db_column='PERNative Hawaiian/Pacific Islander')
+    black_pct = models.FloatField(db_column='PERBlack/African American')
+    latinx_pct = models.FloatField(db_column='PERHispanic/Latino')
+    white_pct = models.FloatField(db_column='PERWhite')
+    multi_racial_pct = models.FloatField(db_column='PERMulti-Racial')
+
+    class Meta:
+        managed = False
+        db_table ='ode_enrollment'
+
+
+class ODEFRLunch(models.Model):
+
+    district_id = models.IntegerField()
+    school_id = models.IntegerField()
+    district_name = models.TextField()
+    school_name = models.TextField()
+    year = models.IntegerField()
+    total_eligible = models.IntegerField(db_column="TOTELGBLAMT")
+    student_entrollment = models.IntegerField(db_column="STUDENRCNT")
+
+    class Meta:
+        managed = False
+        db_table ='ode_fr_lunch'
+
+
 class ParkRideLots(models.Model):
     station = models.CharField(max_length=50)
     address = models.CharField(max_length=50)
@@ -671,6 +721,46 @@ class SchoolDistricts(models.Model):
     class Meta:
         managed = False
         db_table = 'school_districts'
+
+
+class SchoolClassSize(models.Model):
+    school_type = models.TextField()
+    grades_attending = models.TextField()
+    school_name= models.TextField()
+    school_year = models.TextField()
+    avg_class_size = models.FloatField()
+    median_class_size = models.FloatField()
+
+    class Meta:
+        managed = False
+        db_table = 'pps_class_size'
+
+
+class SchoolDemographics(models.Model):
+    year = models.IntegerField()
+    name = models.TextField()
+    campus_name = models.TextField(null=True)
+    address = models.TextField()
+    type = models.TextField(max_length=3, null=True)
+    first_grade = models.CharField(max_length=3)
+    last_grade = models.CharField(max_length=3)
+    free_reduced = models.FloatField()
+    direct_certification = models.FloatField()
+    enroll_current = models.IntegerField()
+    enroll_hispanic = models.FloatField()
+    enroll_asian = models.FloatField()
+    enroll_pacific = models.FloatField()
+    enroll_black = models.FloatField()
+    enroll_native = models.FloatField()
+    enroll_white = models.FloatField()
+    enroll_multi_ethnic = models.FloatField()
+    enroll_unspecified = models.FloatField()
+    school_teacher_experience = models.FloatField()
+    school_class_size = models.FloatField()
+
+    class Meta:
+        managed = False
+        db_table = 'pps_student_teacher_demographics'
 
 
 class Scope(models.Model):
