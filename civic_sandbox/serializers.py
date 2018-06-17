@@ -2,7 +2,7 @@ from rest_framework_gis.serializers import GeoFeatureModelSerializer
 
 from rest_framework.serializers import ModelSerializer
 
-from .models import BikeParking, BikeLane, TaxLotBlockGroup, Park, ParksTrail, MultiuseTrail, CommunityGarden, BikeGreenway, RailStop, Demolition, CampSweep, CampReport, RetailGrocer, Tree, BusStop, IMSNeighborhood, BlockGroup, NeighborhoodVoterRegistrationByAgeGroup
+from .models import BikeParking, BikeLane, TaxLotBlockGroup, Park, ParksTrail, MultiuseTrail, CommunityGarden, BikeGreenway, RailStop, Demolition, CampSweep, CampReport, RetailGrocer, Tree, BusStop, IMSNeighborhood, BlockGroup, NeighborhoodVoterRegistrationByAgeGroup, ReportsByMonth
 
 class BikeParkingSerializer(GeoFeatureModelSerializer):
     class Meta:
@@ -191,3 +191,10 @@ class Voters50plusSerializer(GeoFeatureModelSerializer):
         model = NeighborhoodVoterRegistrationByAgeGroup
         geo_field = 'geom'
         fields = ('id', 'neighborhood', 'year', 'pct_50_plus')
+
+
+class ReportsByMonthSerializer(GeoFeatureModelSerializer):
+    class Meta:
+        model = ReportsByMonth
+        geo_field = 'geom'
+        fields = '__all__'

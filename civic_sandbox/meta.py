@@ -706,3 +706,24 @@ voters50plus_meta = {
   },
 }
 
+reports_month_meta = {
+'attributes': {
+  'primary': {
+    'field': 'count',
+    'name': 'Registered Voters 50+',
+    },
+  'secondary': {
+    'field': None,
+    'name': None,
+    'type': None,
+  },
+},
+  'dates': {
+  'date_attribute': 'formatted_date',
+  'date_granularity': 'monthly',
+  'default_date_filter': 'Apr2018',
+  'min_date': 'Dec2015',
+  'max_date': 'Apr2018',
+  },
+}
+

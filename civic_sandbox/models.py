@@ -181,3 +181,14 @@ class NeighborhoodVoterRegistrationByAgeGroup(models.Model):
     class Meta:
         managed = False
         db_table = 'neighborhood_voters_ages_over_time_geom'
+
+class ReportsByMonth(models.Model):
+    id = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=80)
+    formatted_date = models.CharField(max_length=50)
+    count = models.IntegerField()
+    geom = models.GeometryField()
+
+    class Meta:
+        managed = False
+        db_table = 'campsite_reports_by_month_neigh'

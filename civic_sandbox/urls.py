@@ -57,6 +57,8 @@ urlpatterns = [
     url(r'^foundations/voters40to49/', views.voters40to49),
     url(r'^foundations/voters50plus/(?P<date_filter>\d+)', views.voters50plus),
     url(r'^foundations/voters50plus/', views.voters50plus),
+    url(r'^slides/reportsbymonth/(?P<date_filter>\d+)', views.reportsbymonth),
+    url(r'^foundations/reportsbymonth/', views.reportsbymonth),
 
 ]
 urlpatterns = format_suffix_patterns(urlpatterns)
