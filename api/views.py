@@ -6,6 +6,7 @@ from rest_framework.response import Response
 from rest_framework import status, exceptions
 
 from . import models, serializers, utils
+from .pagination import LargeResultSetPagination
 
 class ActiveMultiuseTrailList(ListAPIView):
     queryset = models.ActiveMultiuseTrail.objects.all()
@@ -74,6 +75,7 @@ class MetroLimitList(ListAPIView):
 class NeighborhoodVoterRegistrationByAgeGroupList(ListAPIView):
     queryset = models.NeighborhoodVoterRegistrationByAgeGroup.objects.all()
     serializer_class = serializers.NeighborhoodVoterRegistrationByAgeGroupSerializer
+    pagination_class = LargeResultSetPagination
 
 class NeighborhoodVoterRegistrationByAgeGroupGeomList(ListAPIView):
     queryset = models.NeighborhoodVoterRegistrationByAgeGroupGeom.objects.all()
