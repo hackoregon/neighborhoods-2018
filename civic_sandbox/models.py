@@ -165,3 +165,52 @@ class BlockGroup(models.Model):
         managed = False
         db_table = 'evictions_blockgroups_scope'
 
+
+class NeighborhoodVoterRegistrationByAgeGroup(models.Model):
+    neighborhood = models.TextField()
+    id = models.IntegerField(primary_key=True)
+    year = models.IntegerField()
+    pct_18_25 = models.FloatField()
+    pct_26_32 = models.FloatField()
+    pct_33_39 = models.FloatField()
+    pct_40_49 = models.FloatField()
+    pct_50_plus = models.FloatField()
+    geom = models.GeometryField()
+    
+
+    class Meta:
+        managed = False
+        db_table = 'neighborhood_voters_ages_over_time_geom'
+
+class ReportsByMonth(models.Model):
+    id = models.IntegerField(primary_key=True)
+    name = models.CharField(max_length=80)
+    formatted_date = models.CharField(max_length=50)
+    count = models.IntegerField()
+    geom = models.GeometryField()
+
+    class Meta:
+        managed = False
+        db_table = 'campsite_reports_by_month_neigh'
+
+
+class BikeCount(models.Model):
+   id = models.IntegerField(primary_key=True)
+   count_time = models.CharField(max_length=5)
+   year_2017 = models.IntegerField(db_column="2017", blank=True, null=True)
+   geom = models.PointField(blank=True, null=True)
+
+   class Meta:
+       managed = False
+       db_table = "bike_counts"
+
+
+class BikeDailyEstimate(models.Model):
+   id = models.IntegerField(primary_key=True)
+   year_2016 = models.IntegerField(db_column="2016", blank=True, null=True)
+   geom = models.PointField(blank=True, null=True)
+
+
+   class Meta:
+       managed = False
+       db_table = "bike_daily_estimates"

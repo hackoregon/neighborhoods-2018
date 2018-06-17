@@ -2,7 +2,7 @@ from rest_framework_gis.serializers import GeoFeatureModelSerializer
 
 from rest_framework.serializers import ModelSerializer
 
-from .models import BikeParking, BikeLane, TaxLotBlockGroup, Park, ParksTrail, MultiuseTrail, CommunityGarden, BikeGreenway, RailStop, Demolition, CampSweep, CampReport, RetailGrocer, Tree, BusStop, IMSNeighborhood, BlockGroup
+from .models import BikeParking, BikeLane, TaxLotBlockGroup, Park, ParksTrail, MultiuseTrail, CommunityGarden, BikeGreenway, RailStop, Demolition, CampSweep, CampReport, RetailGrocer, Tree, BusStop, IMSNeighborhood, BlockGroup, NeighborhoodVoterRegistrationByAgeGroup, ReportsByMonth, BikeCount, BikeDailyEstimate
 
 class BikeParkingSerializer(GeoFeatureModelSerializer):
     class Meta:
@@ -161,3 +161,52 @@ class PctRenterOccupiedSerializer(GeoFeatureModelSerializer):
         model = BlockGroup
         geo_field = 'geom'
         fields = ('id', 'pctrenter_occupied', 'year')
+
+class Voters18to25Serializer(GeoFeatureModelSerializer):
+    class Meta:
+        model = NeighborhoodVoterRegistrationByAgeGroup
+        geo_field = 'geom'
+        fields = ('id', 'neighborhood', 'year', 'pct_18_25')
+
+class Voters26to32Serializer(GeoFeatureModelSerializer):
+    class Meta:
+        model = NeighborhoodVoterRegistrationByAgeGroup
+        geo_field = 'geom'
+        fields = ('id', 'neighborhood', 'year', 'pct_26_32')
+
+class Voters33to39Serializer(GeoFeatureModelSerializer):
+    class Meta:
+        model = NeighborhoodVoterRegistrationByAgeGroup
+        geo_field = 'geom'
+        fields = ('id', 'neighborhood', 'year', 'pct_33_39')
+
+class Voters40to49Serializer(GeoFeatureModelSerializer):
+    class Meta:
+        model = NeighborhoodVoterRegistrationByAgeGroup
+        geo_field = 'geom'
+        fields = ('id', 'neighborhood', 'year', 'pct_40_49')
+
+class Voters50plusSerializer(GeoFeatureModelSerializer):
+    class Meta:
+        model = NeighborhoodVoterRegistrationByAgeGroup
+        geo_field = 'geom'
+        fields = ('id', 'neighborhood', 'year', 'pct_50_plus')
+
+
+class ReportsByMonthSerializer(GeoFeatureModelSerializer):
+    class Meta:
+        model = ReportsByMonth
+        geo_field = 'geom'
+        fields = '__all__'
+
+class BikeCountSerializer(GeoFeatureModelSerializer):
+    class Meta:
+        model = BikeCount
+        geo_field = 'geom'
+        fields = '__all__'
+
+class BikeDailyEstimateSerializer(GeoFeatureModelSerializer):
+    class Meta:
+        model = BikeDailyEstimate 
+        geo_field = 'geom'
+        fields = '__all__'
