@@ -755,8 +755,8 @@ class SchoolDemographics(models.Model):
     enroll_white = models.FloatField()
     enroll_multi_ethnic = models.FloatField()
     enroll_unspecified = models.FloatField()
-    school_teacher_experience = models.FloatField()
-    school_class_size = models.FloatField()
+    teacher_experience = models.FloatField(db_column='school_teacher_experience')
+    class_size = models.FloatField(db_column='school_class_size')
 
     class Meta:
         managed = False
