@@ -57,7 +57,7 @@ urlpatterns = [
     url(r'^foundations/voters40to49/', views.voters40to49),
     url(r'^foundations/voters50plus/(?P<date_filter>\d+)', views.voters50plus),
     url(r'^foundations/voters50plus/', views.voters50plus),
-    #TODO: fix regex # url(r'^foundations/reportsbymonth/(?P<date_filter>\d+)', views.reportsbymonth), 
+    url(r'^foundations/reportsbymonth/(?P<date_filter>\w+)', views.reportsbymonth), 
     url(r'^foundations/reportsbymonth/', views.reportsbymonth),
     url(r'^slides/bikecounts/', views.bikecounts),
     url(r'^slides/bikeestimates/', views.bikeestimates),
