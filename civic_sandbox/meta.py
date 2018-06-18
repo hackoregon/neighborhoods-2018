@@ -1,3 +1,4 @@
+## slide
 bike_parking_meta = {
   'attributes': {
     'primary': {
@@ -18,6 +19,7 @@ bike_parking_meta = {
     },
   }
 
+## slide
 bike_lanes_meta = {
   'attributes': {
     'primary': {
@@ -37,25 +39,8 @@ bike_lanes_meta = {
     'max_date': None,
     },
   }
-taxlot_block_groups_meta = {
-'attributes': {
-  'primary': {
-    'field': None,
-    'name': None,
-  },
-  'secondary': {
-    'field': None,
-    'name': None,
-  },
-},
-  'dates': {
-  'date_attribute': 'year',
-  'date_granularity': 'year',
-  'default_date_filter': '2010',
-  'min_date': '2010',
-  'max_date': '2011',
-  },
-}
+
+## slide
 parks_meta = {
 'attributes': {
   'primary': {
@@ -75,6 +60,8 @@ parks_meta = {
   'max_date': None,
   },
 }
+
+## slide
 parks_trails_meta = {
 'attributes': {
   'primary': {
@@ -94,6 +81,8 @@ parks_trails_meta = {
   'max_date': None,
   },
 }
+
+## slide
 multiuse_trails_meta = {
 'attributes': {
   'primary': {
@@ -113,6 +102,8 @@ multiuse_trails_meta = {
   'max_date': None,
   },
 }
+
+## slide
 community_gardens_meta = {
 'attributes': {
   'primary': {
@@ -132,6 +123,8 @@ community_gardens_meta = {
   'max_date': None,
   },
 }
+
+## slide
 bike_greenways_meta = {
 'attributes': {
   'primary': {
@@ -151,6 +144,8 @@ bike_greenways_meta = {
   'max_date': None,
   },
 }
+
+## slide
 rail_stops_meta = {
 'attributes': {
   'primary': {
@@ -170,6 +165,8 @@ rail_stops_meta = {
   'max_date': None,
   },
 }
+
+## slide
 demolitions_meta = {
 'attributes': {
   'primary': {
@@ -189,6 +186,8 @@ demolitions_meta = {
   'max_date': '2018',
   },
 }
+
+## slide
 camp_sweeps_meta = {
 'attributes': {
   'primary': {
@@ -201,13 +200,15 @@ camp_sweeps_meta = {
   },
 },
   'dates': {
-  'date_attribute': 'reportdate',
-  'date_granularity': 'year',
-  'default_date_filter': '2018',
-  'min_date': '2016',
-  'max_date': '2018',
+  'date_attribute': 'formatted_date',
+  'date_granularity': 'month',
+  'default_date_filter': 'Apr2018',
+  'min_date': 'Oct2015',
+  'max_date': 'May2018',
   },
 }
+
+## slide
 camp_reports_meta = {
 'attributes': {
   'primary': {
@@ -227,6 +228,8 @@ camp_reports_meta = {
   'max_date': '2018',
   },
 }
+
+## slide
 retail_grocers_meta = {
 'attributes': {
   'primary': {
@@ -246,6 +249,8 @@ retail_grocers_meta = {
   'max_date': None,
   },
 }
+
+## slide
 trees_meta = {
 'attributes': {
   'primary': {
@@ -263,6 +268,8 @@ trees_meta = {
   'default_date_filter': '2016',
   },
 }
+
+## slide
 bus_stops_meta = {
 'attributes': {
   'primary': {
@@ -280,6 +287,8 @@ bus_stops_meta = {
   'default_date_filter': '2018',
   },
 }
+
+## foundation
 under18_meta = {
 'attributes': {
   'primary': {
@@ -287,6 +296,8 @@ under18_meta = {
     'name': 'Households with Children',
     'visualization': {
       'type': 'PercentDonut',
+      'comparison_value': None,
+      'comparison_name': None,
     },
   },
   'secondary': {
@@ -302,6 +313,8 @@ under18_meta = {
   'max_date': '2010',
   },
 }
+
+## foundation
 over65_meta = {
 'attributes': {
   'primary': {
@@ -309,6 +322,8 @@ over65_meta = {
     'name': 'Households w/ Seniors',
     'visualization': {
       'type': 'PercentDonut',
+      'comparison_value': None,
+      'comparison_name': None,
     },
   },
   'secondary': {
@@ -324,6 +339,8 @@ over65_meta = {
   'max_date': '2010',
   },
 }
+
+## foundation
 population_meta = {
 'attributes': {
   'primary': {
@@ -331,7 +348,7 @@ population_meta = {
     'name': 'Total Population',
     'visualization': {
       'type': 'ComparisonBar',
-      'comparison_value':'5005',
+      'comparison_value':'10000000',
       'comparison_name':'Average Total Population',
     },
   },
@@ -348,6 +365,8 @@ population_meta = {
   'max_date': '2010',
   },
 }
+
+## foundation
 owner_occupied_meta = {
 'attributes': {
   'primary': {
@@ -372,6 +391,8 @@ owner_occupied_meta = {
   'max_date': '2010',
   },
 }
+
+## foundation
 living_alone_meta = {
 'attributes': {
   'primary': {
@@ -525,6 +546,56 @@ bg_rent_burden_meta = {
       'type': 'ComparisonBar',
       'comparison_value':'10000000',
       'comparison_name':'Average Rent Burden',
+    },
+  },
+  'secondary': {
+    'field': None,
+    'name': None,
+  },
+},
+  'dates': {
+  'date_attribute': 'year',
+  'date_granularity': 'year',
+  'default_date_filter': '2016',
+  'min_date': '2000',
+  'max_date': '2016',
+  },
+}
+
+bg_eviction_rate_meta = {
+'attributes': {
+  'primary': {
+    'field': 'eviction_rate',
+    'name': 'Eviction Rate',
+    'visualization': {
+      'type': 'PercentDonut',
+      'comparison_value': None,
+      'comparison_name': None,
+    },
+  },
+  'secondary': {
+    'field': None,
+    'name': None,
+  },
+},
+  'dates': {
+  'date_attribute': 'year',
+  'date_granularity': 'year',
+  'default_date_filter': '2016',
+  'min_date': '2000',
+  'max_date': '2016',
+  },
+}
+
+bg_poverty_rate_meta = {
+'attributes': {
+  'primary': {
+    'field': 'poverty_rate',
+    'name': 'Poverty Rate',
+    'visualization': {
+      'type': 'PercentDonut',
+      'comparison_value': None,
+      'comparison_name': None,
     },
   },
   'secondary': {

@@ -5,8 +5,6 @@ from . import views
 urlpatterns = [
     url(r'^slides/bikeparking/', views.bikeparking),
     url(r'^slides/bikelanes/', views.bikelanes), 
-    url(r'^foundations/taxlotblockgroups/(?P<date_filter>\d+)', views.taxlotblockgroups),
-    url(r'^foundations/taxlotblockgroups/', views.taxlotblockgroups),
     url(r'^slides/parks/', views.parks),
     url(r'^slides/parkstrails/', views.parkstrails),
     url(r'^slides/multiusetrails/', views.multiusetrails),
@@ -61,6 +59,10 @@ urlpatterns = [
     url(r'^foundations/reportsbymonth/', views.reportsbymonth),
     url(r'^slides/bikecounts/', views.bikecounts),
     url(r'^slides/bikeestimates/', views.bikeestimates),
+    url(r'^foundations/evictionrate/(?P<date_filter>\d+)', views.evictionrate),
+    url(r'^foundations/evictionrate/', views.evictionrate),
+    url(r'^foundations/povertyrate/(?P<date_filter>\d+)', views.povertyrate),
+    url(r'^foundations/povertyrate/', views.povertyrate),
 
 ]
 urlpatterns = format_suffix_patterns(urlpatterns)
