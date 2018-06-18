@@ -172,6 +172,11 @@ class SchoolDemographicsSerializer(ModelSerializer):
         model = models.SchoolDemographics
         fields = "__all__"
 
+class SchoolDemographicsTotalsSerializer(ModelSerializer):
+    class Meta:
+        model = models.SchoolDemographicsTotals
+        fields = "__all__"
+
 class SchoolDistrictsSerializer(GeoFeatureModelSerializer):
     class Meta:
         model = models.SchoolDistricts

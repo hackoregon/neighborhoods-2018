@@ -131,8 +131,12 @@ class SchoolClassSizeList(ListAPIView):
 class SchoolDemographicsList(ListAPIView):
     queryset = models.SchoolDemographics.objects.all()
     serializer_class = serializers.SchoolDemographicsSerializer
-    filter_fields = ('year', 'type')
+    filter_fields = ('year', 'type', 'name')
     filter_backends = (filters.SchoolDemographicsFilter,)
+
+class SchoolDemographicsTotalsList(ListAPIView):
+    queryset = models.SchoolDemographicsTotals.objects.all()
+    serializer_class = serializers.SchoolDemographicsTotalsSerializer
 
 class SchoolDistrictsList(ListAPIView):
     queryset = models.SchoolDistricts.objects.all()
@@ -232,3 +236,10 @@ def camp_sweeps_by_neighborhood(request):
         result = utils.dictfetchall(cursor)
     return Response(data=result)
 
+@api_view(http_method_names=['GET'])
+def school_names(request):
+    """
+    Simple list of unique school names from our School Demographics model.
+    """
+    names = models.SchoolDemographics.objects.order_by('name').distinct('name').values_list('name', flat=True)
+    return Response(data=names)
