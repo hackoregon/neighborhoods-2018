@@ -77,13 +77,13 @@ class NeighborhoodVoterRegistrationByAgeGroupList(ListAPIView):
     queryset = models.NeighborhoodVoterRegistrationByAgeGroup.objects.all()
     serializer_class = serializers.NeighborhoodVoterRegistrationByAgeGroupSerializer
     pagination_class = LargeResultSetPagination
-    filter_fields = ('year',)
+    filter_fields = ('year', 'neighborhood')
 
 class NeighborhoodVoterRegistrationByAgeGroupGeomList(ListAPIView):
     queryset = models.NeighborhoodVoterRegistrationByAgeGroupGeom.objects.all()
     serializer_class = serializers.NeighborhoodVoterRegistrationByAgeGroupGeomSerializer
     pagination_class = LargeResultSetPagination
-    filter_fields = ('year',)
+    filter_fields = ('year', 'neighborhood')
 
 class ODEFRLunchList(ListAPIView):
     queryset = models.ODEFRLunch.objects.all()
@@ -242,4 +242,14 @@ def school_names(request):
     Simple list of unique school names from our School Demographics model.
     """
     names = models.SchoolDemographics.objects.order_by('name').distinct('name').values_list('name', flat=True)
+    return Response(data=names)
+
+@api_view(http_method_names=['GET'])
+def neighborhood_names(request):
+    """
+    List available Neighborhood names for filtering `api/neighborhood_ages`
+    """
+    names = models.NeighborhoodVoterRegistrationByAgeGroup.objects.order_by(
+        'neighborhood'
+    ).distinct('neighborhood').values_list('neighborhood', flat=True)
     return Response(data=names)
