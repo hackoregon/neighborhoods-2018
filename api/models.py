@@ -762,6 +762,23 @@ class SchoolDemographics(models.Model):
         db_table = 'pps_student_teacher_demographics'
 
 
+class SchoolDemographicsTotals(models.Model):
+    year = models.IntegerField(primary_key=True)
+    total_students = models.IntegerField()
+    total_hispanic = models.IntegerField()
+    total_asian = models.IntegerField()
+    total_pacific = models.IntegerField()
+    total_black = models.IntegerField()
+    total_native = models.IntegerField()
+    total_white = models.IntegerField()
+    total_multi_ethnic = models.IntegerField()
+    total_unspecified = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'pps_student_teacher_demographics_year_totals'
+
+
 class Scope(models.Model):
     area = models.FloatField()
     geom = models.GeometryField()
