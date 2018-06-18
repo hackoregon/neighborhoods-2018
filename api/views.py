@@ -77,10 +77,13 @@ class NeighborhoodVoterRegistrationByAgeGroupList(ListAPIView):
     queryset = models.NeighborhoodVoterRegistrationByAgeGroup.objects.all()
     serializer_class = serializers.NeighborhoodVoterRegistrationByAgeGroupSerializer
     pagination_class = LargeResultSetPagination
+    filter_fields = ('year',)
 
 class NeighborhoodVoterRegistrationByAgeGroupGeomList(ListAPIView):
     queryset = models.NeighborhoodVoterRegistrationByAgeGroupGeom.objects.all()
     serializer_class = serializers.NeighborhoodVoterRegistrationByAgeGroupGeomSerializer
+    pagination_class = LargeResultSetPagination
+    filter_fields = ('year',)
 
 class ODEFRLunchList(ListAPIView):
     queryset = models.ODEFRLunch.objects.all()
