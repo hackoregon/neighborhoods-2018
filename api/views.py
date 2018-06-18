@@ -45,8 +45,9 @@ class BusStopsList(ListAPIView):
     serializer_class = serializers.BusStopsSerializer
 
 class CampSweepsList(ListAPIView):
-    queryset = models.CampSweeps.objects.all()
+    queryset = models.CampSweeps.objects.only('reportdate', 'id', 'geom', 'location').all()
     serializer_class = serializers.CampSweepsSerializer
+    pagination_class = LargeResultSetPagination
 
 class CampReportList(ListAPIView):
     queryset = models.CampReports.objects.all()

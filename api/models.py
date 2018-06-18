@@ -255,14 +255,13 @@ class CampSweeps(models.Model):
     excessiveheatcold = models.CharField(max_length=50)
     estimatedgeocode = models.CharField(max_length=50)
     polygonaspoint = models.CharField(max_length=50)
-    lat = models.FloatField()
-    long = models.FloatField()
     notes = models.CharField(max_length=200)
     geom = models.PointField()
 
     class Meta:
         managed = False
         db_table = 'camp_sweeps'
+        ordering = ['reportdate']
 
 
 class CampReports(models.Model):
