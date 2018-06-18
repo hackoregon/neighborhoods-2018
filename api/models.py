@@ -255,14 +255,13 @@ class CampSweeps(models.Model):
     excessiveheatcold = models.CharField(max_length=50)
     estimatedgeocode = models.CharField(max_length=50)
     polygonaspoint = models.CharField(max_length=50)
-    lat = models.FloatField()
-    long = models.FloatField()
     notes = models.CharField(max_length=200)
     geom = models.PointField()
 
     class Meta:
         managed = False
         db_table = 'camp_sweeps'
+        ordering = ['reportdate']
 
 
 class CampReports(models.Model):
@@ -755,12 +754,29 @@ class SchoolDemographics(models.Model):
     enroll_white = models.FloatField()
     enroll_multi_ethnic = models.FloatField()
     enroll_unspecified = models.FloatField()
-    school_teacher_experience = models.FloatField()
-    school_class_size = models.FloatField()
+    teacher_experience = models.FloatField(db_column='school_teacher_experience')
+    class_size = models.FloatField(db_column='school_class_size')
 
     class Meta:
         managed = False
         db_table = 'pps_student_teacher_demographics'
+
+
+class SchoolDemographicsTotals(models.Model):
+    year = models.IntegerField(primary_key=True)
+    total_students = models.IntegerField()
+    total_hispanic = models.IntegerField()
+    total_asian = models.IntegerField()
+    total_pacific = models.IntegerField()
+    total_black = models.IntegerField()
+    total_native = models.IntegerField()
+    total_white = models.IntegerField()
+    total_multi_ethnic = models.IntegerField()
+    total_unspecified = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'pps_student_teacher_demographics_year_totals'
 
 
 class Scope(models.Model):

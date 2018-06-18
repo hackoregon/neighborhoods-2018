@@ -60,7 +60,8 @@ class CampSweepsSerializer(GeoFeatureModelSerializer):
     class Meta:
         model = models.CampSweeps
         geo_field = "geom"
-        exclude = ('lat', 'long',)
+        fields = ('id', 'geom', 'reportdate', 'location')
+
 
 class CampReportsSerializer(GeoFeatureModelSerializer):
     class Meta:
@@ -163,12 +164,17 @@ class RetailLocationsSerializer(GeoFeatureModelSerializer):
 
 class SchoolClassSizeSerializer(ModelSerializer):
     class Meta:
-        model = models.SchoolClassSize
-        fields = "__all__"
+        model = models.SchoolDemographics
+        fields = ('name', 'year', 'teacher_experience', 'class_size', 'type')
 
 class SchoolDemographicsSerializer(ModelSerializer):
     class Meta:
         model = models.SchoolDemographics
+        fields = "__all__"
+
+class SchoolDemographicsTotalsSerializer(ModelSerializer):
+    class Meta:
+        model = models.SchoolDemographicsTotals
         fields = "__all__"
 
 class SchoolDistrictsSerializer(GeoFeatureModelSerializer):

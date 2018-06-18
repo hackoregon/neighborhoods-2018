@@ -5,7 +5,7 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status, exceptions
 
-from . import models, serializers, utils
+from . import models, serializers, utils, filters
 from .pagination import LargeResultSetPagination
 
 class ActiveMultiuseTrailList(ListAPIView):
@@ -45,8 +45,9 @@ class BusStopsList(ListAPIView):
     serializer_class = serializers.BusStopsSerializer
 
 class CampSweepsList(ListAPIView):
-    queryset = models.CampSweeps.objects.all()
+    queryset = models.CampSweeps.objects.only('reportdate', 'id', 'geom', 'location').all()
     serializer_class = serializers.CampSweepsSerializer
+    pagination_class = LargeResultSetPagination
 
 class CampReportList(ListAPIView):
     queryset = models.CampReports.objects.all()
@@ -76,10 +77,13 @@ class NeighborhoodVoterRegistrationByAgeGroupList(ListAPIView):
     queryset = models.NeighborhoodVoterRegistrationByAgeGroup.objects.all()
     serializer_class = serializers.NeighborhoodVoterRegistrationByAgeGroupSerializer
     pagination_class = LargeResultSetPagination
+    filter_fields = ('year', 'neighborhood')
 
 class NeighborhoodVoterRegistrationByAgeGroupGeomList(ListAPIView):
     queryset = models.NeighborhoodVoterRegistrationByAgeGroupGeom.objects.all()
     serializer_class = serializers.NeighborhoodVoterRegistrationByAgeGroupGeomSerializer
+    pagination_class = LargeResultSetPagination
+    filter_fields = ('year', 'neighborhood')
 
 class ODEFRLunchList(ListAPIView):
     queryset = models.ODEFRLunch.objects.all()
@@ -114,12 +118,25 @@ class RetailLocationsList(ListAPIView):
     serializer_class = serializers.RetailLocationsSerializer
 
 class SchoolClassSizeList(ListAPIView):
-    queryset = models.SchoolClassSize.objects.all()
+    queryset = models.SchoolDemographics.objects.filter(
+        teacher_experience__isnull=False,
+        class_size__isnull=False
+    ).only(
+        'name', 'year', 'teacher_experience', 'class_size', 'type'
+    ).all()
     serializer_class = serializers.SchoolClassSizeSerializer
+    filter_fields = ('year',)
+    filter_backends = (filters.SchoolClassSizeFilter,)
 
 class SchoolDemographicsList(ListAPIView):
     queryset = models.SchoolDemographics.objects.all()
     serializer_class = serializers.SchoolDemographicsSerializer
+    filter_fields = ('year', 'type', 'name')
+    filter_backends = (filters.SchoolDemographicsFilter,)
+
+class SchoolDemographicsTotalsList(ListAPIView):
+    queryset = models.SchoolDemographicsTotals.objects.all()
+    serializer_class = serializers.SchoolDemographicsTotalsSerializer
 
 class SchoolDistrictsList(ListAPIView):
     queryset = models.SchoolDistricts.objects.all()
@@ -219,3 +236,20 @@ def camp_sweeps_by_neighborhood(request):
         result = utils.dictfetchall(cursor)
     return Response(data=result)
 
+@api_view(http_method_names=['GET'])
+def school_names(request):
+    """
+    Simple list of unique school names from our School Demographics model.
+    """
+    names = models.SchoolDemographics.objects.order_by('name').distinct('name').values_list('name', flat=True)
+    return Response(data=names)
+
+@api_view(http_method_names=['GET'])
+def neighborhood_names(request):
+    """
+    List available Neighborhood names for filtering `api/neighborhood_ages`
+    """
+    names = models.NeighborhoodVoterRegistrationByAgeGroup.objects.order_by(
+        'neighborhood'
+    ).distinct('neighborhood').values_list('neighborhood', flat=True)
+    return Response(data=names)
