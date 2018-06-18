@@ -60,7 +60,8 @@ class CampSweepsSerializer(GeoFeatureModelSerializer):
     class Meta:
         model = models.CampSweeps
         geo_field = "geom"
-        exclude = ('lat', 'long',)
+        fields = ('id', 'geom', 'reportdate', 'location')
+
 
 class CampReportsSerializer(GeoFeatureModelSerializer):
     class Meta:
