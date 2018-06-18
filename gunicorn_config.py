@@ -197,6 +197,7 @@ proc_name = None
 #       A callable that takes a server instance as the sole argument.
 #
 
+from django.core.signals import request_finished
 
 def pre_fork(server, worker):
     pass
@@ -208,6 +209,7 @@ def when_ready(server):
     server.log.info("Server is ready. Spawning workers")
 
 def worker_int(worker):
+    request_finished.send(sender="greenlet")
     worker.log.info("worker received INT or QUIT signal")
 
     ## get traceback info
@@ -224,5 +226,10 @@ def worker_int(worker):
                 code.append("  %s" % (line.strip()))
     worker.log.debug("\n".join(code))
 
+def worker_exit(server, worker):
+    request_finished.send(sender="greenlet")
+    worker.log.info("worker exit signal")
+
 def worker_abort(worker):
+    request_finished.send(sender="greenlet")
     worker.log.info("worker received SIGABRT signal")
