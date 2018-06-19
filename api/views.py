@@ -138,6 +138,11 @@ class SchoolDemographicsTotalsList(ListAPIView):
     queryset = models.SchoolDemographicsTotals.objects.all()
     serializer_class = serializers.SchoolDemographicsTotalsSerializer
 
+class SchoolDemographicsCountList(ListAPIView):
+    queryset = models.SchoolDemographicsCount.objects.all()
+    serializer_class = serializers.SchoolDemographicsCountSerializer
+    filter_fields = ('year', 'name', 'type')
+
 class SchoolDistrictsList(ListAPIView):
     queryset = models.SchoolDistricts.objects.all()
     serializer_class = serializers.SchoolDistrictsSerializer

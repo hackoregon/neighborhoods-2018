@@ -37,6 +37,7 @@ urlpatterns = [
     path('school_class_size', views.SchoolClassSizeList.as_view()),
     path('school_districts', views.SchoolDistrictsList.as_view()),
     path('school_demographics', views.SchoolDemographicsList.as_view()),
+    path('school_demographics_racial_counts', views.SchoolDemographicsCountList.as_view()),
     path('school_demographics/names', views.school_names),
     path('school_demographics/yearly_totals', views.SchoolDemographicsTotalsList.as_view()),
     path('school_enrollment', views.ODEEnrollmentList.as_view()),
