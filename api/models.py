@@ -762,6 +762,26 @@ class SchoolDemographics(models.Model):
         db_table = 'pps_student_teacher_demographics'
 
 
+class SchoolDemographicsCount(models.Model):
+    """ subset of school demographics data filtered for presentation """
+    year = models.IntegerField()
+    name = models.TextField()
+    address = models.TextField()
+    type = models.TextField(max_length=3, null=True)
+    enroll_current = models.IntegerField(db_column='student_count')
+    enroll_hispanic = models.IntegerField(db_column='hispanic_count')
+    enroll_asian = models.IntegerField(db_column='asian_count')
+    enroll_pacific = models.IntegerField(db_column='pacific_count')
+    enroll_black = models.IntegerField(db_column='black_count')
+    enroll_native = models.IntegerField(db_column='native_count')
+    enroll_white = models.IntegerField(db_column='white_count')
+    enroll_multi_ethnic = models.IntegerField(db_column='multi_ethnic_count')
+
+    class Meta:
+        managed = False
+        db_table = 'pps_student_teacher_demographics_count'
+
+
 class SchoolDemographicsTotals(models.Model):
     year = models.IntegerField(primary_key=True)
     total_students = models.IntegerField()
@@ -772,7 +792,6 @@ class SchoolDemographicsTotals(models.Model):
     total_native = models.IntegerField()
     total_white = models.IntegerField()
     total_multi_ethnic = models.IntegerField()
-    total_unspecified = models.IntegerField()
 
     class Meta:
         managed = False

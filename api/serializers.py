@@ -172,6 +172,11 @@ class SchoolDemographicsSerializer(ModelSerializer):
         model = models.SchoolDemographics
         fields = "__all__"
 
+class SchoolDemographicsCountSerializer(ModelSerializer):
+    class Meta:
+        model = models.SchoolDemographicsCount
+        fields = "__all__"
+
 class SchoolDemographicsTotalsSerializer(ModelSerializer):
     class Meta:
         model = models.SchoolDemographicsTotals
