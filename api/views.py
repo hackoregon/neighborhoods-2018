@@ -143,6 +143,12 @@ class SchoolDemographicsCountList(ListAPIView):
     serializer_class = serializers.SchoolDemographicsCountSerializer
     filter_fields = ('year', 'name', 'type')
 
+class SchoolDemographicsReducedLunchesList(ListAPIView):
+    queryset = models.SchoolDemographicsReducedLunches.objects.all()
+    serializer_class = serializers.SchoolDemographicsReducedLunchesSerializer
+    filter_fields = ('year', 'name', 'type')
+    filter_backends = (filters.SchoolDemographicsFilter,)
+
 class SchoolDistrictsList(ListAPIView):
     queryset = models.SchoolDistricts.objects.all()
     serializer_class = serializers.SchoolDistrictsSerializer

@@ -22,7 +22,13 @@ class SchoolDemographicsFilter(DjangoFilterBackend):
             description="Type of School.  One of: (O, M, H, E, C)",
             type="string"
         )
-        return [year, type]
+        name = coreapi.Field(
+            name='name',
+            location='query',
+            description='School Name',
+            type='string'
+        )
+        return [year, type, name]
 
 class SchoolClassSizeFilter(DjangoFilterBackend):
     class Meta:
