@@ -69,6 +69,11 @@ class CampReportsSerializer(GeoFeatureModelSerializer):
         geo_field = "geom"
         fields = "__all__"
 
+class CampsiteWeeklyAggregatesSerializer(ModelSerializer):
+    class Meta:
+        model = models.CampsiteWeeklyAggregates
+        fields = "__all__"
+
 class CommunityGardensSerializer(GeoFeatureModelSerializer):
     class Meta:
         model = models.CommunityGardens
