@@ -20,6 +20,7 @@ urlpatterns = [
     path('camp_sweeps', views.CampSweepsList.as_view()),
     path('camp_sweeps/bytime', views.camp_sweeps_by_time),
     path('camp_sweeps/by_neighborhood', views.camp_sweeps_by_neighborhood),
+    path('camp_weekly_aggregates', views.CampsiteWeeklyAggregatesList.as_view()),
     path('community_gardens', views.CommunityGardensList.as_view()),
     path('crimes', views.CrimesList.as_view()),
     path('demolitions', views.DemolitionsList.as_view()),

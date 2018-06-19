@@ -284,6 +284,17 @@ class CampReports(models.Model):
         managed = False
         db_table = 'campsite_reports'
 
+class CampsiteWeeklyAggregates(models.Model):
+    date = models.DateField(primary_key=True)
+    report_count = models.IntegerField()
+    sweep_count = models.IntegerField()
+    unique_sites_estimate = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'campsites_weekly_aggregates'
+
+
 
 class CommunityGardens(models.Model):
     objectid = models.IntegerField()
