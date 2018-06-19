@@ -16,16 +16,6 @@ class BikeLane(models.Model):
         managed = False
         db_table = 'bike_lanes'
 
-class TaxLotBlockGroup(models.Model):
-    fips = models.CharField(max_length=50, primary_key=True)
-    year = models.CharField(max_length=4)
-    prop_value = models.CharField(max_length=50)
-    geom = models.PolygonField()
-
-    class Meta:
-        managed = False
-        db_table = 'taxlot_mview'
-
 class Park(models.Model):
     id = models.IntegerField(primary_key=True)
     name = models.CharField(max_length=50)
@@ -90,12 +80,12 @@ class Demolition(models.Model):
 
 class CampSweep(models.Model):
     id = models.IntegerField(primary_key=True)
-    reportdate = models.DateField()
+    formatted_date = models.CharField(max_length=50)
     geom = models.PointField()
 
     class Meta:
         managed = False
-        db_table = 'camp_sweeps'
+        db_table = 'camp_sweeps_view'
 
 
 class CampReport(models.Model):
@@ -155,10 +145,10 @@ class BlockGroup(models.Model):
     median_household_income = models.IntegerField()
     Median_gross_rent = models.IntegerField()
     evictions = models.IntegerField()
-    eviction_rate = models.FloatField() #TODO
+    eviction_rate = models.FloatField() 
     renter_occupied_households = models.IntegerField()
     rent_burden = models.FloatField()
-    poverty_rate = models.FloatField() #TODO
+    poverty_rate = models.FloatField() 
     pctrenter_occupied = models.FloatField()
     geom = models.PolygonField()
     class Meta:

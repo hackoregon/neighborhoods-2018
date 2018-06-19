@@ -2,7 +2,7 @@ from rest_framework_gis.serializers import GeoFeatureModelSerializer
 
 from rest_framework.serializers import ModelSerializer
 
-from .models import BikeParking, BikeLane, TaxLotBlockGroup, Park, ParksTrail, MultiuseTrail, CommunityGarden, BikeGreenway, RailStop, Demolition, CampSweep, CampReport, RetailGrocer, Tree, BusStop, IMSNeighborhood, BlockGroup, NeighborhoodVoterRegistrationByAgeGroup, ReportsByMonth, BikeCount, BikeDailyEstimate
+from .models import BikeParking, BikeLane, Park, ParksTrail, MultiuseTrail, CommunityGarden, BikeGreenway, RailStop, Demolition, CampSweep, CampReport, RetailGrocer, Tree, BusStop, IMSNeighborhood, BlockGroup, NeighborhoodVoterRegistrationByAgeGroup, ReportsByMonth, BikeCount, BikeDailyEstimate
 
 class BikeParkingSerializer(GeoFeatureModelSerializer):
     class Meta:
@@ -15,12 +15,6 @@ class BikeLaneSerializer(GeoFeatureModelSerializer):
         model = BikeLane
         fields = '__all__'
         geo_field = 'geom'
-    
-class TaxLotBlockGroupSerializer(GeoFeatureModelSerializer):
-    class Meta:
-        model = TaxLotBlockGroup
-        geo_field = 'geom'
-        fields = '__all__'
 
 class ParkSerializer(GeoFeatureModelSerializer):
     class Meta:
@@ -161,6 +155,18 @@ class PctRenterOccupiedSerializer(GeoFeatureModelSerializer):
         model = BlockGroup
         geo_field = 'geom'
         fields = ('id', 'pctrenter_occupied', 'year')
+
+class PovertyRateSerializer(GeoFeatureModelSerializer):
+    class Meta:
+        model = BlockGroup
+        geo_field = 'geom'
+        fields = ('id', 'poverty_rate', 'year')
+
+class EvictionRateSerializer(GeoFeatureModelSerializer):
+    class Meta:
+        model = BlockGroup
+        geo_field = 'geom'
+        fields = ('id', 'eviction_rate', 'year')
 
 class Voters18to25Serializer(GeoFeatureModelSerializer):
     class Meta:
