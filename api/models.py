@@ -781,6 +781,19 @@ class SchoolDemographicsCount(models.Model):
         managed = False
         db_table = 'pps_student_teacher_demographics_count'
 
+class SchoolDemographicsReducedLunches(models.Model):
+    """ free_reduced and direct_certification combined """
+    year = models.IntegerField()
+    name = models.TextField()
+    type = models.TextField()
+    enroll_current = models.IntegerField()
+    free_reduced_pct = models.FloatField()
+    free_reduced_count = models.IntegerField()
+
+    class Meta:
+        managed = False
+        db_table = 'pps_student_free_reduced_lunch'
+
 
 class SchoolDemographicsTotals(models.Model):
     year = models.IntegerField(primary_key=True)
