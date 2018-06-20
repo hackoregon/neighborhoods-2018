@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from rest_framework import status, exceptions
 
 from . import models, serializers, utils, filters
-from .pagination import LargeResultSetPagination
+from .pagination import LargeResultSetPagination, VeryLargeResultSetPagination
 
 class ActiveMultiuseTrailList(ListAPIView):
     queryset = models.ActiveMultiuseTrail.objects.all()
@@ -177,9 +177,41 @@ class TreesList(ListAPIView):
     queryset = models.Trees.objects.all()
     serializer_class = serializers.TreesSerializer
 
-class VoterMovementAngleByAgeList(ListAPIView):
-    queryset = models.VoterMovementAngleByAge.objects.all()
-    serializer_class = serializers.VoterMovementAngleByAgeSerializer
+class VoterMovementByAgeList(ListAPIView):
+    queryset = models.VoterMovementByAge.objects.all()
+    serializer_class = serializers.VoterMovementByAgeSerializer
+    filter_fields = ('age_group',)
+    pagination_class = LargeResultSetPagination
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+        if self.request.query_params.get('random'):
+            qs = qs.order_by('?')
+
+        direction = self.request.query_params.get('direction')
+        if direction == 'center':
+            qs =qs.filter(consec_dist__lt=0)
+        elif direction == 'away':
+            qs = qs.filter(consec_dist__gt=0)
+        return qs
+
+class VoterMovementByAgePointList(ListAPIView):
+    queryset = models.VoterMovementByAge.objects.only('age_group', 'x', 'y').all()
+    serializer_class = serializers.VoterMovementByAgePointsSerializer
+    pagination_class = VeryLargeResultSetPagination
+    filter_fields = ('age_group',)
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+        if self.request.query_params.get('random'):
+            qs = qs.order_by('?')
+
+        direction = self.request.query_params.get('direction')
+        if direction == 'center':
+            qs =qs.filter(consec_dist__lt=0)
+        elif direction == 'away':
+            qs = qs.filter(consec_dist__gt=0)
+        return qs
 
 class VoterMovementAverageByAgeList(ListAPIView):
     queryset = models.VoterMovementAverageByAge.objects.all()

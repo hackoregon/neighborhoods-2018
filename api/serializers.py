@@ -226,11 +226,15 @@ class TreesSerializer(GeoFeatureModelSerializer):
         geo_field = "geom"
         fields = "__all__"
 
-class VoterMovementAngleByAgeSerializer(ModelSerializer):
+class VoterMovementByAgeSerializer(ModelSerializer):
     class Meta:
-        model = models.VoterMovementAngleByAge
-        # exclude = ('id',)
-        fields = "__all__"
+        model = models.VoterMovementByAge
+        exclude = ('id',)
+
+class VoterMovementByAgePointsSerializer(ModelSerializer):
+    class Meta:
+        model = models.VoterMovementByAge
+        fields = ('age_group', 'x', 'y')
 
 class VoterMovementAverageByAgeSerializer(ModelSerializer):
     class Meta:
