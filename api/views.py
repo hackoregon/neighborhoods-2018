@@ -187,6 +187,12 @@ class VoterMovementByAgeList(ListAPIView):
         qs = super().get_queryset()
         if self.request.query_params.get('random'):
             qs = qs.order_by('?')
+
+        direction = self.request.query_params.get('direction')
+        if direction == 'center':
+            qs =qs.filter(consec_dist__lt=0)
+        elif direction == 'away':
+            qs = qs.filter(consec_dist__gt=0)
         return qs
 
 class VoterMovementByAgePointList(ListAPIView):
@@ -199,6 +205,12 @@ class VoterMovementByAgePointList(ListAPIView):
         qs = super().get_queryset()
         if self.request.query_params.get('random'):
             qs = qs.order_by('?')
+
+        direction = self.request.query_params.get('direction')
+        if direction == 'center':
+            qs =qs.filter(consec_dist__lt=0)
+        elif direction == 'away':
+            qs = qs.filter(consec_dist__gt=0)
         return qs
 
 class VoterMovementAverageByAgeList(ListAPIView):
