@@ -183,17 +183,23 @@ class VoterMovementByAgeList(ListAPIView):
     filter_fields = ('age_group',)
     pagination_class = LargeResultSetPagination
 
+    def get_queryset(self):
+        qs = super().get_queryset()
+        if self.request.query_params.get('random'):
+            qs = qs.order_by('?')
+        return qs
+
 class VoterMovementByAgePointList(ListAPIView):
     queryset = models.VoterMovementByAge.objects.only('age_group', 'x', 'y').all()
     serializer_class = serializers.VoterMovementByAgePointsSerializer
     pagination_class = VeryLargeResultSetPagination
     filter_fields = ('age_group',)
 
-class VoterMovementByAgePointRandomList(ListAPIView):
-    queryset = models.VoterMovementByAge.objects.only('age_group', 'x', 'y').order_by('?').all()
-    serializer_class = serializers.VoterMovementByAgePointsSerializer
-    pagination_class = VeryLargeResultSetPagination
-    filter_fields = ('age_group',)
+    def get_queryset(self):
+        qs = super().get_queryset()
+        if self.request.query_params.get('random'):
+            qs = qs.order_by('?')
+        return qs
 
 class VoterMovementAverageByAgeList(ListAPIView):
     queryset = models.VoterMovementAverageByAge.objects.all()
