@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from rest_framework import status, exceptions
 
 from . import models, serializers, utils, filters
-from .pagination import LargeResultSetPagination
+from .pagination import LargeResultSetPagination, VeryLargeResultSetPagination
 
 class ActiveMultiuseTrailList(ListAPIView):
     queryset = models.ActiveMultiuseTrail.objects.all()
@@ -177,9 +177,23 @@ class TreesList(ListAPIView):
     queryset = models.Trees.objects.all()
     serializer_class = serializers.TreesSerializer
 
-class VoterMovementAngleByAgeList(ListAPIView):
-    queryset = models.VoterMovementAngleByAge.objects.all()
-    serializer_class = serializers.VoterMovementAngleByAgeSerializer
+class VoterMovementByAgeList(ListAPIView):
+    queryset = models.VoterMovementByAge.objects.all()
+    serializer_class = serializers.VoterMovementByAgeSerializer
+    filter_fields = ('age_group',)
+    pagination_class = LargeResultSetPagination
+
+class VoterMovementByAgePointList(ListAPIView):
+    queryset = models.VoterMovementByAge.objects.only('age_group', 'x', 'y').all()
+    serializer_class = serializers.VoterMovementByAgePointsSerializer
+    pagination_class = VeryLargeResultSetPagination
+    filter_fields = ('age_group',)
+
+class VoterMovementByAgePointRandomList(ListAPIView):
+    queryset = models.VoterMovementByAge.objects.only('age_group', 'x', 'y').order_by('?').all()
+    serializer_class = serializers.VoterMovementByAgePointsSerializer
+    pagination_class = VeryLargeResultSetPagination
+    filter_fields = ('age_group',)
 
 class VoterMovementAverageByAgeList(ListAPIView):
     queryset = models.VoterMovementAverageByAge.objects.all()

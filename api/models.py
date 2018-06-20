@@ -905,15 +905,20 @@ class Trees(models.Model):
         db_table = 'trees'
 
 
-class VoterMovementAngleByAge(models.Model):
-    current_age = models.SmallIntegerField()
-    consec_dist = models.FloatField()
-    radians = models.FloatField()
-    age_group = models.SmallIntegerField()
+class VoterMovementByAge(models.Model):
+    relocation_age = models.IntegerField(db_column="relocationage")
+    age_group = models.IntegerField()
+    move_year = models.IntegerField(db_column="moveyear")
+    consec_dist = models.FloatField(db_column="consecdist")
+    x = models.FloatField()
+    y = models.FloatField()
+    c_lat = models.FloatField(db_column="cLat")
+    c_long = models.FloatField(db_column="cLong")
+    degrees = models.FloatField()
 
     class Meta:
         managed = False
-        db_table = 'age_move_distance_angle'
+        db_table = 'voter_movement'
 
 
 class VoterMovementAverageByAge(models.Model):
@@ -932,7 +937,6 @@ class VoterMovementCountByAge(models.Model):
     class Meta:
         managed = False
         db_table = 'voter_address_counts_by_age_group'
-
 
 
 class VoterPrecincts(models.Model):
