@@ -796,7 +796,7 @@ reports_month_meta = {
 },
   'dates': {
   'date_attribute': 'formatted_date',
-  'date_granularity': 'monthly',
+  'date_granularity': 'month',
   'default_date_filter': 'Apr2018',
   'min_date': 'Dec2015',
   'max_date': 'Apr2018',
