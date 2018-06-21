@@ -203,7 +203,7 @@ camp_sweeps_meta = {
   'date_attribute': 'formatted_date',
   'date_granularity': 'month',
   'default_date_filter': 'Apr2018',
-  'min_date': 'Oct2015',
+  'min_date': 'Oct2016',
   'max_date': 'May2018',
   },
 }
