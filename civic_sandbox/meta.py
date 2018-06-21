@@ -447,9 +447,9 @@ bg_gross_rent_meta = {
     'field': 'Median_gross_rent',
     'name': 'Median Gross Rent',
     'visualization': {
-      'type': 'ComparisonBar',
-      'comparison_value':'10000000',
-      'comparison_name':'Average Median Gross Rent',
+      'type': 'Text',
+      'comparison_value': None,
+      'comparison_name': None,
     },
   },
   'secondary': {
@@ -471,9 +471,9 @@ bg_evictions_meta = {
     'field': 'evictions',
     'name': 'Evictions',
     'visualization': {
-      'type': 'ComparisonBar',
-      'comparison_value':'10000000',
-      'comparison_name':'Average Evictions',
+      'type': 'Text',
+      'comparison_value': None,
+      'comparison_name': None,
     },
   },
   'secondary': {
@@ -495,9 +495,9 @@ bg_renter_occupied_meta = {
     'field': 'renter_occupied_households',
     'name': 'Renter Occupied Households',
     'visualization': {
-      'type': 'ComparisonBar',
-      'comparison_value':'10000000',
-      'comparison_name':'Average Renter Occupied',
+      'type': 'Text',
+      'comparison_value': None,
+      'comparison_name': None,
     },
   },
   'secondary': {
@@ -543,9 +543,9 @@ bg_rent_burden_meta = {
     'field': 'rent_burden',
     'name': 'Rent Burden',
     'visualization': {
-      'type': 'ComparisonBar',
-      'comparison_value':'10000000',
-      'comparison_name':'Average Rent Burden',
+      'type': 'Text',
+      'comparison_value': None,
+      'comparison_name': None,
     },
   },
   'secondary': {
