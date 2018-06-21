@@ -198,6 +198,11 @@ class SchoolDistrictsSerializer(GeoFeatureModelSerializer):
         geo_field = "geom"
         fields = "__all__"
 
+class SchoolStaffingChangesSerializer(ModelSerializer):
+    class Meta:
+        model = models.SchoolStaffingChanges
+        exclude = ('id',)
+
 class ScopeSerializer(GeoFeatureModelSerializer):
     class Meta:
         model = models.Scope

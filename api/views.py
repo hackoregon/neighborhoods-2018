@@ -157,6 +157,11 @@ class SchoolDistrictsList(ListAPIView):
     queryset = models.SchoolDistricts.objects.all()
     serializer_class = serializers.SchoolDistrictsSerializer
 
+class SchoolStaffingChangesList(ListAPIView):
+    queryset = models.SchoolStaffingChanges.objects.all()
+    serializer_class = serializers.SchoolStaffingChangesSerializer
+
+
 class ScopeList(ListAPIView):
     queryset = models.Scope.objects.all()
     serializer_class = serializers.ScopeSerializer
