@@ -43,6 +43,7 @@ urlpatterns = [
     path('school_demographics/names', views.school_names),
     path('school_demographics/yearly_totals', views.SchoolDemographicsTotalsList.as_view()),
     path('school_enrollment', views.ODEEnrollmentList.as_view()),
+    path('school_staffing_changes', views.SchoolStaffingChangesList.as_view()),
     path('school_reduced_lunches', views.ODEFRLunchList.as_view()),
     path('teacher_experience', views.TeacherExperienceList.as_view()),
     path('teacher_experience_subtotals', views.TeacherExperienceSubtotalsList.as_view()),

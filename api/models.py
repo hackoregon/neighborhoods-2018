@@ -822,6 +822,20 @@ class SchoolDemographicsTotals(models.Model):
         db_table = 'pps_student_teacher_demographics_year_totals'
 
 
+class SchoolStaffingChanges(models.Model):
+    school = models.TextField(db_column='School')
+    students = models.FloatField(db_column='Students per FTE 2018 - 19')
+    predictions = models.FloatField(db_column='Predictions')
+    variation = models.FloatField(db_column='Variation')
+    historically_underserved_pct = models.FloatField(db_column='Historically Underserved')
+    changes_in_enrollment_pct = models.FloatField(db_column='Percent Changes in Enrollment')
+    free_meals_direct_cert_pct = models.FloatField(db_column='2018-19 Percent Free Meals by Direct Cert')
+
+    class Meta:
+        managed = False
+        db_table = 'pps_proposed_staffing_changes'
+
+
 class Scope(models.Model):
     area = models.FloatField()
     geom = models.GeometryField()
