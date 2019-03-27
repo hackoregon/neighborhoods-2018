@@ -568,7 +568,7 @@ bg_eviction_rate_meta = {
     'field': 'eviction_rate',
     'name': 'Eviction Rate',
     'visualization': {
-      'type': 'PercentDonut',
+      'type': 'Text',
       'comparison_value': None,
       'comparison_name': None,
     },
