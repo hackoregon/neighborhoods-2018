@@ -23,8 +23,8 @@ bike_parking_meta = {
 bike_lanes_meta = {
   'attributes': {
     'primary': {
-      'field': None,
-      'name': None,
+      'field': 'bike_lane_name',
+      'name': 'Bike Lane',
     },
     'secondary': {
       'field': None,
@@ -170,8 +170,8 @@ rail_stops_meta = {
 demolitions_meta = {
 'attributes': {
   'primary': {
-    'field': None,
-    'name': None,
+    'field': 'description',
+    'name': 'Demolitions Data from 2000 to 2018',
   },
   'secondary': {
     'field': None,
