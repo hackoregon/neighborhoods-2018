@@ -516,7 +516,7 @@ bg_renter_occupied_meta = {
 bg_pctrenter_occupied_meta = {
 'attributes': {
   'primary': {
-    'field': 'pctrenter_occupied_households',
+    'field': 'pctrenter_occupied',
     'name': 'Percent Renter Occupied Households',
     'visualization': {
       'type': 'PercentDonut',
