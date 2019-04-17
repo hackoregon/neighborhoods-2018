@@ -181,8 +181,8 @@ livingalone = sandbox_view_factory(
   serializer_class=LivingAloneSerializer,
   multi_geom_class=MultiPolygon,
   geom_field='geom',
-  attributes =population_meta['attributes'],
-  dates=population_meta['dates'], 
+  attributes =living_alone_meta['attributes'],
+  dates=living_alone_meta['dates'], 
   )
 
 income = sandbox_view_factory(
