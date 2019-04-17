@@ -344,12 +344,12 @@ over65_meta = {
 population_meta = {
 'attributes': {
   'primary': {
-    'field': 'total_population',
-    'name': 'Total Population',
+    'field': 'pc_owner_occupied_housing_units',
+    'name': 'Percent of Owner Occupied Households',
     'visualization': {
-      'type': 'ComparisonBar',
-      'comparison_value':'10000000',
-      'comparison_name':'Average Total Population',
+      'type': 'PercentDonut',
+      'comparison_value':'null',
+      'comparison_name':'null',
     },
   },
   'secondary': {
