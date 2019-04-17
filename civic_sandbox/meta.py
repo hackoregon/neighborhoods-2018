@@ -170,8 +170,8 @@ rail_stops_meta = {
 demolitions_meta = {
 'attributes': {
   'primary': {
-    'field': None,
-    'name': None,
+    'field': 'description',
+    'name': 'Demolition Description',
   },
   'secondary': {
     'field': None,
