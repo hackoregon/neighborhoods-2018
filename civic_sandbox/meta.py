@@ -397,7 +397,7 @@ living_alone_meta = {
 'attributes': {
   'primary': {
     'field': 'pc_householders_living_alone',
-    'name': 'Householders Living Alone',
+    'name': 'Percent of Householders Living Alone',
     'visualization': {
       'type': 'PercentDonut',
       'comparison_value': None,
