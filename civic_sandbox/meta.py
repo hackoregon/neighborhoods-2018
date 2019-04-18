@@ -86,7 +86,7 @@ parks_trails_meta = {
 multiuse_trails_meta = {
 'attributes': {
   'primary': {
-    'field': None,
+    'field': 'multi_use_trails_name',
     'name': None,
   },
   'secondary': {

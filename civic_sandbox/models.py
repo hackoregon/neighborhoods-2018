@@ -38,6 +38,7 @@ class ParksTrail(models.Model):
 class MultiuseTrail(models.Model):
     ogc_fid = models.IntegerField(primary_key=True)
     geom = models.LineStringField()
+    multi_use_trails_name = models.CharField(max_length=50, db_column='segmentnam')
 
     class Meta:
         managed = False
