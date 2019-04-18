@@ -128,7 +128,7 @@ community_gardens_meta = {
 bike_greenways_meta = {
 'attributes': {
   'primary': {
-    'field': None,
+    'field': 'bike_greenways_name',
     'name': None,
   },
   'secondary': {
