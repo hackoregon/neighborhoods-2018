@@ -23,8 +23,8 @@ bike_parking_meta = {
 bike_lanes_meta = {
   'attributes': {
     'primary': {
-      'field': None,
-      'name': None,
+      'field': 'bike_lane_name',
+      'name': 'Bike Lane',
     },
     'secondary': {
       'field': None,
