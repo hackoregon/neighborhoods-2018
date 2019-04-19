@@ -10,6 +10,7 @@ class BikeParking(models.Model):
 
 class BikeLane(models.Model):
     objectid = models.IntegerField(primary_key=True)
+    bike_lane_name = models.CharField(max_length=50, db_column = 'segmentnam')
     geom = models.LineStringField()
 
     class Meta:
