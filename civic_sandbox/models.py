@@ -57,6 +57,7 @@ class CommunityGarden(models.Model):
 class BikeGreenway(models.Model):
     objectid = models.IntegerField(primary_key=True)
     geom = models.GeometryField()
+    bike_greenways_name = models.CharField(max_length=50, db_column='segmentnam')
 
     class Meta:
         managed = False
