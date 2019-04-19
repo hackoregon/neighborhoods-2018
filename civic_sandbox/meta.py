@@ -171,7 +171,7 @@ demolitions_meta = {
 'attributes': {
   'primary': {
     'field': 'description',
-    'name': 'Demolitions Data from 2000 to 2018',
+    'name': 'Demolition Description',
   },
   'secondary': {
     'field': None,
@@ -344,12 +344,12 @@ over65_meta = {
 population_meta = {
 'attributes': {
   'primary': {
-    'field': 'total_population',
-    'name': 'Total Population',
+    'field': 'pc_owner_occupied_housing_units',
+    'name': 'Percent of Owner Occupied Households',
     'visualization': {
-      'type': 'ComparisonBar',
-      'comparison_value':'10000000',
-      'comparison_name':'Average Total Population',
+      'type': 'PercentDonut',
+      'comparison_value':'null',
+      'comparison_name':'null',
     },
   },
   'secondary': {
@@ -397,7 +397,7 @@ living_alone_meta = {
 'attributes': {
   'primary': {
     'field': 'pc_householders_living_alone',
-    'name': 'Householders Living Alone',
+    'name': 'Percent of Householders Living Alone',
     'visualization': {
       'type': 'PercentDonut',
       'comparison_value': None,
@@ -516,7 +516,7 @@ bg_renter_occupied_meta = {
 bg_pctrenter_occupied_meta = {
 'attributes': {
   'primary': {
-    'field': 'pctrenter_occupied_households',
+    'field': 'pctrenter_occupied',
     'name': 'Percent Renter Occupied Households',
     'visualization': {
       'type': 'PercentDonut',
