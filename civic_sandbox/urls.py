@@ -1,6 +1,9 @@
 from django.conf.urls import url
 from rest_framework.urlpatterns import format_suffix_patterns
 from . import views
+from civic_sandbox import views
+from civic_sandbox import packages_view
+
 
 urlpatterns = [
     url(r'^slides/bikeparking/', views.bikeparking),
@@ -63,6 +66,7 @@ urlpatterns = [
     url(r'^foundations/evictionrate/', views.evictionrate),
     url(r'^foundations/povertyrate/(?P<date_filter>\d+)', views.povertyrate),
     url(r'^foundations/povertyrate/', views.povertyrate),
+    url(r'^package_info/', packages_view.packages_view, name='package_info'),
 
 ]
 urlpatterns = format_suffix_patterns(urlpatterns)
