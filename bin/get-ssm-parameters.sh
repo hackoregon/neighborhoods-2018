@@ -10,17 +10,17 @@ NAMESPACE="/production/2018/API" # future-proofing this script for subsequent or
 PROJECT_CANONICAL_NAME="neighborhood-development" # must be set to each project's "Final naming convention" from here https://github.com/hackoregon/civic-devops/issues/1
 
 # Get unencrypted values
-POSTGRES_HOST=`aws ssm get-parameters --names "$NAMESPACE"/"$PROJECT_CANONICAL_NAME"/POSTGRES_HOST --no-with-decryption --region $EC2_REGION --output text | jq -r ".Parameters[0].Value"`
-POSTGRES_NAME=`aws ssm get-parameters --names "$NAMESPACE"/"$PROJECT_CANONICAL_NAME"/POSTGRES_NAME --no-with-decryption --region $EC2_REGION --output text | jq -r ".Parameters[0].Value"`
-POSTGRES_PORT=`aws ssm get-parameters --names "$NAMESPACE"/"$PROJECT_CANONICAL_NAME"/POSTGRES_PORT --no-with-decryption --region $EC2_REGION --output text | jq -r ".Parameters[0].Value"`
-POSTGRES_USER=`aws ssm get-parameters --names "$NAMESPACE"/"$PROJECT_CANONICAL_NAME"/POSTGRES_USER --no-with-decryption --region $EC2_REGION --output text | jq -r ".Parameters[0].Value"`
+POSTGRES_HOST=`aws ssm get-parameters --names "$NAMESPACE"/"$PROJECT_CANONICAL_NAME"/POSTGRES_HOST --no-with-decryption --region $EC2_REGION | jq -r ".Parameters[0].Value"`
+POSTGRES_NAME=`aws ssm get-parameters --names "$NAMESPACE"/"$PROJECT_CANONICAL_NAME"/POSTGRES_NAME --no-with-decryption --region $EC2_REGION | jq -r ".Parameters[0].Value"`
+POSTGRES_PORT=`aws ssm get-parameters --names "$NAMESPACE"/"$PROJECT_CANONICAL_NAME"/POSTGRES_PORT --no-with-decryption --region $EC2_REGION | jq -r ".Parameters[0].Value"`
+POSTGRES_USER=`aws ssm get-parameters --names "$NAMESPACE"/"$PROJECT_CANONICAL_NAME"/POSTGRES_USER --no-with-decryption --region $EC2_REGION | jq -r ".Parameters[0].Value"`
 
 # Note: this env var value is for the WSGI startup - corresponds to the folder name where the base Django project is stored in the repo
-PROJECT_NAME=`aws ssm get-parameters --names "$NAMESPACE"/"$PROJECT_CANONICAL_NAME"/PROJECT_NAME --no-with-decryption --region $EC2_REGION --output text | jq -r ".Parameters[0].Value"`
+PROJECT_NAME=`aws ssm get-parameters --names "$NAMESPACE"/"$PROJECT_CANONICAL_NAME"/PROJECT_NAME --no-with-decryption --region $EC2_REGION | jq -r ".Parameters[0].Value"`
 
 # Get encrypted values
-DJANGO_SECRET_KEY=`aws ssm get-parameters --names "$NAMESPACE"/"$PROJECT_CANONICAL_NAME"/DJANGO_SECRET_KEY --with-decryption --region $EC2_REGION --output text | jq -r ".Parameters[0].Value"`
-POSTGRES_PASSWORD=`aws ssm get-parameters --names "$NAMESPACE"/"$PROJECT_CANONICAL_NAME"/POSTGRES_PASSWORD --with-decryption --region $EC2_REGION --output text | jq -r ".Parameters[0].Value"`
+DJANGO_SECRET_KEY=`aws ssm get-parameters --names "$NAMESPACE"/"$PROJECT_CANONICAL_NAME"/DJANGO_SECRET_KEY --with-decryption --region $EC2_REGION | jq -r ".Parameters[0].Value"`
+POSTGRES_PASSWORD=`aws ssm get-parameters --names "$NAMESPACE"/"$PROJECT_CANONICAL_NAME"/POSTGRES_PASSWORD --with-decryption --region $EC2_REGION | jq -r ".Parameters[0].Value"`
 
 # Set environment variables in the container
 export DJANGO_SECRET_KEY=$DJANGO_SECRET_KEY
