@@ -348,8 +348,8 @@ population_meta = {
     'name': 'Percent of Owner Occupied Households',
     'visualization': {
       'type': 'PercentDonut',
-      'comparison_value':'null',
-      'comparison_name':'null',
+      'comparison_value': None,
+      'comparison_name': None,
     },
   },
   'secondary': {
