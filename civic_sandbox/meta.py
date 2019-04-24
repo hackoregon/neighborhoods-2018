@@ -129,7 +129,7 @@ bike_greenways_meta = {
 'attributes': {
   'primary': {
     'field': 'bike_greenways_name',
-    'name': None,
+    'name': 'Bike Greenways',
   },
   'secondary': {
     'field': None,
