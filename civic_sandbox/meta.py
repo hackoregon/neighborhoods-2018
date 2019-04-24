@@ -87,7 +87,7 @@ multiuse_trails_meta = {
 'attributes': {
   'primary': {
     'field': 'multi_use_trails_name',
-    'name': None,
+    'name': 'Multi-Use Trails',
   },
   'secondary': {
     'field': None,
