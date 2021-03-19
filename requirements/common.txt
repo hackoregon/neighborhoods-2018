@@ -13,7 +13,7 @@ responses==0.8.1
 whitenoise==4.0b4
 
  # DRF
- djangorestframework==3.7.7
+ djangorestframework==3.11.2
 
  #Django filters
 django-filter==1.1.0
